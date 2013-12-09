@@ -10,6 +10,8 @@ package domain;
 public class ClienteVO {
 
 	/** The nombre. */
+	private int id;
+	
 	private String nombre;
 	
 	/** The apellido_paterno. */
@@ -52,10 +54,11 @@ public class ClienteVO {
 	 * @param direccion the direccion
 	 * @param oLoginVO the o login vo
 	 */
-	public ClienteVO(String nombre, String apellido_paterno,
+	public ClienteVO(int id, String nombre, String apellido_paterno,
 			String apellido_materno, String rut, String celular, String correo,
-			String direccion, LoginVO oLoginVO) {
+			String direccion) {
 		super();
+		this.id=id;
 		this.nombre = nombre;
 		this.apellido_paterno = apellido_paterno;
 		this.apellido_materno = apellido_materno;
@@ -208,6 +211,14 @@ public class ClienteVO {
 	 */
 	public void setoLoginVO(LoginVO oLoginVO) {
 		this.oLoginVO = oLoginVO;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	

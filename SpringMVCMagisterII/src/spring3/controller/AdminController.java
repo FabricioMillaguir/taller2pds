@@ -2,6 +2,7 @@ package spring3.controller;
 
 
 import java.rmi.RemoteException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,8 +40,7 @@ import webservice.ServicioClienteStub.ClienteVO;
 import webservice.ServicioClienteStub.AgregarCliente;
 import webservice.ServicioClienteStub.AgregarClienteResponse;
 import webservice.ServicioClienteStub.LoginVO;
-import webservice.ServicioClienteStub.MostrarClientes;
-import webservice.ServicioClienteStub.MostrarClientesResponse;
+
 
 /************************Fin Cliente*********************************/
 /***********************Cuenta****************************************/
@@ -178,7 +178,8 @@ public class AdminController {
 	// -----------------------Menu Clientes--------------------------------------------
 
 	//menu principal clientes
-	@RequestMapping("/clientes")
+	/*
+		@RequestMapping("/clientes")
 	public ModelAndView clientes() {
 
 		return new ModelAndView("clientes");
@@ -193,7 +194,7 @@ public class AdminController {
 
 
 	//Registrar un nuevo cliente en BD
-	/*@RequestMapping(value = "/registrarCliente", method = RequestMethod.POST)
+	@RequestMapping(value = "/registrarCliente", method = RequestMethod.POST)
 	public ModelAndView registrarCliente(@ModelAttribute("Administrador") @Valid  Cliente cliente, BindingResult result,HttpSession session) {
 		//BindingResult result, 
 		if(result.hasErrors()) {
@@ -229,9 +230,9 @@ public class AdminController {
 		}
 
 		//return "redirect:contacts.html";
-	}*/
+	}
 	// Registrar un nuevo cliente en BD
-	/*
+	
 	@RequestMapping(value = "/addCliente", method = RequestMethod.POST)	
 	public ModelAndView agregarCliente(@ModelAttribute("Administrador") @Valid Cliente cliente, BindingResult result, HttpSession session) {
 		// BindingResult result,
@@ -255,7 +256,7 @@ public class AdminController {
 
 			webservice.ServicioClienteStub.LoginVO LoginVO = new webservice.ServicioClienteStub.LoginVO();
 
-			AdministradorVO AdministradorVO = (webservice.ServicioAdministracionStub.AdministradorVO) session.getAttribute("admin");
+			AdministradorVO AdministradorVO = (webservice.ServicioAdministradorStub.AdministradorVO) session.getAttribute("admin");
 
 			webservice.ServicioClienteStub.AdministradorVO administradorCliente = new webservice.ServicioClienteStub.AdministradorVO();
 			administradorCliente.setUsuario(AdministradorVO.getUsuario());
@@ -325,7 +326,9 @@ public class AdminController {
 	} */
 
 	//mostrar Clientes registrados
-	@RequestMapping("/mostrarClientes")
+		
+		
+/*	@RequestMapping("/mostrarClientes")
 	public ModelAndView mostrarClientes() {
 
 		List<Cliente> clientes = new ArrayList<Cliente>();
@@ -348,7 +351,7 @@ public class AdminController {
 			return new ModelAndView("error", "message", "ERROR");
 		}
 
-	}
+	}*/
 
 
 	//--------------------Menu Cuentas -------------------------------------------

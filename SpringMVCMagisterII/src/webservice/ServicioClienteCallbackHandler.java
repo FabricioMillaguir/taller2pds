@@ -61,22 +61,6 @@
             }
                 
            /**
-            * auto generated Axis2 call back method for mostrarClientesHistoricos method
-            * override this method for handling normal response from mostrarClientesHistoricos operation
-            */
-           public void receiveResultmostrarClientesHistoricos(
-                    webservice.ServicioClienteStub.MostrarClientesHistoricosResponse result
-                        ) {
-           }
-
-          /**
-           * auto generated Axis2 Error handler
-           * override this method for handling error response from mostrarClientesHistoricos operation
-           */
-            public void receiveErrormostrarClientesHistoricos(java.lang.Exception e) {
-            }
-                
-           /**
             * auto generated Axis2 call back method for filtrarCliente method
             * override this method for handling normal response from filtrarCliente operation
             */
@@ -90,38 +74,6 @@
            * override this method for handling error response from filtrarCliente operation
            */
             public void receiveErrorfiltrarCliente(java.lang.Exception e) {
-            }
-                
-           /**
-            * auto generated Axis2 call back method for modificarCliente method
-            * override this method for handling normal response from modificarCliente operation
-            */
-           public void receiveResultmodificarCliente(
-                    webservice.ServicioClienteStub.ModificarClienteResponse result
-                        ) {
-           }
-
-          /**
-           * auto generated Axis2 Error handler
-           * override this method for handling error response from modificarCliente operation
-           */
-            public void receiveErrormodificarCliente(java.lang.Exception e) {
-            }
-                
-           /**
-            * auto generated Axis2 call back method for mostrarClientes method
-            * override this method for handling normal response from mostrarClientes operation
-            */
-           public void receiveResultmostrarClientes(
-                    webservice.ServicioClienteStub.MostrarClientesResponse result
-                        ) {
-           }
-
-          /**
-           * auto generated Axis2 Error handler
-           * override this method for handling error response from mostrarClientes operation
-           */
-            public void receiveErrormostrarClientes(java.lang.Exception e) {
             }
                 
 

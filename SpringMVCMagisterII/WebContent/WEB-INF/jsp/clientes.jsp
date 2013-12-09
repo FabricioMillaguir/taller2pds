@@ -5,9 +5,9 @@
 <head>
 <title>Menu MACROCUENTAS!</title>
 </head>
-<body  BACKGROUND="http://asaphe.com/wp-content/uploads/2012/05/1305844286-blue-bokeh-wallpaper.jpg">
-<center>
-<h2>Menu MacroCuentas!</h2>
+<body>
+
+<h2>Menu gestion de clientes</h2>
 <form:form method="post" action="agregarCliente.html">
         <td colspan="2">
             <input type="submit" value="       Registrar Clientes        "/>
@@ -45,6 +45,6 @@
         </td>
 </form:form>
 
-</center>
+
 </body>
 </html>

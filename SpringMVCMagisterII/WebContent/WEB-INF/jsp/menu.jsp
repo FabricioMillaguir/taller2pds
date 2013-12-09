@@ -9,19 +9,19 @@
 <h2>Inicio Administrador</h2>
 <form:form method="post" action="administracion.html">
         <td colspan="2">
-            <input type="submit" value="       Administración de Sistema        "/>
+            <input type="submit" value="       Administrar Usuarios        "/>
         </td>
 </form:form>
 
 <form:form method="post" action="clientes.html">
         <td colspan="2">
-            <input type="submit" value="              Gestión de Clientes             "/>
+            <input type="submit" value="              Gestion de Clientes             "/>
         </td>
 </form:form>
 
 <form:form method="post" action="cuentas.html">
         <td colspan="2">
-            <input type="submit" value="             Gestión de Cuentas             "/>
+            <input type="submit" value="             Gestion de Cuentas             "/>
         </td>
 </form:form>
 

@@ -43,11 +43,11 @@
             	<td>${cliente.direccion}</td>
             	
             	<form:form action="eliminar.html" method="post">
-            	<td><input type="hidden" value="${cliente.id_cliente}" name="id_cliente" ></td>
+            	<td><input type="hidden" value="${cliente.id}" name="id" ></td>
             	<td><input type="submit" value="eliminar" /></td>
             </form:form>
             <form:form action="modificarForm.html" method="post">
-            	<td><input type="hidden" value="${cliente.id_cliente}" name="id_cliente" ></td>
+            	<td><input type="hidden" value="${cliente.id}" name="id" ></td>
             	<td><input type="submit" value="modificar" /></td>
             </form:form>
             

@@ -166,21 +166,7 @@
     <ServerName></ServerName>
     <SelectedForm>true</SelectedForm>
   </Setting>
-  <Setting type="16">
-    <Driver>Oracle9i/10g</Driver>
-    <DriverFiles>/home/fabricio/Descargas/ojdbc6.jar</DriverFiles>
-    <Dialect>org.hibernate.dialect.Oracle9Dialect</Dialect>
-    <DriverClass>oracle.jdbc.OracleDriver</DriverClass>
-    <URL>jdbc:oracle:thin:@localhost:1521:xe</URL>
-    <UserName>SYSTEM</UserName>
-    <Password>fmillaguir</Password>
-    <HostName>localhost</HostName>
-    <PortNO>1521</PortNO>
-    <DBName>xe</DBName>
-    <ServiceName></ServiceName>
-    <ServerName></ServerName>
-    <SelectedForm>true</SelectedForm>
-  </Setting>
+  
   <Setting type="8192">
     <Driver></Driver>
     <DriverFiles></DriverFiles>
@@ -195,6 +181,21 @@
     <ServiceName></ServiceName>
     <ServerName></ServerName>
     <SelectedForm>true</SelectedForm>
+  </Setting>
+  <Setting type="2097152">
+    <Driver>MS SQL Server 2005 (Microsoft Driver)</Driver>
+    <DriverFiles>C:\Users\Fabricio\Documents\pds\sqljdbc4.jar</DriverFiles>
+    <Dialect>org.hibernate.dialect.SQLServerDialect</Dialect>
+    <DriverClass>com.microsoft.sqlserver.jdbc.SQLServerDriver</DriverClass>
+    <URL>jdbc:sqlserver://127.0.0.1\SQLEXPRESS:1433;databaseName=cuentas;</URL>
+    <UserName>millaguir</UserName>
+    <Password>millagui</Password>
+    <HostName>localhost\SQLEXPRESS</HostName>
+    <PortNO>1433</PortNO>
+    <DBName>cuentas;integratedSecurity=true;</DBName>
+    <ServiceName></ServiceName>
+    <ServerName></ServerName>
+    <SelectedForm>false</SelectedForm>
   </Setting>
   <Setting type="32768">
     <Driver></Driver>
@@ -241,21 +242,6 @@
     <ServerName></ServerName>
     <SelectedForm>true</SelectedForm>
   </Setting>
-  <Setting type="1048576">
-    <Driver>MySQL5 (Connector/J Driver)</Driver>
-    <DriverFiles>/home/fabricio/Trabajos Ufro/PDS/mysql-connector-java-5.1.16-bin.jar</DriverFiles>
-    <Dialect>org.hibernate.dialect.MySQLDialect</Dialect>
-    <DriverClass>com.mysql.jdbc.Driver</DriverClass>
-    <URL>jdbc:mysql://localhost:3306/cuentas</URL>
-    <UserName>root</UserName>
-    <Password></Password>
-    <HostName>localhost</HostName>
-    <PortNO>3306</PortNO>
-    <DBName>cuentas</DBName>
-    <ServiceName></ServiceName>
-    <ServerName></ServerName>
-    <SelectedForm>true</SelectedForm>
-  </Setting>
   <Setting type="524288">
     <Driver></Driver>
     <DriverFiles></DriverFiles>
@@ -272,13 +258,13 @@
     <SelectedForm>true</SelectedForm>
   </Setting>
   <Setting type="2">
-    <Driver>MySQL (Connector/J Driver)</Driver>
+    <Driver></Driver>
     <DriverFiles></DriverFiles>
-    <Dialect>org.hibernate.dialect.MySQLDialect</Dialect>
-    <DriverClass>com.mysql.jdbc.Driver</DriverClass>
-    <URL>jdbc:mysql://&lt;host_name&gt;:&lt;port_number&gt;/&lt;database_name&gt;</URL>
-    <UserName>SYSTEM</UserName>
-    <Password>fmillaguir</Password>
+    <Dialect></Dialect>
+    <DriverClass></DriverClass>
+    <URL></URL>
+    <UserName></UserName>
+    <Password></Password>
     <HostName></HostName>
     <PortNO></PortNO>
     <DBName></DBName>

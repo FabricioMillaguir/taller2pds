@@ -5,8 +5,8 @@
 <head>
 <title>Menu Administración!</title>
 </head>
-<body  BACKGROUND="http://asaphe.com/wp-content/uploads/2012/05/1305844286-blue-bokeh-wallpaper.jpg">
-<center>
+<body>
+
 <h2>Menu Administración!</h2>
 
 <form:form method="post" action="agregarAdmin.html">
@@ -28,6 +28,6 @@
         </td>
 </form:form>
 
-</center>
+
 </body>
 </html>

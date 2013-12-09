@@ -6,8 +6,8 @@ package spring3.form;
  */
 public class ClienteForm implements java.io.Serializable{
 	
-	/** The clients. */
-	private java.lang.Object clients;
+	/** The clientes. */
+	private java.lang.Object clientes;
 	
 	/**
 	 * Instantiates a new cliente form.
@@ -19,27 +19,27 @@ public class ClienteForm implements java.io.Serializable{
 	/**
 	 * Instantiates a new cliente form.
 	 *
-	 * @param clients the clients
+	 * @param clientes the clientes
 	 */
-	public ClienteForm(java.lang.Object clients){
-		this.clients = clients;
+	public ClienteForm(java.lang.Object clientes){
+		this.clientes = clientes;
 	}
 
 	/**
-	 * Gets the clients.
+	 * Gets the clientes.
 	 *
-	 * @return the clients
+	 * @return the clientes
 	 */
-	public java.lang.Object getClients() {
-		return clients;
+	public java.lang.Object getclientes() {
+		return clientes;
 	}
 
 	/**
-	 * Sets the clients.
+	 * Sets the clientes.
 	 *
-	 * @param clients the new clients
+	 * @param clientes the new clientes
 	 */
-	public void setClients(java.lang.Object clients) {
-		this.clients = clients;
+	public void setclientes(java.lang.Object clientes) {
+		this.clientes = clientes;
 	}
 }
