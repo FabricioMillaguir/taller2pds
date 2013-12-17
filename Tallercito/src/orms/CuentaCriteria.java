@@ -20,12 +20,12 @@ import org.orm.criteria.*;
 
 public class CuentaCriteria extends AbstractORMCriteria {
 	public final IntegerExpression id;
-	public final BooleanExpression activa;
+	public final BooleanExpression habilitada;
 	
 	public CuentaCriteria(Criteria criteria) {
 		super(criteria);
 		id = new IntegerExpression("id", this);
-		activa = new BooleanExpression("activa", this);
+		habilitada = new BooleanExpression("habilitada", this);
 	}
 	
 	public CuentaCriteria(PersistentSession session) {

@@ -15,6 +15,9 @@ package orms;
 
 import java.io.Serializable;
 import javax.persistence.*;
+/**
+ * Login
+ */
 @Entity
 @org.hibernate.annotations.Proxy(lazy=false)
 @Table(name="Login")
@@ -63,13 +66,13 @@ public class Login implements Serializable {
 	@org.hibernate.annotations.GenericGenerator(name="ORMS_LOGIN_ID_GENERATOR", strategy="increment")	
 	private int id;
 	
-	@Column(name="token", nullable=true, length=21)	
+	@Column(name="token", nullable=false, length=21)	
 	private String token;
 	
-	@Column(name="fecha_inicio", nullable=true, length=25)	
+	@Column(name="fecha_inicio", nullable=false, length=25)	
 	private String fecha_inicio;
 	
-	@Column(name="fecha_fin", nullable=true, length=25)	
+	@Column(name="fecha_fin", nullable=false, length=25)	
 	private String fecha_fin;
 	
 	@ManyToOne(targetEntity=orms.Administrador.class, fetch=FetchType.LAZY)	
@@ -99,14 +102,14 @@ public class Login implements Serializable {
 	private java.util.Set ORM_cuenta = new java.util.HashSet();
 	
 	/**
-	 * llave primaria login
+	 * Id del Login
 	 */
 	private void setId(int value) {
 		this.id = value;
 	}
 	
 	/**
-	 * llave primaria login
+	 * Id del Login
 	 */
 	public int getId() {
 		return id;
@@ -117,42 +120,42 @@ public class Login implements Serializable {
 	}
 	
 	/**
-	 * token del login
+	 * Token del login
 	 */
 	public void setToken(String value) {
 		this.token = value;
 	}
 	
 	/**
-	 * token del login
+	 * Token del login
 	 */
 	public String getToken() {
 		return token;
 	}
 	
 	/**
-	 * fecha inicio login
+	 * Fecha inicio Login
 	 */
 	public void setFecha_inicio(String value) {
 		this.fecha_inicio = value;
 	}
 	
 	/**
-	 * fecha inicio login
+	 * Fecha inicio Login
 	 */
 	public String getFecha_inicio() {
 		return fecha_inicio;
 	}
 	
 	/**
-	 * fecha_fin token
+	 * Fecha del fin del Login
 	 */
 	public void setFecha_fin(String value) {
 		this.fecha_fin = value;
 	}
 	
 	/**
-	 * fecha_fin token
+	 * Fecha del fin del Login
 	 */
 	public String getFecha_fin() {
 		return fecha_fin;

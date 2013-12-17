@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
+import javax.swing.JOptionPane;
 import javax.validation.Valid;
 
 import spring3.form.Cliente;
@@ -27,6 +28,8 @@ import webservice.ServicioClienteStub.AgregarClienteResponse;
 import webservice.ServicioClienteStub.ClienteVO;
 import webservice.ServicioClienteStub.FiltrarCliente;
 import webservice.ServicioClienteStub.FiltrarClienteResponse;
+import webservice.ServicioClienteStub.ModificarCliente;
+import webservice.ServicioClienteStub.ModificarClienteResponse;
 
 
  
@@ -149,31 +152,35 @@ public class ClienteController {
     @RequestMapping("/buscar.html")
     public ModelAndView showBuscar() {
     	ClienteForm clienteForm = new ClienteForm(); 
-        return new ModelAndView("buscarcliente", "clienteForm", clienteForm);
+        return new ModelAndView("filtrarcliente", "clienteForm", clienteForm);
     }
     
     
     @RequestMapping("/filtrar.html")
-    public ModelAndView buscar(@RequestParam String busqueda, String atributo){
+    public ModelAndView filtrar(@RequestParam("busqueda") String busqueda, @RequestParam("atributo") String atributo){
  ClienteForm clienteForm = new ClienteForm();
-         
+         //JOptionPane.showMessageDialog(null, busqueda + " " + atributo);
          try {
 
-        	ServicioClienteStub oStub = new ServicioClienteStub();
+        	 ServicioClienteStub oStub1 = new ServicioClienteStub();
+        	
      		
      		//Filtra
-        	 FiltrarCliente oFiltrarCliente = new FiltrarCliente();
-        	 oFiltrarCliente.setArgs0(busqueda);
-        	 oFiltrarCliente.setArgs1(atributo);
+        	 FiltrarCliente oFiltrarCliente1 = new FiltrarCliente();
+        	 oFiltrarCliente1.setArgs0(busqueda);
+        	 oFiltrarCliente1.setArgs1(atributo);
         	 
+        	 
+     
+        	FiltrarClienteResponse objResponse1 = oStub1.filtrarCliente(oFiltrarCliente1);
         	
-        	FiltrarClienteResponse obResponse = oStub.filtrarCliente(oFiltrarCliente);
-        	 
-     		ClienteVO[] clientes2 = obResponse.get_return();
+        	ClienteVO[] clientes2 = objResponse1.get_return();
+        	System.out.print(clientes2[0].getNombre());
      		
-     		clienteForm.setclientes(clientes2);
-			
-	        return new ModelAndView("buscarcliente" , "clienteForm", clienteForm);
+     		clienteForm.setClientes(clientes2);
+     		
+			return new ModelAndView("filtrarcliente","clienteForm",clienteForm);
+	        
 	         
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
@@ -249,9 +256,9 @@ public class ClienteController {
         
     }*/
     
-    /*
+    
     @RequestMapping("/modificarForm")
-   	public ModelAndView modificarForm(@RequestParam String id_cliente){
+   	public ModelAndView modificarForm(@RequestParam("id") String id){
     
     	ClienteForm clienteForm = new ClienteForm();
     	
@@ -262,8 +269,8 @@ public class ClienteController {
     		
     		//Filtra
         	FiltrarCliente oFiltrarCliente = new FiltrarCliente();
-       	 oFiltrarCliente.setBusqueda(id_cliente);
-       	 oFiltrarCliente.setAtributo("id_cliente");
+       	 oFiltrarCliente.setArgs0(id);
+       	 oFiltrarCliente.setArgs1("id");
        	 
        	FiltrarClienteResponse obResponse = oStub.filtrarCliente(oFiltrarCliente);
        	 
@@ -285,9 +292,9 @@ public class ClienteController {
     	
     }
     
-  /*
+  
     @RequestMapping(value = "/modificarCliente", method = RequestMethod.POST)
-    public ModelAndView modificarCliente(@ModelAttribute("cliente") @Valid  Cliente cliente, BindingResult result) {
+    public ModelAndView modificarCliente(@ModelAttribute("cliente") @Valid  Cliente cliente, BindingResult result, HttpSession session) {
          //BindingResult result, 
     	 if(result.hasErrors()) {
     		 System.out.println("ERROR");
@@ -303,18 +310,37 @@ public class ClienteController {
         	
     		// MODIFICA
         	ClienteVO oClienteVO = new ClienteVO();
-    		oClienteVO.setId_cliente(cliente.getId());
+    		oClienteVO.setId(cliente.getId());
         	oClienteVO.setRut(cliente.getRut());
         	oClienteVO.setNombre(cliente.getNombre());
         	oClienteVO.setApellido_paterno(cliente.getApellido_paterno());
         	oClienteVO.setApellido_materno(cliente.getApellido_materno());
         	oClienteVO.setCorreo(cliente.getCorreo());
-        	oClienteVO.setCelular(Integer.parseInt(cliente.getCelular()));
+        	oClienteVO.setCelular(cliente.getCelular());
         	oClienteVO.setDireccion(cliente.getDireccion());
+    		JOptionPane.showMessageDialog(null, cliente.getCorreo());
     		
+    		webservice.ServicioClienteStub.LoginVO LoginVO = new webservice.ServicioClienteStub.LoginVO();
+
+			AdministradorVO AdministradorVO = (webservice.ServicioAdministradorStub.AdministradorVO) session.getAttribute("admin");
+
+			webservice.ServicioClienteStub.AdministradorVO administradorCliente = new webservice.ServicioClienteStub.AdministradorVO();
+			administradorCliente.setUsuario(AdministradorVO.getUsuario());
+			
+			administradorCliente.setClave(AdministradorVO.getClave());
+
+			LoginVO.setOAdministradorVO(administradorCliente);
+			LoginVO.setToken(session.getAttribute("token").toString());
+			oClienteVO.setOLoginVO(LoginVO);
+
+
+			System.out.println("token --->"+LoginVO.getToken().toString() );
+			System.out.println("user --->"+administradorCliente.getUsuario().toString());
+			System.out.println("pass --->"+administradorCliente.getClave().toString() );
+
     		
     		ModificarCliente oModificarCliente = new ModificarCliente();
-    		oModificarCliente.setOClienteVO(oClienteVO);
+    		oModificarCliente.setArgs0(oClienteVO);
     		ModificarClienteResponse obResponse = oStub.modificarCliente(oModificarCliente);
     		
     		
@@ -333,7 +359,7 @@ public class ClienteController {
         //return "redirect:contacts.html";
         
     }
-    */
+    
     
 
 }

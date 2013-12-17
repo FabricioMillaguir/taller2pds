@@ -1,7 +1,8 @@
 package spring3.controller;
 
 
-import java.rmi.RemoteException;
+import java.rmi.RemoteException
+;
 
 import java.util.ArrayList;
 import java.util.List;

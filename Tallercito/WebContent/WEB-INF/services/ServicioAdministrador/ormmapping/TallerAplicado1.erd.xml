@@ -6,12 +6,12 @@
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>9</Type>
-      <Length>10</Length>
+      <Length>0</Length>
       <Nullable>false</Nullable>
       <IDGenerator>increment</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>llave primaria</Comment>
+      <Comment>Id del Cliente</Comment>
       <UserTypes/>
     </Column>
     <Column name="nombre">
@@ -19,11 +19,11 @@
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>30</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>nombre cliente</Comment>
+      <Comment>Nombre del Cliente</Comment>
       <UserTypes/>
     </Column>
     <Column name="apellido_paterno">
@@ -31,11 +31,11 @@
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>20</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>apellido paterno cliente</Comment>
+      <Comment>Apellido Paterno del Cliente</Comment>
       <UserTypes/>
     </Column>
     <Column name="apellido_materno">
@@ -43,24 +43,23 @@
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>20</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>apellido materno cliente</Comment>
+      <Comment>Apellido Materno del Cliente</Comment>
       <UserTypes/>
-      <ExtraDDLClause></ExtraDDLClause>
     </Column>
     <Column name="rut">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>10</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>rut cliente</Comment>
+      <Comment>Rut del Cliente</Comment>
       <UserTypes/>
     </Column>
     <Column name="celular">
@@ -68,11 +67,11 @@
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>10</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>celular cliente</Comment>
+      <Comment>Celular del Cliente</Comment>
       <UserTypes/>
     </Column>
     <Column name="correo">
@@ -80,11 +79,11 @@
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>50</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>correo cliente</Comment>
+      <Comment>Correo del Cliente</Comment>
       <UserTypes/>
     </Column>
     <Column name="direccion">
@@ -92,11 +91,11 @@
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>50</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>direccion cliente</Comment>
+      <Comment>Direccion del Cliente</Comment>
       <UserTypes/>
     </Column>
     <Column name="Loginid">
@@ -104,25 +103,27 @@
       <ForeignKey>true</ForeignKey>
       <ReferencedColumn>Login.id</ReferencedColumn>
       <Type>9</Type>
-      <Length>10</Length>
+      <Length>0</Length>
       <Nullable>false</Nullable>
-      <IDGenerator>native</IDGenerator>
+      <IDGenerator>assigned</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
+      <Comment>Id del Token</Comment>
       <UserTypes/>
     </Column>
+    <Comment>Cliente</Comment>
   </Entity>
   <Entity name="Cliente_historico">
     <Column name="id">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>9</Type>
-      <Length>10</Length>
+      <Length>0</Length>
       <Nullable>false</Nullable>
       <IDGenerator>increment</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>llave primaria</Comment>
+      <Comment>Id del Cambio historico del cliente</Comment>
       <UserTypes/>
     </Column>
     <Column name="nombre">
@@ -130,11 +131,11 @@
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>30</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>nombre cliente historico</Comment>
+      <Comment>Nombre Cliente</Comment>
       <UserTypes/>
     </Column>
     <Column name="apellido_paterno">
@@ -142,11 +143,11 @@
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>20</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>apellido paterno cliente historico</Comment>
+      <Comment>Apellido Paterno del Cliente</Comment>
       <UserTypes/>
     </Column>
     <Column name="apellido_materno">
@@ -154,11 +155,11 @@
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>20</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>apellido materno cliente historico</Comment>
+      <Comment>Apellido Materno del Cliente</Comment>
       <UserTypes/>
     </Column>
     <Column name="rut">
@@ -166,11 +167,11 @@
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>10</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>rut cliente historico</Comment>
+      <Comment>Rut del cliente</Comment>
       <UserTypes/>
     </Column>
     <Column name="celular">
@@ -178,11 +179,11 @@
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>10</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>celular cliente historico</Comment>
+      <Comment>Numero de celular del cliente</Comment>
       <UserTypes/>
     </Column>
     <Column name="correo">
@@ -190,11 +191,11 @@
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>50</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>correo cliente historico</Comment>
+      <Comment>E-mail del Cliente</Comment>
       <UserTypes/>
     </Column>
     <Column name="direccion">
@@ -202,11 +203,11 @@
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>50</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>direccion cliente historico</Comment>
+      <Comment>Direccion del Cliente</Comment>
       <UserTypes/>
     </Column>
     <Column name="Clienteid">
@@ -214,11 +215,12 @@
       <ForeignKey>true</ForeignKey>
       <ReferencedColumn>Cliente.id</ReferencedColumn>
       <Type>9</Type>
-      <Length>10</Length>
+      <Length>0</Length>
       <Nullable>false</Nullable>
-      <IDGenerator>native</IDGenerator>
+      <IDGenerator>assigned</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
+      <Comment>Id del Cliente</Comment>
       <UserTypes/>
     </Column>
     <Column name="Loginid">
@@ -226,37 +228,51 @@
       <ForeignKey>true</ForeignKey>
       <ReferencedColumn>Login.id</ReferencedColumn>
       <Type>9</Type>
-      <Length>10</Length>
+      <Length>0</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <Comment>Id del Token</Comment>
+      <UserTypes/>
+    </Column>
+    <Column name="fecha_cambio">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>17</Type>
+      <Length>0</Length>
       <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
+      <Comment>Fecha del cambio</Comment>
       <UserTypes/>
     </Column>
+    <Comment>Cambio historico del Cliente</Comment>
   </Entity>
   <Entity name="Cuenta">
     <Column name="id">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>9</Type>
-      <Length>10</Length>
+      <Length>0</Length>
       <Nullable>false</Nullable>
       <IDGenerator>increment</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>llave primaria cuenta</Comment>
+      <Comment>Id de la Cuenta</Comment>
       <UserTypes/>
     </Column>
-    <Column name="activa">
+    <Column name="habilitada">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>1</Type>
-      <Length>1</Length>
-      <Nullable>true</Nullable>
+      <Length>0</Length>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>cuenta activa</Comment>
+      <Comment>Habilitada si o no</Comment>
       <UserTypes/>
     </Column>
     <Column name="Clienteid">
@@ -264,11 +280,12 @@
       <ForeignKey>true</ForeignKey>
       <ReferencedColumn>Cliente.id</ReferencedColumn>
       <Type>9</Type>
-      <Length>10</Length>
+      <Length>0</Length>
       <Nullable>false</Nullable>
-      <IDGenerator>native</IDGenerator>
+      <IDGenerator>assigned</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
+      <Comment>Id del Cliente</Comment>
       <UserTypes/>
     </Column>
     <Column name="Servicioid">
@@ -276,11 +293,12 @@
       <ForeignKey>true</ForeignKey>
       <ReferencedColumn>Servicio.id</ReferencedColumn>
       <Type>9</Type>
-      <Length>10</Length>
+      <Length>0</Length>
       <Nullable>false</Nullable>
-      <IDGenerator>native</IDGenerator>
+      <IDGenerator>assigned</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
+      <Comment>Id del servicio</Comment>
       <UserTypes/>
     </Column>
     <Column name="Loginid">
@@ -288,25 +306,27 @@
       <ForeignKey>true</ForeignKey>
       <ReferencedColumn>Login.id</ReferencedColumn>
       <Type>9</Type>
-      <Length>10</Length>
+      <Length>0</Length>
       <Nullable>false</Nullable>
-      <IDGenerator>native</IDGenerator>
+      <IDGenerator>assigned</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
+      <Comment>Id del Token</Comment>
       <UserTypes/>
     </Column>
+    <Comment>Cuenta</Comment>
   </Entity>
   <Entity name="Login">
     <Column name="id">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>9</Type>
-      <Length>10</Length>
+      <Length>0</Length>
       <Nullable>false</Nullable>
       <IDGenerator>increment</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>llave primaria login</Comment>
+      <Comment>Id del Login</Comment>
       <UserTypes/>
     </Column>
     <Column name="token">
@@ -314,11 +334,11 @@
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>21</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>token del login</Comment>
+      <Comment>Token del login</Comment>
       <UserTypes/>
     </Column>
     <Column name="fecha_inicio">
@@ -326,11 +346,11 @@
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>25</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>fecha inicio login</Comment>
+      <Comment>Fecha inicio Login</Comment>
       <UserTypes/>
     </Column>
     <Column name="fecha_fin">
@@ -338,11 +358,11 @@
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>25</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>fecha_fin token</Comment>
+      <Comment>Fecha del fin del Login</Comment>
       <UserTypes/>
     </Column>
     <Column name="Administradorid">
@@ -350,25 +370,27 @@
       <ForeignKey>true</ForeignKey>
       <ReferencedColumn>Administrador.id</ReferencedColumn>
       <Type>9</Type>
-      <Length>10</Length>
+      <Length>0</Length>
       <Nullable>false</Nullable>
-      <IDGenerator>native</IDGenerator>
+      <IDGenerator>assigned</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
+      <Comment>Id del administrador</Comment>
       <UserTypes/>
     </Column>
+    <Comment>Login</Comment>
   </Entity>
   <Entity name="Servicio">
     <Column name="id">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>9</Type>
-      <Length>10</Length>
+      <Length>0</Length>
       <Nullable>false</Nullable>
       <IDGenerator>increment</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>llave primaria servicio</Comment>
+      <Comment>Id del servicio</Comment>
       <UserTypes/>
     </Column>
     <Column name="tipo_servicio">
@@ -380,93 +402,94 @@
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>tipo servicio</Comment>
+      <Comment>Tipo de servicio</Comment>
       <UserTypes/>
     </Column>
     <Column name="valor_unitario">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>9</Type>
-      <Length>10</Length>
-      <Nullable>true</Nullable>
+      <Length>0</Length>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>valor unitario servicio</Comment>
+      <Comment>Valor por unidad</Comment>
       <UserTypes/>
     </Column>
     <Column name="valor_fijo">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>9</Type>
-      <Length>10</Length>
-      <Nullable>true</Nullable>
+      <Length>0</Length>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>valor fijo del servicio</Comment>
+      <Comment>Valor fijo del servicio</Comment>
       <UserTypes/>
     </Column>
+    <Comment>Servicio</Comment>
   </Entity>
   <Entity name="Consumo">
     <Column name="id">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>9</Type>
-      <Length>10</Length>
+      <Length>0</Length>
       <Nullable>false</Nullable>
       <IDGenerator>increment</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>llave primaria consumo</Comment>
+      <Comment>Id del consumo</Comment>
       <UserTypes/>
     </Column>
     <Column name="consumo">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>9</Type>
-      <Length>10</Length>
-      <Nullable>true</Nullable>
+      <Length>0</Length>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>consumo</Comment>
+      <Comment>Consumo</Comment>
       <UserTypes/>
     </Column>
     <Column name="monto">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>9</Type>
-      <Length>10</Length>
-      <Nullable>true</Nullable>
+      <Length>0</Length>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>monto consumo</Comment>
+      <Comment>monto consumido</Comment>
       <UserTypes/>
     </Column>
     <Column name="pagado">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>1</Type>
-      <Length>1</Length>
-      <Nullable>true</Nullable>
+      <Length>0</Length>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>pagado</Comment>
+      <Comment>Pagado si o no</Comment>
       <UserTypes/>
     </Column>
     <Column name="morosidad">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>1</Type>
-      <Length>1</Length>
-      <Nullable>true</Nullable>
+      <Length>0</Length>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>morosidad del consumo</Comment>
+      <Comment>Morosidad del consumo si o no</Comment>
       <UserTypes/>
     </Column>
     <Column name="fecha_vencimiento">
@@ -474,11 +497,11 @@
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>25</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>fecha vencimiento consumo</Comment>
+      <Comment>Fecha de vencimiento del consumo</Comment>
       <UserTypes/>
     </Column>
     <Column name="Cuentaid">
@@ -486,11 +509,12 @@
       <ForeignKey>true</ForeignKey>
       <ReferencedColumn>Cuenta.id</ReferencedColumn>
       <Type>9</Type>
-      <Length>10</Length>
+      <Length>0</Length>
       <Nullable>false</Nullable>
-      <IDGenerator>native</IDGenerator>
+      <IDGenerator>assigned</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
+      <Comment>Id de la cuenta</Comment>
       <UserTypes/>
     </Column>
     <Column name="Loginid">
@@ -498,25 +522,27 @@
       <ForeignKey>true</ForeignKey>
       <ReferencedColumn>Login.id</ReferencedColumn>
       <Type>9</Type>
-      <Length>10</Length>
+      <Length>0</Length>
       <Nullable>false</Nullable>
-      <IDGenerator>native</IDGenerator>
+      <IDGenerator>assigned</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
+      <Comment>Id del Login</Comment>
       <UserTypes/>
     </Column>
+    <Comment>Consumo</Comment>
   </Entity>
   <Entity name="Administrador">
     <Column name="id">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>9</Type>
-      <Length>10</Length>
+      <Length>0</Length>
       <Nullable>false</Nullable>
       <IDGenerator>increment</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>llave primaria Administrador</Comment>
+      <Comment>Id del administrador</Comment>
       <UserTypes/>
     </Column>
     <Column name="usuario">
@@ -524,11 +550,11 @@
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>20</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>usuario</Comment>
+      <Comment>Usuario</Comment>
       <UserTypes/>
     </Column>
     <Column name="clave">
@@ -536,13 +562,14 @@
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>20</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>clave</Comment>
+      <Comment>Clave</Comment>
       <UserTypes/>
     </Column>
+    <Comment>Administrador</Comment>
   </Entity>
   <ForeignKey name="FKCliente_hi935652">
     <ReferenceTable>Cliente_historico</ReferenceTable>

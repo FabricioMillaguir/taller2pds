@@ -27,6 +27,7 @@ public class Cliente_historicoCriteria extends AbstractORMCriteria {
 	public final StringExpression celular;
 	public final StringExpression correo;
 	public final StringExpression direccion;
+	public final DateExpression fecha_cambio;
 	
 	public Cliente_historicoCriteria(Criteria criteria) {
 		super(criteria);
@@ -38,6 +39,7 @@ public class Cliente_historicoCriteria extends AbstractORMCriteria {
 		celular = new StringExpression("celular", this);
 		correo = new StringExpression("correo", this);
 		direccion = new StringExpression("direccion", this);
+		fecha_cambio = new DateExpression("fecha_cambio", this);
 	}
 	
 	public Cliente_historicoCriteria(PersistentSession session) {

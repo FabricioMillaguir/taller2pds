@@ -30,7 +30,7 @@ public class ClienteForm implements java.io.Serializable{
 	 *
 	 * @return the clientes
 	 */
-	public java.lang.Object getclientes() {
+	public java.lang.Object getClientes() {
 		return clientes;
 	}
 
@@ -39,7 +39,7 @@ public class ClienteForm implements java.io.Serializable{
 	 *
 	 * @param clientes the new clientes
 	 */
-	public void setclientes(java.lang.Object clientes) {
+	public void setClientes(java.lang.Object clientes) {
 		this.clientes = clientes;
 	}
 }

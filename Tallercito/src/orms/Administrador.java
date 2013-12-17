@@ -15,6 +15,9 @@ package orms;
 
 import java.io.Serializable;
 import javax.persistence.*;
+/**
+ * Administrador
+ */
 @Entity
 @org.hibernate.annotations.Proxy(lazy=false)
 @Table(name="Administrador")
@@ -44,10 +47,10 @@ public class Administrador implements Serializable {
 	@org.hibernate.annotations.GenericGenerator(name="ORMS_ADMINISTRADOR_ID_GENERATOR", strategy="increment")	
 	private int id;
 	
-	@Column(name="usuario", nullable=true, length=20)	
+	@Column(name="usuario", nullable=false, length=20)	
 	private String usuario;
 	
-	@Column(name="clave", nullable=true, length=20)	
+	@Column(name="clave", nullable=false, length=20)	
 	private String clave;
 	
 	@OneToMany(mappedBy="administrador", targetEntity=orms.Login.class)	
@@ -56,14 +59,14 @@ public class Administrador implements Serializable {
 	private java.util.Set ORM_login = new java.util.HashSet();
 	
 	/**
-	 * llave primaria Administrador
+	 * Id del administrador
 	 */
 	private void setId(int value) {
 		this.id = value;
 	}
 	
 	/**
-	 * llave primaria Administrador
+	 * Id del administrador
 	 */
 	public int getId() {
 		return id;
@@ -74,28 +77,28 @@ public class Administrador implements Serializable {
 	}
 	
 	/**
-	 * usuario
+	 * Usuario
 	 */
 	public void setUsuario(String value) {
 		this.usuario = value;
 	}
 	
 	/**
-	 * usuario
+	 * Usuario
 	 */
 	public String getUsuario() {
 		return usuario;
 	}
 	
 	/**
-	 * clave
+	 * Clave
 	 */
 	public void setClave(String value) {
 		this.clave = value;
 	}
 	
 	/**
-	 * clave
+	 * Clave
 	 */
 	public String getClave() {
 		return clave;

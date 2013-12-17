@@ -60,6 +60,8 @@
             public void receiveErroragregarCliente(java.lang.Exception e) {
             }
                 
+               // No methods generated for meps other than in-out
+                
            /**
             * auto generated Axis2 call back method for filtrarCliente method
             * override this method for handling normal response from filtrarCliente operation
@@ -74,6 +76,22 @@
            * override this method for handling error response from filtrarCliente operation
            */
             public void receiveErrorfiltrarCliente(java.lang.Exception e) {
+            }
+                
+           /**
+            * auto generated Axis2 call back method for modificarCliente method
+            * override this method for handling normal response from modificarCliente operation
+            */
+           public void receiveResultmodificarCliente(
+                    webservice.ServicioClienteStub.ModificarClienteResponse result
+                        ) {
+           }
+
+          /**
+           * auto generated Axis2 Error handler
+           * override this method for handling error response from modificarCliente operation
+           */
+            public void receiveErrormodificarCliente(java.lang.Exception e) {
             }
                 
 

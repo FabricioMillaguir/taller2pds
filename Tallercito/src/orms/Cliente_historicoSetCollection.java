@@ -78,6 +78,7 @@ public class Cliente_historicoSetCollection extends org.orm.util.ORMSet {
 	 * <li>celular</li>
 	 * <li>correo</li>
 	 * <li>direccion</li>
+	 * <li>fecha_cambio</li>
 	 * </ul>
 	 * @return The persistent objects sorted array
 	 */
@@ -96,6 +97,7 @@ public class Cliente_historicoSetCollection extends org.orm.util.ORMSet {
 	 * <li>celular</li>
 	 * <li>correo</li>
 	 * <li>direccion</li>
+	 * <li>fecha_cambio</li>
 	 * </ul>
 	 * @param ascending true for ascending, false for descending
 	 * @return The persistent objects sorted array

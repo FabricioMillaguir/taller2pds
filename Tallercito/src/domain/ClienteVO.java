@@ -1,5 +1,7 @@
 package domain;
 
+import orms.Login;
+
 // TODO: Auto-generated Javadoc
 /**
  * @author Diego Solis San Martin
@@ -56,7 +58,7 @@ public class ClienteVO {
 	 */
 	public ClienteVO(int id, String nombre, String apellido_paterno,
 			String apellido_materno, String rut, String celular, String correo,
-			String direccion) {
+			String direccion, LoginVO oLoginVO) {
 		super();
 		this.id=id;
 		this.nombre = nombre;
@@ -200,21 +202,20 @@ public class ClienteVO {
 	 *
 	 * @return the o login vo
 	 */
+	
+
+	public int getId() {
+		return id;
+	}
+
+	
+
 	public LoginVO getoLoginVO() {
 		return oLoginVO;
 	}
 
-	/**
-	 * Sets the o login vo.
-	 *
-	 * @param oLoginVO the new o login vo
-	 */
 	public void setoLoginVO(LoginVO oLoginVO) {
 		this.oLoginVO = oLoginVO;
-	}
-
-	public int getId() {
-		return id;
 	}
 
 	public void setId(int id) {

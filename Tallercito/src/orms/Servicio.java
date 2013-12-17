@@ -15,6 +15,9 @@ package orms;
 
 import java.io.Serializable;
 import javax.persistence.*;
+/**
+ * Servicio
+ */
 @Entity
 @org.hibernate.annotations.Proxy(lazy=false)
 @Table(name="Servicio")
@@ -47,10 +50,10 @@ public class Servicio implements Serializable {
 	@Column(name="tipo_servicio", nullable=false, length=5)	
 	private String tipo_servicio;
 	
-	@Column(name="valor_unitario", nullable=true, length=10)	
+	@Column(name="valor_unitario", nullable=false)	
 	private Integer valor_unitario;
 	
-	@Column(name="valor_fijo", nullable=true, length=10)	
+	@Column(name="valor_fijo", nullable=false)	
 	private Integer valor_fijo;
 	
 	@OneToMany(mappedBy="servicio", targetEntity=orms.Cuenta.class)	
@@ -59,14 +62,14 @@ public class Servicio implements Serializable {
 	private java.util.Set ORM_cuenta = new java.util.HashSet();
 	
 	/**
-	 * llave primaria servicio
+	 * Id del servicio
 	 */
 	private void setId(int value) {
 		this.id = value;
 	}
 	
 	/**
-	 * llave primaria servicio
+	 * Id del servicio
 	 */
 	public int getId() {
 		return id;
@@ -77,56 +80,56 @@ public class Servicio implements Serializable {
 	}
 	
 	/**
-	 * tipo servicio
+	 * Tipo de servicio
 	 */
 	public void setTipo_servicio(String value) {
 		this.tipo_servicio = value;
 	}
 	
 	/**
-	 * tipo servicio
+	 * Tipo de servicio
 	 */
 	public String getTipo_servicio() {
 		return tipo_servicio;
 	}
 	
 	/**
-	 * valor unitario servicio
+	 * Valor por unidad
 	 */
 	public void setValor_unitario(int value) {
 		setValor_unitario(new Integer(value));
 	}
 	
 	/**
-	 * valor unitario servicio
+	 * Valor por unidad
 	 */
 	public void setValor_unitario(Integer value) {
 		this.valor_unitario = value;
 	}
 	
 	/**
-	 * valor unitario servicio
+	 * Valor por unidad
 	 */
 	public Integer getValor_unitario() {
 		return valor_unitario;
 	}
 	
 	/**
-	 * valor fijo del servicio
+	 * Valor fijo del servicio
 	 */
 	public void setValor_fijo(int value) {
 		setValor_fijo(new Integer(value));
 	}
 	
 	/**
-	 * valor fijo del servicio
+	 * Valor fijo del servicio
 	 */
 	public void setValor_fijo(Integer value) {
 		this.valor_fijo = value;
 	}
 	
 	/**
-	 * valor fijo del servicio
+	 * Valor fijo del servicio
 	 */
 	public Integer getValor_fijo() {
 		return valor_fijo;

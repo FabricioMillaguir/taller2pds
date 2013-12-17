@@ -13,7 +13,7 @@
     <table>
     <c:forEach items="${clienteForm.clientes}" var="cliente" varStatus="status">
     <tr>
-    <td><input type="hidden" value="${cliente.id_cliente}" name="id_cliente" ></td>
+    <td><input type="hidden" value="${cliente.id}" name="id" ></td>
     </tr>
     <tr> 	
         <td>Rut</td>

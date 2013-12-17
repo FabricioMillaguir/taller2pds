@@ -5,9 +5,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
+import org.eclipse.jdt.internal.compiler.ast.ThisReference;
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
+import sun.security.krb5.internal.LoginOptions;
 import domain.LoginVO;
 
 
@@ -98,6 +102,7 @@ public class ServicioCliente {
 						loginAdminORM.setORM_Administrador(adminLogeadoORM);
 						//loginAdminORM.setORM_Usuario(adminLogeadoORM);
 						lormCliente.setORM_Login(loginAdminORM);
+						
 						//lormCliente.setORM_Token(loginAdminORM);
 
 						orms.ClienteDAO.save(lormCliente);
@@ -144,8 +149,9 @@ public class ServicioCliente {
 		
 		/**
 		* Filtra contactos
-		* @param String busqueda
-		* @param String atributo
+		 * @param parameterObject TODO
+		 * @param String busqueda
+		 * @param String atributo
 		* @return List<domain.ContactoVO>
 		*/
 		public List<domain.ClienteVO> filtrarCliente(String busqueda, String atributo){
@@ -158,7 +164,7 @@ public class ServicioCliente {
 			int length = ormsClientes.length;
 			for (int i = 0; i < length; i++) {
 			System.out.println(ormsClientes[i]);
-			clientes.add(new domain.ClienteVO(ormsClientes[i].getId(), ormsClientes[i].getNombre(), ormsClientes[i].getApellido_paterno(), ormsClientes[i].getApellido_materno(), ormsClientes[i].getRut(), ormsClientes[i].getCelular(), ormsClientes[i].getCorreo(), ormsClientes[i].getDireccion()));
+			clientes.add(new domain.ClienteVO(ormsClientes[i].getId(), ormsClientes[i].getNombre(), ormsClientes[i].getApellido_paterno(), ormsClientes[i].getApellido_materno(), ormsClientes[i].getRut(), ormsClientes[i].getCelular(), ormsClientes[i].getCorreo(), ormsClientes[i].getDireccion(), null));
 					
 			}
 			return clientes;
@@ -208,7 +214,7 @@ public class ServicioCliente {
 		* @return String
 		*/
 		
-	/*	public String modificarCliente(domain.ClienteVO oClienteVO){
+	public String modificarCliente(domain.ClienteVO oClienteVO){
 			
 			PersistentTransaction t;
 			try {
@@ -216,21 +222,27 @@ public class ServicioCliente {
 
 			
 			try{
-				orms.Cliente lormCliente = orms.ClienteDAO.loadClienteByQuery("id_cliente = '" + oClienteVO.getId()) + "'", null);
+				orms.Cliente lormCliente = orms.ClienteDAO.loadClienteByQuery("id = '" + oClienteVO.getId() + "'", null);
 				
-				// Update the properties of the persistent object
-				lormCliente.setRut(oClienteVO.getRut());
-				lormCliente.setNombre(oClienteVO.getNombre());
-				lormCliente.setApellido_paterno(oClienteVO.getApellido_paterno());
-				lormCliente.setApellido_materno(oClienteVO.getApellido_materno());
-				lormCliente.setCorreo(oClienteVO.getCorreo());
-				lormCliente.setCelular(oClienteVO.getCelular());
-				lormCliente.setDireccion(oClienteVO.getDireccion());
 				
-				orms.ClienteDAO.save(lormCliente);
+				JOptionPane.showMessageDialog(null, oClienteVO.getCorreo());
 				
-				/*orms.Cambio_cliente lormCambio_cliente = orms.Cambio_clienteDAO.createCambio_cliente();
-				lormCambio_cliente.setId_cliente(lormCliente);
+				
+				String condLogin = "";
+				condLogin += "usuario = '"+oClienteVO.getoLoginVO().getoAdministradorVO().getUsuario()+"'";
+				condLogin += "and clave = '"+oClienteVO.getoLoginVO().getoAdministradorVO().getClave()+"'";
+
+				orms.Administrador adminLogeadoORM = orms.AdministradorDAO.loadAdministradorByQuery(condLogin, null);
+
+				String logCond = "token = '"+oClienteVO.getoLoginVO().getToken()+"'";
+				orms.Login loginAdminORM = orms.LoginDAO.loadLoginByQuery(logCond, null);
+
+				loginAdminORM.setORM_Administrador(adminLogeadoORM);
+
+				
+				//cambio Cliente
+				orms.Cliente_historico lormCambio_cliente = orms.Cliente_historicoDAO.createCliente_historico();
+				lormCambio_cliente.setORM_Cliente(lormCliente);
 				lormCambio_cliente.setRut(lormCliente.getRut());
 				lormCambio_cliente.setNombre(lormCliente.getNombre());
 				lormCambio_cliente.setApellido_paterno(lormCliente.getApellido_paterno());
@@ -238,7 +250,32 @@ public class ServicioCliente {
 				lormCambio_cliente.setCorreo(lormCliente.getCorreo());
 				lormCambio_cliente.setCelular(lormCliente.getCelular());
 				lormCambio_cliente.setDireccion(lormCliente.getDireccion());
+				lormCambio_cliente.setORM_Login(loginAdminORM);
 				lormCambio_cliente.setFecha_cambio(new Date());
+				
+				JOptionPane.showMessageDialog(null, lormCambio_cliente.getCorreo());
+				
+				//Guarda el cambio del Cliente
+				orms.Cliente_historicoDAO.save(lormCambio_cliente);
+				
+				//Modifica los datos del cliente
+				lormCliente.setRut(oClienteVO.getRut());
+				lormCliente.setNombre(oClienteVO.getNombre());
+				lormCliente.setApellido_paterno(oClienteVO.getApellido_paterno());
+				lormCliente.setApellido_materno(oClienteVO.getApellido_materno());
+				lormCliente.setCorreo(oClienteVO.getCorreo());
+				lormCliente.setCelular(oClienteVO.getCelular());
+				lormCliente.setDireccion(oClienteVO.getDireccion());				
+				//loginAdminORM.setORM_Usuario(adminLogeadoORM);
+				lormCliente.setORM_Login(loginAdminORM);
+				//lormCliente.setORM_Token(loginAdminORM);
+
+				JOptionPane.showMessageDialog(null, lormCliente.getCorreo());
+				
+				//Guarda las modificaciones del Cliente
+				orms.ClienteDAO.save(lormCliente);
+				
+				
 				
 				
 				System.out.println("Modificado con Exito");
@@ -256,6 +293,14 @@ public class ServicioCliente {
 		}
 
 		
-	*/
 
+		public static void main(String[] Args){
+			
+			ServicioCliente service = new ServicioCliente();
+			
+			System.out.print(service.filtrarCliente("16988653-9", "rut").get(0).getApellido_paterno());
+		}
+		
 }
+
+

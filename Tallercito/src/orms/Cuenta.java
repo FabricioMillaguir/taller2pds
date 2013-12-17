@@ -15,6 +15,9 @@ package orms;
 
 import java.io.Serializable;
 import javax.persistence.*;
+/**
+ * Cuenta
+ */
 @Entity
 @org.hibernate.annotations.Proxy(lazy=false)
 @Table(name="Cuenta")
@@ -62,8 +65,8 @@ public class Cuenta implements Serializable {
 	@org.hibernate.annotations.GenericGenerator(name="ORMS_CUENTA_ID_GENERATOR", strategy="increment")	
 	private int id;
 	
-	@Column(name="activa", nullable=true, length=1)	
-	private Boolean activa;
+	@Column(name="habilitada", nullable=false)	
+	private Boolean habilitada;
 	
 	@ManyToOne(targetEntity=orms.Cliente.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
@@ -89,14 +92,14 @@ public class Cuenta implements Serializable {
 	private java.util.Set ORM_consumo = new java.util.HashSet();
 	
 	/**
-	 * llave primaria cuenta
+	 * Id de la Cuenta
 	 */
 	private void setId(int value) {
 		this.id = value;
 	}
 	
 	/**
-	 * llave primaria cuenta
+	 * Id de la Cuenta
 	 */
 	public int getId() {
 		return id;
@@ -107,24 +110,24 @@ public class Cuenta implements Serializable {
 	}
 	
 	/**
-	 * cuenta activa
+	 * Habilitada si o no
 	 */
-	public void setActiva(boolean value) {
-		setActiva(new Boolean(value));
+	public void setHabilitada(boolean value) {
+		setHabilitada(new Boolean(value));
 	}
 	
 	/**
-	 * cuenta activa
+	 * Habilitada si o no
 	 */
-	public void setActiva(Boolean value) {
-		this.activa = value;
+	public void setHabilitada(Boolean value) {
+		this.habilitada = value;
 	}
 	
 	/**
-	 * cuenta activa
+	 * Habilitada si o no
 	 */
-	public Boolean getActiva() {
-		return activa;
+	public Boolean getHabilitada() {
+		return habilitada;
 	}
 	
 	public void setCliente(orms.Cliente value) {

@@ -1,14 +1,8 @@
 package spring3.form;
 
-// TODO: Auto-generated Javadoc
-
-/**
- * @author Diego Solis San Martin
- */
-/**
- * The Class Cliente.
- */
 public class Cliente implements java.io.Serializable {
+	
+	private int id;
 	
 	/** The nombre. */
 	private java.lang.String nombre;
@@ -210,4 +204,14 @@ public class Cliente implements java.io.Serializable {
 		this.loginid = loginid;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	
+	
 }

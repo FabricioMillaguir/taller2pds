@@ -15,6 +15,9 @@ package orms;
 
 import java.io.Serializable;
 import javax.persistence.*;
+/**
+ * Cliente
+ */
 @Entity
 @org.hibernate.annotations.Proxy(lazy=false)
 @Table(name="Cliente")
@@ -57,25 +60,25 @@ public class Cliente implements Serializable {
 	@org.hibernate.annotations.GenericGenerator(name="ORMS_CLIENTE_ID_GENERATOR", strategy="increment")	
 	private int id;
 	
-	@Column(name="nombre", nullable=true, length=30)	
+	@Column(name="nombre", nullable=false, length=30)	
 	private String nombre;
 	
-	@Column(name="apellido_paterno", nullable=true, length=20)	
+	@Column(name="apellido_paterno", nullable=false, length=20)	
 	private String apellido_paterno;
 	
-	@Column(name="apellido_materno", nullable=true, length=20)	
+	@Column(name="apellido_materno", nullable=false, length=20)	
 	private String apellido_materno;
 	
-	@Column(name="rut", nullable=true, length=10)	
+	@Column(name="rut", nullable=false, length=10)	
 	private String rut;
 	
-	@Column(name="celular", nullable=true, length=10)	
+	@Column(name="celular", nullable=false, length=10)	
 	private String celular;
 	
-	@Column(name="correo", nullable=true, length=50)	
+	@Column(name="correo", nullable=false, length=50)	
 	private String correo;
 	
-	@Column(name="direccion", nullable=true, length=50)	
+	@Column(name="direccion", nullable=false, length=50)	
 	private String direccion;
 	
 	@ManyToOne(targetEntity=orms.Login.class, fetch=FetchType.LAZY)	
@@ -95,14 +98,14 @@ public class Cliente implements Serializable {
 	private java.util.Set ORM_cuenta = new java.util.HashSet();
 	
 	/**
-	 * llave primaria
+	 * Id del Cliente
 	 */
 	private void setId(int value) {
 		this.id = value;
 	}
 	
 	/**
-	 * llave primaria
+	 * Id del Cliente
 	 */
 	public int getId() {
 		return id;
@@ -113,98 +116,98 @@ public class Cliente implements Serializable {
 	}
 	
 	/**
-	 * nombre cliente
+	 * Nombre del Cliente
 	 */
 	public void setNombre(String value) {
 		this.nombre = value;
 	}
 	
 	/**
-	 * nombre cliente
+	 * Nombre del Cliente
 	 */
 	public String getNombre() {
 		return nombre;
 	}
 	
 	/**
-	 * apellido paterno cliente
+	 * Apellido Paterno del Cliente
 	 */
 	public void setApellido_paterno(String value) {
 		this.apellido_paterno = value;
 	}
 	
 	/**
-	 * apellido paterno cliente
+	 * Apellido Paterno del Cliente
 	 */
 	public String getApellido_paterno() {
 		return apellido_paterno;
 	}
 	
 	/**
-	 * apellido materno cliente
+	 * Apellido Materno del Cliente
 	 */
 	public void setApellido_materno(String value) {
 		this.apellido_materno = value;
 	}
 	
 	/**
-	 * apellido materno cliente
+	 * Apellido Materno del Cliente
 	 */
 	public String getApellido_materno() {
 		return apellido_materno;
 	}
 	
 	/**
-	 * rut cliente
+	 * Rut del Cliente
 	 */
 	public void setRut(String value) {
 		this.rut = value;
 	}
 	
 	/**
-	 * rut cliente
+	 * Rut del Cliente
 	 */
 	public String getRut() {
 		return rut;
 	}
 	
 	/**
-	 * celular cliente
+	 * Celular del Cliente
 	 */
 	public void setCelular(String value) {
 		this.celular = value;
 	}
 	
 	/**
-	 * celular cliente
+	 * Celular del Cliente
 	 */
 	public String getCelular() {
 		return celular;
 	}
 	
 	/**
-	 * correo cliente
+	 * Correo del Cliente
 	 */
 	public void setCorreo(String value) {
 		this.correo = value;
 	}
 	
 	/**
-	 * correo cliente
+	 * Correo del Cliente
 	 */
 	public String getCorreo() {
 		return correo;
 	}
 	
 	/**
-	 * direccion cliente
+	 * Direccion del Cliente
 	 */
 	public void setDireccion(String value) {
 		this.direccion = value;
 	}
 	
 	/**
-	 * direccion cliente
+	 * Direccion del Cliente
 	 */
 	public String getDireccion() {
 		return direccion;

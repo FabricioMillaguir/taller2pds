@@ -20,18 +20,18 @@ import org.orm.criteria.*;
 
 public class CuentaDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression id;
-	public final BooleanExpression activa;
+	public final BooleanExpression habilitada;
 	
 	public CuentaDetachedCriteria() {
 		super(orms.Cuenta.class, orms.CuentaCriteria.class);
 		id = new IntegerExpression("id", this.getDetachedCriteria());
-		activa = new BooleanExpression("activa", this.getDetachedCriteria());
+		habilitada = new BooleanExpression("habilitada", this.getDetachedCriteria());
 	}
 	
 	public CuentaDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, orms.CuentaCriteria.class);
 		id = new IntegerExpression("id", this.getDetachedCriteria());
-		activa = new BooleanExpression("activa", this.getDetachedCriteria());
+		habilitada = new BooleanExpression("habilitada", this.getDetachedCriteria());
 	}
 	
 	public ClienteDetachedCriteria createClienteCriteria() {

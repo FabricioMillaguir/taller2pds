@@ -15,6 +15,9 @@ package orms;
 
 import java.io.Serializable;
 import javax.persistence.*;
+/**
+ * Cambio historico del Cliente
+ */
 @Entity
 @org.hibernate.annotations.Proxy(lazy=false)
 @Table(name="Cliente_historico")
@@ -46,25 +49,25 @@ public class Cliente_historico implements Serializable {
 	@org.hibernate.annotations.GenericGenerator(name="ORMS_CLIENTE_HISTORICO_ID_GENERATOR", strategy="increment")	
 	private int id;
 	
-	@Column(name="nombre", nullable=true, length=30)	
+	@Column(name="nombre", nullable=false, length=30)	
 	private String nombre;
 	
-	@Column(name="apellido_paterno", nullable=true, length=20)	
+	@Column(name="apellido_paterno", nullable=false, length=20)	
 	private String apellido_paterno;
 	
-	@Column(name="apellido_materno", nullable=true, length=20)	
+	@Column(name="apellido_materno", nullable=false, length=20)	
 	private String apellido_materno;
 	
-	@Column(name="rut", nullable=true, length=10)	
+	@Column(name="rut", nullable=false, length=10)	
 	private String rut;
 	
-	@Column(name="celular", nullable=true, length=10)	
+	@Column(name="celular", nullable=false, length=10)	
 	private String celular;
 	
-	@Column(name="correo", nullable=true, length=50)	
+	@Column(name="correo", nullable=false, length=50)	
 	private String correo;
 	
-	@Column(name="direccion", nullable=true, length=50)	
+	@Column(name="direccion", nullable=false, length=50)	
 	private String direccion;
 	
 	@ManyToOne(targetEntity=orms.Cliente.class, fetch=FetchType.LAZY)	
@@ -79,15 +82,19 @@ public class Cliente_historico implements Serializable {
 	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
 	private orms.Login login;
 	
+	@Column(name="fecha_cambio", nullable=false)	
+	@Temporal(TemporalType.DATE)	
+	private java.util.Date fecha_cambio;
+	
 	/**
-	 * llave primaria
+	 * Id del Cambio historico del cliente
 	 */
 	private void setId(int value) {
 		this.id = value;
 	}
 	
 	/**
-	 * llave primaria
+	 * Id del Cambio historico del cliente
 	 */
 	public int getId() {
 		return id;
@@ -98,101 +105,115 @@ public class Cliente_historico implements Serializable {
 	}
 	
 	/**
-	 * nombre cliente historico
+	 * Nombre Cliente
 	 */
 	public void setNombre(String value) {
 		this.nombre = value;
 	}
 	
 	/**
-	 * nombre cliente historico
+	 * Nombre Cliente
 	 */
 	public String getNombre() {
 		return nombre;
 	}
 	
 	/**
-	 * apellido paterno cliente historico
+	 * Apellido Paterno del Cliente
 	 */
 	public void setApellido_paterno(String value) {
 		this.apellido_paterno = value;
 	}
 	
 	/**
-	 * apellido paterno cliente historico
+	 * Apellido Paterno del Cliente
 	 */
 	public String getApellido_paterno() {
 		return apellido_paterno;
 	}
 	
 	/**
-	 * apellido materno cliente historico
+	 * Apellido Materno del Cliente
 	 */
 	public void setApellido_materno(String value) {
 		this.apellido_materno = value;
 	}
 	
 	/**
-	 * apellido materno cliente historico
+	 * Apellido Materno del Cliente
 	 */
 	public String getApellido_materno() {
 		return apellido_materno;
 	}
 	
 	/**
-	 * rut cliente historico
+	 * Rut del cliente
 	 */
 	public void setRut(String value) {
 		this.rut = value;
 	}
 	
 	/**
-	 * rut cliente historico
+	 * Rut del cliente
 	 */
 	public String getRut() {
 		return rut;
 	}
 	
 	/**
-	 * celular cliente historico
+	 * Numero de celular del cliente
 	 */
 	public void setCelular(String value) {
 		this.celular = value;
 	}
 	
 	/**
-	 * celular cliente historico
+	 * Numero de celular del cliente
 	 */
 	public String getCelular() {
 		return celular;
 	}
 	
 	/**
-	 * correo cliente historico
+	 * E-mail del Cliente
 	 */
 	public void setCorreo(String value) {
 		this.correo = value;
 	}
 	
 	/**
-	 * correo cliente historico
+	 * E-mail del Cliente
 	 */
 	public String getCorreo() {
 		return correo;
 	}
 	
 	/**
-	 * direccion cliente historico
+	 * Direccion del Cliente
 	 */
 	public void setDireccion(String value) {
 		this.direccion = value;
 	}
 	
 	/**
-	 * direccion cliente historico
+	 * Direccion del Cliente
 	 */
 	public String getDireccion() {
 		return direccion;
+	}
+	
+	/**
+	 * Fecha del cambio
+	 */
+	public void setFecha_cambio(java.util.Date value) {
+		this.fecha_cambio = value;
+	}
+	
+	/**
+	 * Fecha del cambio
+	 */
+	public java.util.Date getFecha_cambio() {
+		return fecha_cambio;
 	}
 	
 	public void setCliente(orms.Cliente value) {

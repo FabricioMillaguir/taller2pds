@@ -27,6 +27,7 @@ public class Cliente_historicoDetachedCriteria extends AbstractORMDetachedCriter
 	public final StringExpression celular;
 	public final StringExpression correo;
 	public final StringExpression direccion;
+	public final DateExpression fecha_cambio;
 	
 	public Cliente_historicoDetachedCriteria() {
 		super(orms.Cliente_historico.class, orms.Cliente_historicoCriteria.class);
@@ -38,6 +39,7 @@ public class Cliente_historicoDetachedCriteria extends AbstractORMDetachedCriter
 		celular = new StringExpression("celular", this.getDetachedCriteria());
 		correo = new StringExpression("correo", this.getDetachedCriteria());
 		direccion = new StringExpression("direccion", this.getDetachedCriteria());
+		fecha_cambio = new DateExpression("fecha_cambio", this.getDetachedCriteria());
 	}
 	
 	public Cliente_historicoDetachedCriteria(DetachedCriteria aDetachedCriteria) {
@@ -50,6 +52,7 @@ public class Cliente_historicoDetachedCriteria extends AbstractORMDetachedCriter
 		celular = new StringExpression("celular", this.getDetachedCriteria());
 		correo = new StringExpression("correo", this.getDetachedCriteria());
 		direccion = new StringExpression("direccion", this.getDetachedCriteria());
+		fecha_cambio = new DateExpression("fecha_cambio", this.getDetachedCriteria());
 	}
 	
 	public ClienteDetachedCriteria createClienteCriteria() {
