@@ -1,68 +1,74 @@
 package domain;
 
-// TODO: Auto-generated Javadoc
-/**
- * @author Diego Solis San Martin
- */
-/**
- * The Class Cliente_historicoVO.
- */
+import java.util.Date;
+
 public class Cliente_historicoVO {
+
+	private int id;
 
 	/** The nombre. */
 	private String nombre;
-	
+
 	/** The apellido_paterno. */
 	private String apellido_paterno;
-	
+
 	/** The apellido_materno. */
 	private String apellido_materno;
-	
+
 	/** The rut. */
 	private String rut;
-	
+
 	/** The celular. */
 	private String celular;
-	
+
 	/** The correo. */
 	private String correo;
-	
+
 	/** The direccion. */
 	private String direccion;
-	
-	/** The activa. */
-	private int activa;
-	
+
+	private Date fecha_cambio;
+
 	/** The o cliente vo. */
 	private ClienteVO oClienteVO;
-	
+
 	/** The o login vo. */
 	private LoginVO oLoginVO;
 
 	/**
 	 * Instantiates a new cliente_historico vo.
 	 */
-	public Cliente_historicoVO(){
+	public Cliente_historicoVO() {
 
 	}
 
 	/**
 	 * Instantiates a new cliente_historico vo.
-	 *
-	 * @param nombre the nombre
-	 * @param apellido_paterno the apellido_paterno
-	 * @param apellido_materno the apellido_materno
-	 * @param rut the rut
-	 * @param celular the celular
-	 * @param correo the correo
-	 * @param direccion the direccion
-	 * @param oClienteVO the o cliente vo
-	 * @param oLoginVO the o login vo
+	 * 
+	 * @param nombre
+	 *            the nombre
+	 * @param apellido_paterno
+	 *            the apellido_paterno
+	 * @param apellido_materno
+	 *            the apellido_materno
+	 * @param rut
+	 *            the rut
+	 * @param celular
+	 *            the celular
+	 * @param correo
+	 *            the correo
+	 * @param direccion
+	 *            the direccion
+	 * @param oClienteVO
+	 *            the o cliente vo
+	 * @param oLoginVO
+	 *            the o login vo
 	 */
-	public Cliente_historicoVO(String nombre, String apellido_paterno,
+	public Cliente_historicoVO(int id, String nombre, String apellido_paterno,
 			String apellido_materno, String rut, String celular, String correo,
-			String direccion, ClienteVO oClienteVO, LoginVO oLoginVO) {
-		super();
+			String direccion, ClienteVO oClienteVO, LoginVO oLoginVO,
+			Date fecha_cambio) {
+		this.id = id;
 		this.nombre = nombre;
 		this.apellido_paterno = apellido_paterno;
 		this.apellido_materno = apellido_materno;
@@ -72,11 +78,12 @@ public class Cliente_historicoVO {
 		this.direccion = direccion;
 		this.oClienteVO = oClienteVO;
 		this.oLoginVO = oLoginVO;
+		this.fecha_cambio = fecha_cambio;
 	}
 
 	/**
 	 * Gets the nombre.
-	 *
+	 * 
 	 * @return the nombre
 	 */
 	public String getNombre() {
@@ -85,8 +92,9 @@ public class Cliente_historicoVO {
 
 	/**
 	 * Sets the nombre.
-	 *
-	 * @param nombre the new nombre
+	 * 
+	 * @param nombre
+	 *            the new nombre
 	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
@@ -94,7 +102,7 @@ public class Cliente_historicoVO {
 
 	/**
 	 * Gets the apellido_paterno.
-	 *
+	 * 
 	 * @return the apellido_paterno
 	 */
 	public String getApellido_paterno() {
@@ -103,8 +111,9 @@ public class Cliente_historicoVO {
 
 	/**
 	 * Sets the apellido_paterno.
-	 *
-	 * @param apellido_paterno the new apellido_paterno
+	 * 
+	 * @param apellido_paterno
+	 *            the new apellido_paterno
 	 */
 	public void setApellido_paterno(String apellido_paterno) {
 		this.apellido_paterno = apellido_paterno;
@@ -112,7 +121,7 @@ public class Cliente_historicoVO {
 
 	/**
 	 * Gets the apellido_materno.
-	 *
+	 * 
 	 * @return the apellido_materno
 	 */
 	public String getApellido_materno() {
@@ -121,8 +130,9 @@ public class Cliente_historicoVO {
 
 	/**
 	 * Sets the apellido_materno.
-	 *
-	 * @param apellido_materno the new apellido_materno
+	 * 
+	 * @param apellido_materno
+	 *            the new apellido_materno
 	 */
 	public void setApellido_materno(String apellido_materno) {
 		this.apellido_materno = apellido_materno;
@@ -130,7 +140,7 @@ public class Cliente_historicoVO {
 
 	/**
 	 * Gets the rut.
-	 *
+	 * 
 	 * @return the rut
 	 */
 	public String getRut() {
@@ -139,8 +149,9 @@ public class Cliente_historicoVO {
 
 	/**
 	 * Sets the rut.
-	 *
-	 * @param rut the new rut
+	 * 
+	 * @param rut
+	 *            the new rut
 	 */
 	public void setRut(String rut) {
 		this.rut = rut;
@@ -148,7 +159,7 @@ public class Cliente_historicoVO {
 
 	/**
 	 * Gets the celular.
-	 *
+	 * 
 	 * @return the celular
 	 */
 	public String getCelular() {
@@ -157,8 +168,9 @@ public class Cliente_historicoVO {
 
 	/**
 	 * Sets the celular.
-	 *
-	 * @param celular the new celular
+	 * 
+	 * @param celular
+	 *            the new celular
 	 */
 	public void setCelular(String celular) {
 		this.celular = celular;
@@ -166,7 +178,7 @@ public class Cliente_historicoVO {
 
 	/**
 	 * Gets the correo.
-	 *
+	 * 
 	 * @return the correo
 	 */
 	public String getCorreo() {
@@ -175,8 +187,9 @@ public class Cliente_historicoVO {
 
 	/**
 	 * Sets the correo.
-	 *
-	 * @param correo the new correo
+	 * 
+	 * @param correo
+	 *            the new correo
 	 */
 	public void setCorreo(String correo) {
 		this.correo = correo;
@@ -184,7 +197,7 @@ public class Cliente_historicoVO {
 
 	/**
 	 * Gets the direccion.
-	 *
+	 * 
 	 * @return the direccion
 	 */
 	public String getDireccion() {
@@ -193,24 +206,23 @@ public class Cliente_historicoVO {
 
 	/**
 	 * Sets the direccion.
-	 *
-	 * @param direccion the new direccion
+	 * 
+	 * @param direccion
+	 *            the new direccion
 	 */
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
 
-	/*public int getActiva() {
-		return activa;
-	}
-
-	public void setActiva(int activa) {
-		this.activa = activa;
-	}*/
+	/*
+	 * public int getActiva() { return activa; }
+	 * 
+	 * public void setActiva(int activa) { this.activa = activa; }
+	 */
 
 	/**
 	 * Gets the o cliente vo.
-	 *
+	 * 
 	 * @return the o cliente vo
 	 */
 	public ClienteVO getoClienteVO() {
@@ -219,8 +231,9 @@ public class Cliente_historicoVO {
 
 	/**
 	 * Sets the o cliente vo.
-	 *
-	 * @param oClienteVO the new o cliente vo
+	 * 
+	 * @param oClienteVO
+	 *            the new o cliente vo
 	 */
 	public void setoClienteVO(ClienteVO oClienteVO) {
 		this.oClienteVO = oClienteVO;
@@ -228,7 +241,7 @@ public class Cliente_historicoVO {
 
 	/**
 	 * Gets the o login vo.
-	 *
+	 * 
 	 * @return the o login vo
 	 */
 	public LoginVO getoLoginVO() {
@@ -237,11 +250,28 @@ public class Cliente_historicoVO {
 
 	/**
 	 * Sets the o login vo.
-	 *
-	 * @param oLoginVO the new o login vo
+	 * 
+	 * @param oLoginVO
+	 *            the new o login vo
 	 */
 	public void setoLoginVO(LoginVO oLoginVO) {
 		this.oLoginVO = oLoginVO;
 	}
-	
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Date getFecha_cambio() {
+		return fecha_cambio;
+	}
+
+	public void setFecha_cambio(Date fecha_cambio) {
+		this.fecha_cambio = fecha_cambio;
+	}
+
 }

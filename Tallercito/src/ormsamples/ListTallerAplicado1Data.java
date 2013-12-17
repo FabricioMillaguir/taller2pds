@@ -61,14 +61,14 @@ public class ListTallerAplicado1Data {
 		orms.Administrador[] ormsAdministradors = orms.AdministradorDAO.listAdministradorByQuery(null, null);
 		length = Math.min(ormsAdministradors.length, ROW_COUNT);
 		for (int i = 0; i < length; i++) {
-			System.out.println(ormsAdministradors[i].getUsuario());
+			System.out.println(ormsAdministradors[i]);
 		}
 		System.out.println(length + " record(s) retrieved.");
 		
 	}
 	
 	public void listByCriteria() throws PersistentException  {
-	/*	System.out.println("Listing Cliente by Criteria...");
+		System.out.println("Listing Cliente by Criteria...");
 		orms.ClienteCriteria lormsClienteCriteria = new orms.ClienteCriteria();
 		// Please uncomment the follow line and fill in parameter(s) 
 		//lormsClienteCriteria.id.eq();
@@ -139,16 +139,16 @@ public class ListTallerAplicado1Data {
 			 System.out.println(ormsConsumos[i]);
 		}
 		System.out.println(length + " Consumo record(s) retrieved."); 
-		*/
+		
 		System.out.println("Listing Administrador by Criteria...");
 		orms.AdministradorCriteria lormsAdministradorCriteria = new orms.AdministradorCriteria();
 		// Please uncomment the follow line and fill in parameter(s) 
 		//lormsAdministradorCriteria.id.eq();
 		lormsAdministradorCriteria.setMaxResults(ROW_COUNT);
 		orms.Administrador[] ormsAdministradors = lormsAdministradorCriteria.listAdministrador();
-		int length =ormsAdministradors== null ? 0 : Math.min(ormsAdministradors.length, ROW_COUNT); 
+		length =ormsAdministradors== null ? 0 : Math.min(ormsAdministradors.length, ROW_COUNT); 
 		for (int i = 0; i < length; i++) {
-			 System.out.println(ormsAdministradors[i].getUsuario());
+			 System.out.println(ormsAdministradors[i]);
 		}
 		System.out.println(length + " Administrador record(s) retrieved."); 
 		

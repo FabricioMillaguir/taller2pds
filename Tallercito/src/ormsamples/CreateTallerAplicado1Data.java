@@ -9,7 +9,6 @@ public class CreateTallerAplicado1Data {
 	public void createTestData() throws PersistentException {
 		PersistentTransaction t = orms.TallerAplicado1PersistentManager.instance().getSession().beginTransaction();
 		try {
-			/*
 			orms.Cliente lormsCliente = orms.ClienteDAO.createCliente();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : cuenta, cliente_historico, login, direccion, correo, celular, rut, apellido_materno, apellido_paterno, nombre
 			orms.ClienteDAO.save(lormsCliente);
@@ -23,14 +22,12 @@ public class CreateTallerAplicado1Data {
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : cuenta, consumo, cliente_historico, cliente, administrador, fecha_fin, fecha_inicio, token
 			orms.LoginDAO.save(lormsLogin);
 			orms.Servicio lormsServicio = orms.ServicioDAO.createServicio();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : cuenta, valor_fijo, valor_unitario, tipo_servicio
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : cuenta, cargo_fijo, valor_unitario, tipo_servicio
 			orms.ServicioDAO.save(lormsServicio);
 			orms.Consumo lormsConsumo = orms.ConsumoDAO.createConsumo();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : login, cuenta, fecha_vencimiento, morosidad, pagado, monto, consumo
-			orms.ConsumoDAO.save(lormsConsumo);*/
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : login, cuenta, total_a_pagar, fecha_vencimiento, moroso, pagado, cantidad_consumida
+			orms.ConsumoDAO.save(lormsConsumo);
 			orms.Administrador lormsAdministrador = orms.AdministradorDAO.createAdministrador();
-			lormsAdministrador.setUsuario("fabricio");
-			lormsAdministrador.setClave("fabricio");
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : login, clave, usuario
 			orms.AdministradorDAO.save(lormsAdministrador);
 			t.commit();

@@ -1,33 +1,22 @@
 package domain;
 
-// TODO: Auto-generated Javadoc
-/**
- * @author Diego Solis San Martin
- */
-
-/**
- * The Class AdministradorVO.
- */
 public class AdministradorVO {
-	
-	/** The usuario. */
+
 	private String usuario;
-	
-	/** The clave. */
+
 	private String clave;
-	
-	/**
-	 * Instantiates a new administrador vo.
-	 */
-	public AdministradorVO(){
-		
+
+	public AdministradorVO() {
+
 	}
 
 	/**
 	 * Instantiates a new administrador vo.
-	 *
-	 * @param usuario the usuario
-	 * @param clave the clave
+	 * 
+	 * @param usuario
+	 *            the usuario
+	 * @param clave
+	 *            the clave
 	 */
 	public AdministradorVO(String usuario, String clave) {
 		super();
@@ -37,7 +26,7 @@ public class AdministradorVO {
 
 	/**
 	 * Gets the usuario.
-	 *
+	 * 
 	 * @return the usuario
 	 */
 	public String getUsuario() {
@@ -46,8 +35,9 @@ public class AdministradorVO {
 
 	/**
 	 * Sets the usuario.
-	 *
-	 * @param usuario the new usuario
+	 * 
+	 * @param usuario
+	 *            the new usuario
 	 */
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
@@ -55,7 +45,7 @@ public class AdministradorVO {
 
 	/**
 	 * Gets the clave.
-	 *
+	 * 
 	 * @return the clave
 	 */
 	public String getClave() {
@@ -64,13 +54,12 @@ public class AdministradorVO {
 
 	/**
 	 * Sets the clave.
-	 *
-	 * @param clave the new clave
+	 * 
+	 * @param clave
+	 *            the new clave
 	 */
 	public void setClave(String clave) {
 		this.clave = clave;
 	}
-	
-	
 
 }

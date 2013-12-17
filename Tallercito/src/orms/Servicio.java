@@ -47,14 +47,17 @@ public class Servicio implements Serializable {
 	@org.hibernate.annotations.GenericGenerator(name="ORMS_SERVICIO_ID_GENERATOR", strategy="increment")	
 	private int id;
 	
-	@Column(name="tipo_servicio", nullable=false, length=5)	
+	@Column(name="tipo_servicio", nullable=false, length=255)	
 	private String tipo_servicio;
+	
+	@Column(name="unidad_de_medida", nullable=true, length=255)	
+	private String unidad_de_medida;
 	
 	@Column(name="valor_unitario", nullable=false)	
 	private Integer valor_unitario;
 	
-	@Column(name="valor_fijo", nullable=false)	
-	private Integer valor_fijo;
+	@Column(name="cargo_fijo", nullable=false)	
+	private Integer cargo_fijo;
 	
 	@OneToMany(mappedBy="servicio", targetEntity=orms.Cuenta.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
@@ -115,24 +118,38 @@ public class Servicio implements Serializable {
 	}
 	
 	/**
-	 * Valor fijo del servicio
+	 * Cargo fijo del servicio
 	 */
-	public void setValor_fijo(int value) {
-		setValor_fijo(new Integer(value));
+	public void setCargo_fijo(int value) {
+		setCargo_fijo(new Integer(value));
 	}
 	
 	/**
-	 * Valor fijo del servicio
+	 * Cargo fijo del servicio
 	 */
-	public void setValor_fijo(Integer value) {
-		this.valor_fijo = value;
+	public void setCargo_fijo(Integer value) {
+		this.cargo_fijo = value;
 	}
 	
 	/**
-	 * Valor fijo del servicio
+	 * Cargo fijo del servicio
 	 */
-	public Integer getValor_fijo() {
-		return valor_fijo;
+	public Integer getCargo_fijo() {
+		return cargo_fijo;
+	}
+	
+	/**
+	 * Unidad de medida del servicio
+	 */
+	public void setUnidad_de_medida(String value) {
+		this.unidad_de_medida = value;
+	}
+	
+	/**
+	 * Unidad de medida del servicio
+	 */
+	public String getUnidad_de_medida() {
+		return unidad_de_medida;
 	}
 	
 	private void setORM_Cuenta(java.util.Set value) {

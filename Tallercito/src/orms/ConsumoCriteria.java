@@ -20,20 +20,20 @@ import org.orm.criteria.*;
 
 public class ConsumoCriteria extends AbstractORMCriteria {
 	public final IntegerExpression id;
-	public final IntegerExpression consumo;
-	public final IntegerExpression monto;
+	public final IntegerExpression cantidad_consumida;
 	public final BooleanExpression pagado;
-	public final BooleanExpression morosidad;
+	public final BooleanExpression moroso;
 	public final StringExpression fecha_vencimiento;
+	public final IntegerExpression total_a_pagar;
 	
 	public ConsumoCriteria(Criteria criteria) {
 		super(criteria);
 		id = new IntegerExpression("id", this);
-		consumo = new IntegerExpression("consumo", this);
-		monto = new IntegerExpression("monto", this);
+		cantidad_consumida = new IntegerExpression("cantidad_consumida", this);
 		pagado = new BooleanExpression("pagado", this);
-		morosidad = new BooleanExpression("morosidad", this);
+		moroso = new BooleanExpression("moroso", this);
 		fecha_vencimiento = new StringExpression("fecha_vencimiento", this);
+		total_a_pagar = new IntegerExpression("total_a_pagar", this);
 	}
 	
 	public ConsumoCriteria(PersistentSession session) {

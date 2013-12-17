@@ -166,7 +166,6 @@
     <ServerName></ServerName>
     <SelectedForm>true</SelectedForm>
   </Setting>
-  
   <Setting type="8192">
     <Driver></Driver>
     <DriverFiles></DriverFiles>

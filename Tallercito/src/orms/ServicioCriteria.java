@@ -21,15 +21,17 @@ import org.orm.criteria.*;
 public class ServicioCriteria extends AbstractORMCriteria {
 	public final IntegerExpression id;
 	public final StringExpression tipo_servicio;
+	public final StringExpression unidad_de_medida;
 	public final IntegerExpression valor_unitario;
-	public final IntegerExpression valor_fijo;
+	public final IntegerExpression cargo_fijo;
 	
 	public ServicioCriteria(Criteria criteria) {
 		super(criteria);
 		id = new IntegerExpression("id", this);
 		tipo_servicio = new StringExpression("tipo_servicio", this);
+		unidad_de_medida = new StringExpression("unidad_de_medida", this);
 		valor_unitario = new IntegerExpression("valor_unitario", this);
-		valor_fijo = new IntegerExpression("valor_fijo", this);
+		cargo_fijo = new IntegerExpression("cargo_fijo", this);
 	}
 	
 	public ServicioCriteria(PersistentSession session) {

@@ -20,30 +20,30 @@ import org.orm.criteria.*;
 
 public class ConsumoDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression id;
-	public final IntegerExpression consumo;
-	public final IntegerExpression monto;
+	public final IntegerExpression cantidad_consumida;
 	public final BooleanExpression pagado;
-	public final BooleanExpression morosidad;
+	public final BooleanExpression moroso;
 	public final StringExpression fecha_vencimiento;
+	public final IntegerExpression total_a_pagar;
 	
 	public ConsumoDetachedCriteria() {
 		super(orms.Consumo.class, orms.ConsumoCriteria.class);
 		id = new IntegerExpression("id", this.getDetachedCriteria());
-		consumo = new IntegerExpression("consumo", this.getDetachedCriteria());
-		monto = new IntegerExpression("monto", this.getDetachedCriteria());
+		cantidad_consumida = new IntegerExpression("cantidad_consumida", this.getDetachedCriteria());
 		pagado = new BooleanExpression("pagado", this.getDetachedCriteria());
-		morosidad = new BooleanExpression("morosidad", this.getDetachedCriteria());
+		moroso = new BooleanExpression("moroso", this.getDetachedCriteria());
 		fecha_vencimiento = new StringExpression("fecha_vencimiento", this.getDetachedCriteria());
+		total_a_pagar = new IntegerExpression("total_a_pagar", this.getDetachedCriteria());
 	}
 	
 	public ConsumoDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, orms.ConsumoCriteria.class);
 		id = new IntegerExpression("id", this.getDetachedCriteria());
-		consumo = new IntegerExpression("consumo", this.getDetachedCriteria());
-		monto = new IntegerExpression("monto", this.getDetachedCriteria());
+		cantidad_consumida = new IntegerExpression("cantidad_consumida", this.getDetachedCriteria());
 		pagado = new BooleanExpression("pagado", this.getDetachedCriteria());
-		morosidad = new BooleanExpression("morosidad", this.getDetachedCriteria());
+		moroso = new BooleanExpression("moroso", this.getDetachedCriteria());
 		fecha_vencimiento = new StringExpression("fecha_vencimiento", this.getDetachedCriteria());
+		total_a_pagar = new IntegerExpression("total_a_pagar", this.getDetachedCriteria());
 	}
 	
 	public CuentaDetachedCriteria createCuentaCriteria() {

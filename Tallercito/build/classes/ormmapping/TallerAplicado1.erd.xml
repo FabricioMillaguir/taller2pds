@@ -397,12 +397,24 @@
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
-      <Length>5</Length>
+      <Length>255</Length>
       <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
       <Comment>Tipo de servicio</Comment>
+      <UserTypes/>
+    </Column>
+    <Column name="unidad_de_medida">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <Comment>Unidad de medida del servicio</Comment>
       <UserTypes/>
     </Column>
     <Column name="valor_unitario">
@@ -417,7 +429,7 @@
       <Comment>Valor por unidad</Comment>
       <UserTypes/>
     </Column>
-    <Column name="valor_fijo">
+    <Column name="cargo_fijo">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>9</Type>
@@ -426,7 +438,7 @@
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>Valor fijo del servicio</Comment>
+      <Comment>Cargo fijo del servicio</Comment>
       <UserTypes/>
     </Column>
     <Comment>Servicio</Comment>
@@ -444,7 +456,7 @@
       <Comment>Id del consumo</Comment>
       <UserTypes/>
     </Column>
-    <Column name="consumo">
+    <Column name="cantidad_consumida">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>9</Type>
@@ -453,19 +465,7 @@
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>Consumo</Comment>
-      <UserTypes/>
-    </Column>
-    <Column name="monto">
-      <PrimaryKey>false</PrimaryKey>
-      <ForeignKey>false</ForeignKey>
-      <Type>9</Type>
-      <Length>0</Length>
-      <Nullable>false</Nullable>
-      <IDGenerator>native</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <Comment>monto consumido</Comment>
+      <Comment>cantidad consumido</Comment>
       <UserTypes/>
     </Column>
     <Column name="pagado">
@@ -480,7 +480,7 @@
       <Comment>Pagado si o no</Comment>
       <UserTypes/>
     </Column>
-    <Column name="morosidad">
+    <Column name="moroso">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>1</Type>
@@ -502,6 +502,18 @@
       <Unique>false</Unique>
       <Index>false</Index>
       <Comment>Fecha de vencimiento del consumo</Comment>
+      <UserTypes/>
+    </Column>
+    <Column name="total_a_pagar">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>0</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <Comment>Total a pagar del consumo</Comment>
       <UserTypes/>
     </Column>
     <Column name="Cuentaid">

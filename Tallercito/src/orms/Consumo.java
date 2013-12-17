@@ -49,20 +49,20 @@ public class Consumo implements Serializable {
 	@org.hibernate.annotations.GenericGenerator(name="ORMS_CONSUMO_ID_GENERATOR", strategy="increment")	
 	private int id;
 	
-	@Column(name="consumo", nullable=false)	
-	private Integer consumo;
-	
-	@Column(name="monto", nullable=false)	
-	private Integer monto;
+	@Column(name="cantidad_consumida", nullable=false)	
+	private Integer cantidad_consumida;
 	
 	@Column(name="pagado", nullable=false)	
 	private Boolean pagado;
 	
-	@Column(name="morosidad", nullable=false)	
-	private Boolean morosidad;
+	@Column(name="moroso", nullable=false)	
+	private Boolean moroso;
 	
 	@Column(name="fecha_vencimiento", nullable=false, length=25)	
 	private String fecha_vencimiento;
+	
+	@Column(name="total_a_pagar", nullable=false)	
+	private int total_a_pagar;
 	
 	@ManyToOne(targetEntity=orms.Cuenta.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
@@ -95,45 +95,24 @@ public class Consumo implements Serializable {
 	}
 	
 	/**
-	 * Consumo
+	 * cantidad consumido
 	 */
-	public void setConsumo(int value) {
-		setConsumo(new Integer(value));
+	public void setCantidad_consumida(int value) {
+		setCantidad_consumida(new Integer(value));
 	}
 	
 	/**
-	 * Consumo
+	 * cantidad consumido
 	 */
-	public void setConsumo(Integer value) {
-		this.consumo = value;
+	public void setCantidad_consumida(Integer value) {
+		this.cantidad_consumida = value;
 	}
 	
 	/**
-	 * Consumo
+	 * cantidad consumido
 	 */
-	public Integer getConsumo() {
-		return consumo;
-	}
-	
-	/**
-	 * monto consumido
-	 */
-	public void setMonto(int value) {
-		setMonto(new Integer(value));
-	}
-	
-	/**
-	 * monto consumido
-	 */
-	public void setMonto(Integer value) {
-		this.monto = value;
-	}
-	
-	/**
-	 * monto consumido
-	 */
-	public Integer getMonto() {
-		return monto;
+	public Integer getCantidad_consumida() {
+		return cantidad_consumida;
 	}
 	
 	/**
@@ -160,22 +139,22 @@ public class Consumo implements Serializable {
 	/**
 	 * Morosidad del consumo si o no
 	 */
-	public void setMorosidad(boolean value) {
-		setMorosidad(new Boolean(value));
+	public void setMoroso(boolean value) {
+		setMoroso(new Boolean(value));
 	}
 	
 	/**
 	 * Morosidad del consumo si o no
 	 */
-	public void setMorosidad(Boolean value) {
-		this.morosidad = value;
+	public void setMoroso(Boolean value) {
+		this.moroso = value;
 	}
 	
 	/**
 	 * Morosidad del consumo si o no
 	 */
-	public Boolean getMorosidad() {
-		return morosidad;
+	public Boolean getMoroso() {
+		return moroso;
 	}
 	
 	/**
@@ -190,6 +169,20 @@ public class Consumo implements Serializable {
 	 */
 	public String getFecha_vencimiento() {
 		return fecha_vencimiento;
+	}
+	
+	/**
+	 * Total a pagar del consumo
+	 */
+	public void setTotal_a_pagar(int value) {
+		this.total_a_pagar = value;
+	}
+	
+	/**
+	 * Total a pagar del consumo
+	 */
+	public int getTotal_a_pagar() {
+		return total_a_pagar;
 	}
 	
 	public void setCuenta(orms.Cuenta value) {
