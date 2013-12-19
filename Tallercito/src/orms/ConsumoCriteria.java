@@ -48,8 +48,8 @@ public class ConsumoCriteria extends AbstractORMCriteria {
 		return new CuentaCriteria(createCriteria("cuenta"));
 	}
 	
-	public LoginCriteria createLoginCriteria() {
-		return new LoginCriteria(createCriteria("login"));
+	public LoginCriteria createLogintokenCriteria() {
+		return new LoginCriteria(createCriteria("logintoken"));
 	}
 	
 	public Consumo uniqueConsumo() {

@@ -59,8 +59,8 @@ public class Cliente_historicoDetachedCriteria extends AbstractORMDetachedCriter
 		return new ClienteDetachedCriteria(createCriteria("cliente"));
 	}
 	
-	public LoginDetachedCriteria createLoginCriteria() {
-		return new LoginDetachedCriteria(createCriteria("login"));
+	public LoginDetachedCriteria createLogintokenCriteria() {
+		return new LoginDetachedCriteria(createCriteria("logintoken"));
 	}
 	
 	public Cliente_historico uniqueCliente_historico(PersistentSession session) {

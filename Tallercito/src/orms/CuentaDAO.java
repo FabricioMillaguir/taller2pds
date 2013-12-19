@@ -330,8 +330,8 @@ public class CuentaDAO {
 				cuenta.getServicio().cuenta.remove(cuenta);
 			}
 			
-			if(cuenta.getLogin() != null) {
-				cuenta.getLogin().cuenta.remove(cuenta);
+			if(cuenta.getLogintoken() != null) {
+				cuenta.getLogintoken().cuenta.remove(cuenta);
 			}
 			
 			orms.Consumo[] lConsumos = cuenta.consumo.toArray();
@@ -356,8 +356,8 @@ public class CuentaDAO {
 				cuenta.getServicio().cuenta.remove(cuenta);
 			}
 			
-			if(cuenta.getLogin() != null) {
-				cuenta.getLogin().cuenta.remove(cuenta);
+			if(cuenta.getLogintoken() != null) {
+				cuenta.getLogintoken().cuenta.remove(cuenta);
 			}
 			
 			orms.Consumo[] lConsumos = cuenta.consumo.toArray();

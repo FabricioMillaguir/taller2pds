@@ -50,8 +50,8 @@ public class ConsumoDetachedCriteria extends AbstractORMDetachedCriteria {
 		return new CuentaDetachedCriteria(createCriteria("cuenta"));
 	}
 	
-	public LoginDetachedCriteria createLoginCriteria() {
-		return new LoginDetachedCriteria(createCriteria("login"));
+	public LoginDetachedCriteria createLogintokenCriteria() {
+		return new LoginDetachedCriteria(createCriteria("logintoken"));
 	}
 	
 	public Consumo uniqueConsumo(PersistentSession session) {

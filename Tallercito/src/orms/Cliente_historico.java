@@ -30,8 +30,8 @@ public class Cliente_historico implements Serializable {
 			this.cliente = (orms.Cliente) owner;
 		}
 		
-		else if (key == orms.ORMConstants.KEY_CLIENTE_HISTORICO_LOGIN) {
-			this.login = (orms.Login) owner;
+		else if (key == orms.ORMConstants.KEY_CLIENTE_HISTORICO_LOGINTOKEN) {
+			this.logintoken = (orms.Login) owner;
 		}
 	}
 	
@@ -76,15 +76,15 @@ public class Cliente_historico implements Serializable {
 	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
 	private orms.Cliente cliente;
 	
-	@ManyToOne(targetEntity=orms.Login.class, fetch=FetchType.LAZY)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns({ @JoinColumn(name="Loginid", referencedColumnName="id", nullable=false) })	
-	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
-	private orms.Login login;
-	
 	@Column(name="fecha_cambio", nullable=false)	
 	@Temporal(TemporalType.DATE)	
 	private java.util.Date fecha_cambio;
+	
+	@ManyToOne(targetEntity=orms.Login.class, fetch=FetchType.LAZY)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
+	@JoinColumns({ @JoinColumn(name="Logintoken", referencedColumnName="token", nullable=false) })	
+	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
+	private orms.Login logintoken;
 	
 	/**
 	 * Id del Cambio historico del cliente
@@ -240,28 +240,28 @@ public class Cliente_historico implements Serializable {
 		return cliente;
 	}
 	
-	public void setLogin(orms.Login value) {
-		if (login != null) {
-			login.cliente_historico.remove(this);
+	public void setLogintoken(orms.Login value) {
+		if (logintoken != null) {
+			logintoken.cliente_historico.remove(this);
 		}
 		if (value != null) {
 			value.cliente_historico.add(this);
 		}
 	}
 	
-	public orms.Login getLogin() {
-		return login;
+	public orms.Login getLogintoken() {
+		return logintoken;
 	}
 	
 	/**
 	 * This method is for internal use only.
 	 */
-	public void setORM_Login(orms.Login value) {
-		this.login = value;
+	public void setORM_Logintoken(orms.Login value) {
+		this.logintoken = value;
 	}
 	
-	private orms.Login getORM_Login() {
-		return login;
+	private orms.Login getORM_Logintoken() {
+		return logintoken;
 	}
 	
 	public String toString() {

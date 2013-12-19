@@ -50,14 +50,14 @@ public class Servicio implements Serializable {
 	@Column(name="tipo_servicio", nullable=false, length=255)	
 	private String tipo_servicio;
 	
-	@Column(name="unidad_de_medida", nullable=true, length=255)	
+	@Column(name="unidad_de_medida", nullable=false, length=255)	
 	private String unidad_de_medida;
 	
 	@Column(name="valor_unitario", nullable=false)	
-	private Integer valor_unitario;
+	private int valor_unitario;
 	
 	@Column(name="cargo_fijo", nullable=false)	
-	private Integer cargo_fijo;
+	private int cargo_fijo;
 	
 	@OneToMany(mappedBy="servicio", targetEntity=orms.Cuenta.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
@@ -97,48 +97,6 @@ public class Servicio implements Serializable {
 	}
 	
 	/**
-	 * Valor por unidad
-	 */
-	public void setValor_unitario(int value) {
-		setValor_unitario(new Integer(value));
-	}
-	
-	/**
-	 * Valor por unidad
-	 */
-	public void setValor_unitario(Integer value) {
-		this.valor_unitario = value;
-	}
-	
-	/**
-	 * Valor por unidad
-	 */
-	public Integer getValor_unitario() {
-		return valor_unitario;
-	}
-	
-	/**
-	 * Cargo fijo del servicio
-	 */
-	public void setCargo_fijo(int value) {
-		setCargo_fijo(new Integer(value));
-	}
-	
-	/**
-	 * Cargo fijo del servicio
-	 */
-	public void setCargo_fijo(Integer value) {
-		this.cargo_fijo = value;
-	}
-	
-	/**
-	 * Cargo fijo del servicio
-	 */
-	public Integer getCargo_fijo() {
-		return cargo_fijo;
-	}
-	
-	/**
 	 * Unidad de medida del servicio
 	 */
 	public void setUnidad_de_medida(String value) {
@@ -150,6 +108,34 @@ public class Servicio implements Serializable {
 	 */
 	public String getUnidad_de_medida() {
 		return unidad_de_medida;
+	}
+	
+	/**
+	 * Valor por unidad
+	 */
+	public void setValor_unitario(int value) {
+		this.valor_unitario = value;
+	}
+	
+	/**
+	 * Valor por unidad
+	 */
+	public int getValor_unitario() {
+		return valor_unitario;
+	}
+	
+	/**
+	 * Cargo fijo del servicio
+	 */
+	public void setCargo_fijo(int value) {
+		this.cargo_fijo = value;
+	}
+	
+	/**
+	 * Cargo fijo del servicio
+	 */
+	public int getCargo_fijo() {
+		return cargo_fijo;
 	}
 	
 	private void setORM_Cuenta(java.util.Set value) {

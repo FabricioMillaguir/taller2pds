@@ -60,7 +60,7 @@ public class RetrieveAndUpdateTallerAplicado1Data {
 		System.out.println("Retrieving Login by LoginCriteria");
 		orms.LoginCriteria lormsLoginCriteria = new orms.LoginCriteria();
 		// Please uncomment the follow line and fill in parameter(s)
-		//lormsLoginCriteria.id.eq();
+		//lormsLoginCriteria.token.eq();
 		System.out.println(lormsLoginCriteria.uniqueLogin());
 		
 		System.out.println("Retrieving Servicio by ServicioCriteria");

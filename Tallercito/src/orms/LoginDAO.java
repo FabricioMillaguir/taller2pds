@@ -18,10 +18,10 @@ import org.hibernate.Query;
 import java.util.List;
 
 public class LoginDAO {
-	public static Login loadLoginByORMID(int id) throws PersistentException {
+	public static Login loadLoginByORMID(String token) throws PersistentException {
 		try {
 			PersistentSession session = orms.TallerAplicado1PersistentManager.instance().getSession();
-			return loadLoginByORMID(session, id);
+			return loadLoginByORMID(session, token);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -29,10 +29,10 @@ public class LoginDAO {
 		}
 	}
 	
-	public static Login getLoginByORMID(int id) throws PersistentException {
+	public static Login getLoginByORMID(String token) throws PersistentException {
 		try {
 			PersistentSession session = orms.TallerAplicado1PersistentManager.instance().getSession();
-			return getLoginByORMID(session, id);
+			return getLoginByORMID(session, token);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -40,10 +40,10 @@ public class LoginDAO {
 		}
 	}
 	
-	public static Login loadLoginByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Login loadLoginByORMID(String token, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = orms.TallerAplicado1PersistentManager.instance().getSession();
-			return loadLoginByORMID(session, id, lockMode);
+			return loadLoginByORMID(session, token, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -51,10 +51,10 @@ public class LoginDAO {
 		}
 	}
 	
-	public static Login getLoginByORMID(int id, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Login getLoginByORMID(String token, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = orms.TallerAplicado1PersistentManager.instance().getSession();
-			return getLoginByORMID(session, id, lockMode);
+			return getLoginByORMID(session, token, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -62,9 +62,9 @@ public class LoginDAO {
 		}
 	}
 	
-	public static Login loadLoginByORMID(PersistentSession session, int id) throws PersistentException {
+	public static Login loadLoginByORMID(PersistentSession session, String token) throws PersistentException {
 		try {
-			return (Login) session.load(orms.Login.class, new Integer(id));
+			return (Login) session.load(orms.Login.class, token);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -72,9 +72,9 @@ public class LoginDAO {
 		}
 	}
 	
-	public static Login getLoginByORMID(PersistentSession session, int id) throws PersistentException {
+	public static Login getLoginByORMID(PersistentSession session, String token) throws PersistentException {
 		try {
-			return (Login) session.get(orms.Login.class, new Integer(id));
+			return (Login) session.get(orms.Login.class, token);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -82,9 +82,9 @@ public class LoginDAO {
 		}
 	}
 	
-	public static Login loadLoginByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Login loadLoginByORMID(PersistentSession session, String token, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Login) session.load(orms.Login.class, new Integer(id), lockMode);
+			return (Login) session.load(orms.Login.class, token, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -92,9 +92,9 @@ public class LoginDAO {
 		}
 	}
 	
-	public static Login getLoginByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Login getLoginByORMID(PersistentSession session, String token, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Login) session.get(orms.Login.class, new Integer(id), lockMode);
+			return (Login) session.get(orms.Login.class, token, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -328,19 +328,19 @@ public class LoginDAO {
 			
 			orms.Cliente[] lClientes = login.cliente.toArray();
 			for(int i = 0; i < lClientes.length; i++) {
-				lClientes[i].setLogin(null);
-			}
-			orms.Cliente_historico[] lCliente_historicos = login.cliente_historico.toArray();
-			for(int i = 0; i < lCliente_historicos.length; i++) {
-				lCliente_historicos[i].setLogin(null);
-			}
-			orms.Consumo[] lConsumos = login.consumo.toArray();
-			for(int i = 0; i < lConsumos.length; i++) {
-				lConsumos[i].setLogin(null);
+				lClientes[i].setLogintoken(null);
 			}
 			orms.Cuenta[] lCuentas = login.cuenta.toArray();
 			for(int i = 0; i < lCuentas.length; i++) {
-				lCuentas[i].setLogin(null);
+				lCuentas[i].setLogintoken(null);
+			}
+			orms.Cliente_historico[] lCliente_historicos = login.cliente_historico.toArray();
+			for(int i = 0; i < lCliente_historicos.length; i++) {
+				lCliente_historicos[i].setLogintoken(null);
+			}
+			orms.Consumo[] lConsumos = login.consumo.toArray();
+			for(int i = 0; i < lConsumos.length; i++) {
+				lConsumos[i].setLogintoken(null);
 			}
 			return delete(login);
 		}
@@ -358,19 +358,19 @@ public class LoginDAO {
 			
 			orms.Cliente[] lClientes = login.cliente.toArray();
 			for(int i = 0; i < lClientes.length; i++) {
-				lClientes[i].setLogin(null);
-			}
-			orms.Cliente_historico[] lCliente_historicos = login.cliente_historico.toArray();
-			for(int i = 0; i < lCliente_historicos.length; i++) {
-				lCliente_historicos[i].setLogin(null);
-			}
-			orms.Consumo[] lConsumos = login.consumo.toArray();
-			for(int i = 0; i < lConsumos.length; i++) {
-				lConsumos[i].setLogin(null);
+				lClientes[i].setLogintoken(null);
 			}
 			orms.Cuenta[] lCuentas = login.cuenta.toArray();
 			for(int i = 0; i < lCuentas.length; i++) {
-				lCuentas[i].setLogin(null);
+				lCuentas[i].setLogintoken(null);
+			}
+			orms.Cliente_historico[] lCliente_historicos = login.cliente_historico.toArray();
+			for(int i = 0; i < lCliente_historicos.length; i++) {
+				lCliente_historicos[i].setLogintoken(null);
+			}
+			orms.Consumo[] lConsumos = login.consumo.toArray();
+			for(int i = 0; i < lConsumos.length; i++) {
+				lConsumos[i].setLogintoken(null);
 			}
 			try {
 				session.delete(login);

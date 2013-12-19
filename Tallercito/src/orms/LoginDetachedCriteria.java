@@ -19,25 +19,19 @@ import org.orm.PersistentSession;
 import org.orm.criteria.*;
 
 public class LoginDetachedCriteria extends AbstractORMDetachedCriteria {
-	public final IntegerExpression id;
 	public final StringExpression token;
-	public final StringExpression fecha_inicio;
-	public final StringExpression fecha_fin;
+	public final LongExpression tiempo_inicio;
 	
 	public LoginDetachedCriteria() {
 		super(orms.Login.class, orms.LoginCriteria.class);
-		id = new IntegerExpression("id", this.getDetachedCriteria());
 		token = new StringExpression("token", this.getDetachedCriteria());
-		fecha_inicio = new StringExpression("fecha_inicio", this.getDetachedCriteria());
-		fecha_fin = new StringExpression("fecha_fin", this.getDetachedCriteria());
+		tiempo_inicio = new LongExpression("tiempo_inicio", this.getDetachedCriteria());
 	}
 	
 	public LoginDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, orms.LoginCriteria.class);
-		id = new IntegerExpression("id", this.getDetachedCriteria());
 		token = new StringExpression("token", this.getDetachedCriteria());
-		fecha_inicio = new StringExpression("fecha_inicio", this.getDetachedCriteria());
-		fecha_fin = new StringExpression("fecha_fin", this.getDetachedCriteria());
+		tiempo_inicio = new LongExpression("tiempo_inicio", this.getDetachedCriteria());
 	}
 	
 	public AdministradorDetachedCriteria createAdministradorCriteria() {
@@ -48,16 +42,16 @@ public class LoginDetachedCriteria extends AbstractORMDetachedCriteria {
 		return new ClienteDetachedCriteria(createCriteria("ORM_cliente"));
 	}
 	
+	public CuentaDetachedCriteria createCuentaCriteria() {
+		return new CuentaDetachedCriteria(createCriteria("ORM_cuenta"));
+	}
+	
 	public Cliente_historicoDetachedCriteria createCliente_historicoCriteria() {
 		return new Cliente_historicoDetachedCriteria(createCriteria("ORM_cliente_historico"));
 	}
 	
 	public ConsumoDetachedCriteria createConsumoCriteria() {
 		return new ConsumoDetachedCriteria(createCriteria("ORM_consumo"));
-	}
-	
-	public CuentaDetachedCriteria createCuentaCriteria() {
-		return new CuentaDetachedCriteria(createCriteria("ORM_cuenta"));
 	}
 	
 	public Login uniqueLogin(PersistentSession session) {

@@ -326,8 +326,8 @@ public class Cliente_historicoDAO {
 				cliente_historico.getCliente().cliente_historico.remove(cliente_historico);
 			}
 			
-			if(cliente_historico.getLogin() != null) {
-				cliente_historico.getLogin().cliente_historico.remove(cliente_historico);
+			if(cliente_historico.getLogintoken() != null) {
+				cliente_historico.getLogintoken().cliente_historico.remove(cliente_historico);
 			}
 			
 			return delete(cliente_historico);
@@ -344,8 +344,8 @@ public class Cliente_historicoDAO {
 				cliente_historico.getCliente().cliente_historico.remove(cliente_historico);
 			}
 			
-			if(cliente_historico.getLogin() != null) {
-				cliente_historico.getLogin().cliente_historico.remove(cliente_historico);
+			if(cliente_historico.getLogintoken() != null) {
+				cliente_historico.getLogintoken().cliente_historico.remove(cliente_historico);
 			}
 			
 			try {

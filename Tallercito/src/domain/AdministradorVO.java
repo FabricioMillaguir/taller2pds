@@ -2,6 +2,8 @@ package domain;
 
 public class AdministradorVO {
 
+	private int id;
+
 	private String usuario;
 
 	private String clave;
@@ -10,56 +12,45 @@ public class AdministradorVO {
 
 	}
 
-	/**
-	 * Instantiates a new administrador vo.
-	 * 
-	 * @param usuario
-	 *            the usuario
-	 * @param clave
-	 *            the clave
-	 */
-	public AdministradorVO(String usuario, String clave) {
+	public AdministradorVO(int id, String usuario, String clave) {
 		super();
+		this.id = id;
 		this.usuario = usuario;
 		this.clave = clave;
 	}
 
-	/**
-	 * Gets the usuario.
-	 * 
-	 * @return the usuario
-	 */
+	public AdministradorVO(int id) {
+		super();
+		this.id = id;
+	}
+
+	public AdministradorVO(String usuario, String clave) {
+		this.usuario = usuario;
+		this.clave = clave;
+	}
+
 	public String getUsuario() {
 		return usuario;
 	}
 
-	/**
-	 * Sets the usuario.
-	 * 
-	 * @param usuario
-	 *            the new usuario
-	 */
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
 
-	/**
-	 * Gets the clave.
-	 * 
-	 * @return the clave
-	 */
 	public String getClave() {
 		return clave;
 	}
 
-	/**
-	 * Sets the clave.
-	 * 
-	 * @param clave
-	 *            the new clave
-	 */
 	public void setClave(String clave) {
 		this.clave = clave;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }

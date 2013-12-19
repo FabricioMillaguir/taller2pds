@@ -1,9 +1,6 @@
 package spring3.form;
 
-// TODO: Auto-generated Javadoc
-/**
- * The Class ClienteForm.
- */
+
 public class ClienteForm implements java.io.Serializable{
 	
 	/** The clientes. */

@@ -23,7 +23,6 @@ public class ServicioCliente {
 					.beginTransaction();
 
 			try {
-
 				if (oClienteVO.getNombre() == ""
 						|| oClienteVO.getApellido_paterno() == ""
 						|| oClienteVO.getApellido_materno() == ""
@@ -252,7 +251,7 @@ public class ServicioCliente {
 
 				// Guarda las modificaciones del Cliente
 				orms.ClienteDAO.save(lormCliente);
-
+				
 				System.out.println("Modificado con Exito");
 				t.commit();
 			} catch (Exception e) {
@@ -266,6 +265,7 @@ public class ServicioCliente {
 		return "modificado";
 	}
 
+	//aqui
 	public List<domain.Cliente_historicoVO> filtrarCambioHistorico(
 			ClienteVO oClienteVO) {
 		List<domain.Cliente_historicoVO> clienteHistorico = new ArrayList<domain.Cliente_historicoVO>();

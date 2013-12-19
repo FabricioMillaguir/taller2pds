@@ -52,8 +52,8 @@ public class ClienteDetachedCriteria extends AbstractORMDetachedCriteria {
 		direccion = new StringExpression("direccion", this.getDetachedCriteria());
 	}
 	
-	public LoginDetachedCriteria createLoginCriteria() {
-		return new LoginDetachedCriteria(createCriteria("login"));
+	public LoginDetachedCriteria createLogintokenCriteria() {
+		return new LoginDetachedCriteria(createCriteria("logintoken"));
 	}
 	
 	public Cliente_historicoDetachedCriteria createCliente_historicoCriteria() {

@@ -6,33 +6,24 @@ public class Cliente_historicoVO {
 
 	private int id;
 
-	/** The nombre. */
 	private String nombre;
 
-	/** The apellido_paterno. */
 	private String apellido_paterno;
 
-	/** The apellido_materno. */
 	private String apellido_materno;
 
-	/** The rut. */
 	private String rut;
 
-	/** The celular. */
 	private String celular;
 
-	/** The correo. */
 	private String correo;
 
-	/** The direccion. */
 	private String direccion;
 
 	private Date fecha_cambio;
 
-	/** The o cliente vo. */
 	private ClienteVO oClienteVO;
 
-	/** The o login vo. */
 	private LoginVO oLoginVO;
 
 	/**

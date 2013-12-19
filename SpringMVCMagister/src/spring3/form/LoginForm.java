@@ -1,12 +1,6 @@
 package spring3.form;
 
-// TODO: Auto-generated Javadoc
-/**
- * @author Diego Solis San Martin
- */
-/**
- * The Class LoginForm.
- */
+
 public class LoginForm implements java.io.Serializable {
 	
 	/** The logins. */

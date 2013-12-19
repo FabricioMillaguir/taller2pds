@@ -186,7 +186,7 @@
     <DriverFiles>C:\Users\Fabricio\Documents\pds\sqljdbc4.jar</DriverFiles>
     <Dialect>org.hibernate.dialect.SQLServerDialect</Dialect>
     <DriverClass>com.microsoft.sqlserver.jdbc.SQLServerDriver</DriverClass>
-    <URL>jdbc:sqlserver://127.0.0.1\SQLEXPRESS:1433;databaseName=cuentas;</URL>
+    <URL>jdbc:sqlserver://127.0.0.1\SQLEXPRESS:1433;databaseName=cuentas1;</URL>
     <UserName>millaguir</UserName>
     <Password>millagui</Password>
     <HostName>localhost\SQLEXPRESS</HostName>

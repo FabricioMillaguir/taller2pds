@@ -42,8 +42,8 @@ public class Cuenta implements Serializable {
 			this.servicio = (orms.Servicio) owner;
 		}
 		
-		else if (key == orms.ORMConstants.KEY_CUENTA_LOGIN) {
-			this.login = (orms.Login) owner;
+		else if (key == orms.ORMConstants.KEY_CUENTA_LOGINTOKEN) {
+			this.logintoken = (orms.Login) owner;
 		}
 	}
 	
@@ -66,7 +66,7 @@ public class Cuenta implements Serializable {
 	private int id;
 	
 	@Column(name="habilitada", nullable=false)	
-	private Boolean habilitada;
+	private boolean habilitada;
 	
 	@ManyToOne(targetEntity=orms.Cliente.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
@@ -82,9 +82,9 @@ public class Cuenta implements Serializable {
 	
 	@ManyToOne(targetEntity=orms.Login.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns({ @JoinColumn(name="Loginid", referencedColumnName="id", nullable=false) })	
+	@JoinColumns({ @JoinColumn(name="Logintoken", referencedColumnName="token", nullable=false) })	
 	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
-	private orms.Login login;
+	private orms.Login logintoken;
 	
 	@OneToMany(mappedBy="cuenta", targetEntity=orms.Consumo.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
@@ -113,20 +113,13 @@ public class Cuenta implements Serializable {
 	 * Habilitada si o no
 	 */
 	public void setHabilitada(boolean value) {
-		setHabilitada(new Boolean(value));
-	}
-	
-	/**
-	 * Habilitada si o no
-	 */
-	public void setHabilitada(Boolean value) {
 		this.habilitada = value;
 	}
 	
 	/**
 	 * Habilitada si o no
 	 */
-	public Boolean getHabilitada() {
+	public boolean getHabilitada() {
 		return habilitada;
 	}
 	
@@ -178,28 +171,28 @@ public class Cuenta implements Serializable {
 		return servicio;
 	}
 	
-	public void setLogin(orms.Login value) {
-		if (login != null) {
-			login.cuenta.remove(this);
+	public void setLogintoken(orms.Login value) {
+		if (logintoken != null) {
+			logintoken.cuenta.remove(this);
 		}
 		if (value != null) {
 			value.cuenta.add(this);
 		}
 	}
 	
-	public orms.Login getLogin() {
-		return login;
+	public orms.Login getLogintoken() {
+		return logintoken;
 	}
 	
 	/**
 	 * This method is for internal use only.
 	 */
-	public void setORM_Login(orms.Login value) {
-		this.login = value;
+	public void setORM_Logintoken(orms.Login value) {
+		this.logintoken = value;
 	}
 	
-	private orms.Login getORM_Login() {
-		return login;
+	private orms.Login getORM_Logintoken() {
+		return logintoken;
 	}
 	
 	private void setORM_Consumo(java.util.Set value) {

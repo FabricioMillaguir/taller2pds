@@ -1,12 +1,6 @@
 package spring3.form;
 
-// TODO: Auto-generated Javadoc
-/**
- * @author Diego Solis San Martin
- */
-/**
- * The Class Consumo.
- */
+
 public class Consumo implements java.io.Serializable {
 	
 	/** The consumo. */

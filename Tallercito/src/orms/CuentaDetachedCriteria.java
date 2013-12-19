@@ -42,8 +42,8 @@ public class CuentaDetachedCriteria extends AbstractORMDetachedCriteria {
 		return new ServicioDetachedCriteria(createCriteria("servicio"));
 	}
 	
-	public LoginDetachedCriteria createLoginCriteria() {
-		return new LoginDetachedCriteria(createCriteria("login"));
+	public LoginDetachedCriteria createLogintokenCriteria() {
+		return new LoginDetachedCriteria(createCriteria("logintoken"));
 	}
 	
 	public ConsumoDetachedCriteria createConsumoCriteria() {

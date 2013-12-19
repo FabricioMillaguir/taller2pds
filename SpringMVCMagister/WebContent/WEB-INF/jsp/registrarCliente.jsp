@@ -6,7 +6,7 @@
 </head>
 <body>
 <h2>Formulario Registro Cliente</h2>
-<form:form method="post" action="addCliente.html">
+<form:form method="post" action="registrarCliente.html">
  
     <table>
     <tr> 	

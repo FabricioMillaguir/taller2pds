@@ -322,8 +322,8 @@ public class ClienteDAO {
 	
 	public static boolean deleteAndDissociate(orms.Cliente cliente)throws PersistentException {
 		try {
-			if(cliente.getLogin() != null) {
-				cliente.getLogin().cliente.remove(cliente);
+			if(cliente.getLogintoken() != null) {
+				cliente.getLogintoken().cliente.remove(cliente);
 			}
 			
 			orms.Cliente_historico[] lCliente_historicos = cliente.cliente_historico.toArray();
@@ -344,8 +344,8 @@ public class ClienteDAO {
 	
 	public static boolean deleteAndDissociate(orms.Cliente cliente, org.orm.PersistentSession session)throws PersistentException {
 		try {
-			if(cliente.getLogin() != null) {
-				cliente.getLogin().cliente.remove(cliente);
+			if(cliente.getLogintoken() != null) {
+				cliente.getLogintoken().cliente.remove(cliente);
 			}
 			
 			orms.Cliente_historico[] lCliente_historicos = cliente.cliente_historico.toArray();

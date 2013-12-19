@@ -326,8 +326,8 @@ public class ConsumoDAO {
 				consumo.getCuenta().consumo.remove(consumo);
 			}
 			
-			if(consumo.getLogin() != null) {
-				consumo.getLogin().consumo.remove(consumo);
+			if(consumo.getLogintoken() != null) {
+				consumo.getLogintoken().consumo.remove(consumo);
 			}
 			
 			return delete(consumo);
@@ -344,8 +344,8 @@ public class ConsumoDAO {
 				consumo.getCuenta().consumo.remove(consumo);
 			}
 			
-			if(consumo.getLogin() != null) {
-				consumo.getLogin().consumo.remove(consumo);
+			if(consumo.getLogintoken() != null) {
+				consumo.getLogintoken().consumo.remove(consumo);
 			}
 			
 			try {

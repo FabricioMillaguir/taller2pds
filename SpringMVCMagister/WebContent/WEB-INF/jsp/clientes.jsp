@@ -14,21 +14,9 @@
         </td>
 </form:form>
 
-<form:form method="post" action="mostrarClientes.html">
-        <td colspan="2">
-            <input type="submit" value="         Mostrar Clientes         "/>
-        </td>
-</form:form>
-
-<form:form method="post" action="buscarCliente.html">
+<form:form method="post" action="buscar.html">
         <td colspan="2">
             <input type="submit" value="          Buscar Clientes             "/>
-        </td>
-</form:form>
-
-<form:form method="post" action="modificarCliente.html">
-        <td colspan="2">
-            <input type="submit" value="        Modificar Datos Cliente        "/>
         </td>
 </form:form>
 
@@ -39,7 +27,7 @@
 </form:form>
 
 
-<form:form method="post" action="menu.html">
+<form:form method="post" action="salir.html">
         <td colspan="2">
             <input type="submit" value="            Salir                "/>
         </td>

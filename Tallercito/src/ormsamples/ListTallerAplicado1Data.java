@@ -107,7 +107,7 @@ public class ListTallerAplicado1Data {
 		System.out.println("Listing Login by Criteria...");
 		orms.LoginCriteria lormsLoginCriteria = new orms.LoginCriteria();
 		// Please uncomment the follow line and fill in parameter(s) 
-		//lormsLoginCriteria.id.eq();
+		//lormsLoginCriteria.token.eq();
 		lormsLoginCriteria.setMaxResults(ROW_COUNT);
 		orms.Login[] ormsLogins = lormsLoginCriteria.listLogin();
 		length =ormsLogins== null ? 0 : Math.min(ormsLogins.length, ROW_COUNT); 

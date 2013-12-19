@@ -1,11 +1,5 @@
 package spring3.form;
-/**
- * @author Diego Solis San Martin
- */
-// TODO: Auto-generated Javadoc
-/**
- * The Class CuentaForm.
- */
+
 public class CuentaForm implements java.io.Serializable{
 	
 	/** The counts. */

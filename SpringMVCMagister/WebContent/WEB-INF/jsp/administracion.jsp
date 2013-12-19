@@ -15,14 +15,7 @@
         </td>
 </form:form>
 
-<form:form method="post" action="montos.html">
-        <td colspan="2">
-            <input type="submit" value="        Administración de montos           "/>
-        </td>
-</form:form>
-
-
-<form:form method="post" action="menu.html">
+<form:form method="post" action="salir.html">
         <td colspan="2">
             <input type="submit" value="            Salir                "/>
         </td>

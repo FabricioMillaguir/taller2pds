@@ -37,8 +37,8 @@ public class Cliente implements Serializable {
 	}
 	
 	private void this_setOwner(Object owner, int key) {
-		if (key == orms.ORMConstants.KEY_CLIENTE_LOGIN) {
-			this.login = (orms.Login) owner;
+		if (key == orms.ORMConstants.KEY_CLIENTE_LOGINTOKEN) {
+			this.logintoken = (orms.Login) owner;
 		}
 	}
 	
@@ -83,9 +83,9 @@ public class Cliente implements Serializable {
 	
 	@ManyToOne(targetEntity=orms.Login.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns({ @JoinColumn(name="Loginid", referencedColumnName="id", nullable=false) })	
+	@JoinColumns({ @JoinColumn(name="Logintoken", referencedColumnName="token", nullable=false) })	
 	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
-	private orms.Login login;
+	private orms.Login logintoken;
 	
 	@OneToMany(mappedBy="cliente", targetEntity=orms.Cliente_historico.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
@@ -213,28 +213,28 @@ public class Cliente implements Serializable {
 		return direccion;
 	}
 	
-	public void setLogin(orms.Login value) {
-		if (login != null) {
-			login.cliente.remove(this);
+	public void setLogintoken(orms.Login value) {
+		if (logintoken != null) {
+			logintoken.cliente.remove(this);
 		}
 		if (value != null) {
 			value.cliente.add(this);
 		}
 	}
 	
-	public orms.Login getLogin() {
-		return login;
+	public orms.Login getLogintoken() {
+		return logintoken;
 	}
 	
 	/**
 	 * This method is for internal use only.
 	 */
-	public void setORM_Login(orms.Login value) {
-		this.login = value;
+	public void setORM_Logintoken(orms.Login value) {
+		this.logintoken = value;
 	}
 	
-	private orms.Login getORM_Login() {
-		return login;
+	private orms.Login getORM_Logintoken() {
+		return logintoken;
 	}
 	
 	private void setORM_Cliente_historico(java.util.Set value) {

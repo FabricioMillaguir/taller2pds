@@ -19,17 +19,13 @@ import org.orm.PersistentSession;
 import org.orm.criteria.*;
 
 public class LoginCriteria extends AbstractORMCriteria {
-	public final IntegerExpression id;
 	public final StringExpression token;
-	public final StringExpression fecha_inicio;
-	public final StringExpression fecha_fin;
+	public final LongExpression tiempo_inicio;
 	
 	public LoginCriteria(Criteria criteria) {
 		super(criteria);
-		id = new IntegerExpression("id", this);
 		token = new StringExpression("token", this);
-		fecha_inicio = new StringExpression("fecha_inicio", this);
-		fecha_fin = new StringExpression("fecha_fin", this);
+		tiempo_inicio = new LongExpression("tiempo_inicio", this);
 	}
 	
 	public LoginCriteria(PersistentSession session) {
@@ -48,16 +44,16 @@ public class LoginCriteria extends AbstractORMCriteria {
 		return new ClienteCriteria(createCriteria("ORM_cliente"));
 	}
 	
+	public CuentaCriteria createCuentaCriteria() {
+		return new CuentaCriteria(createCriteria("ORM_cuenta"));
+	}
+	
 	public Cliente_historicoCriteria createCliente_historicoCriteria() {
 		return new Cliente_historicoCriteria(createCriteria("ORM_cliente_historico"));
 	}
 	
 	public ConsumoCriteria createConsumoCriteria() {
 		return new ConsumoCriteria(createCriteria("ORM_consumo"));
-	}
-	
-	public CuentaCriteria createCuentaCriteria() {
-		return new CuentaCriteria(createCriteria("ORM_cuenta"));
 	}
 	
 	public Login uniqueLogin() {

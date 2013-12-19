@@ -44,8 +44,8 @@ public class CuentaCriteria extends AbstractORMCriteria {
 		return new ServicioCriteria(createCriteria("servicio"));
 	}
 	
-	public LoginCriteria createLoginCriteria() {
-		return new LoginCriteria(createCriteria("login"));
+	public LoginCriteria createLogintokenCriteria() {
+		return new LoginCriteria(createCriteria("logintoken"));
 	}
 	
 	public ConsumoCriteria createConsumoCriteria() {

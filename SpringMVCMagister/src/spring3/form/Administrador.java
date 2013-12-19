@@ -1,13 +1,5 @@
 package spring3.form;
 
-// TODO: Auto-generated Javadoc
-
-/**
- * @author Diego Solis San Martin
- */
-/**
- * The Class Administrador.
- */
 public class Administrador implements java.io.Serializable {
 
 	/** The usuario. */

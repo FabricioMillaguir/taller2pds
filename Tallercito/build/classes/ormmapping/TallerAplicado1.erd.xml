@@ -98,17 +98,16 @@
       <Comment>Direccion del Cliente</Comment>
       <UserTypes/>
     </Column>
-    <Column name="Loginid">
+    <Column name="Logintoken">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>Login.id</ReferencedColumn>
-      <Type>9</Type>
-      <Length>0</Length>
+      <ReferencedColumn>Login.token</ReferencedColumn>
+      <Type>27</Type>
+      <Length>21</Length>
       <Nullable>false</Nullable>
-      <IDGenerator>assigned</IDGenerator>
+      <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>Id del Token</Comment>
       <UserTypes/>
     </Column>
     <Comment>Cliente</Comment>
@@ -223,19 +222,6 @@
       <Comment>Id del Cliente</Comment>
       <UserTypes/>
     </Column>
-    <Column name="Loginid">
-      <PrimaryKey>false</PrimaryKey>
-      <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>Login.id</ReferencedColumn>
-      <Type>9</Type>
-      <Length>0</Length>
-      <Nullable>false</Nullable>
-      <IDGenerator>assigned</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <Comment>Id del Token</Comment>
-      <UserTypes/>
-    </Column>
     <Column name="fecha_cambio">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
@@ -246,6 +232,18 @@
       <Unique>false</Unique>
       <Index>false</Index>
       <Comment>Fecha del cambio</Comment>
+      <UserTypes/>
+    </Column>
+    <Column name="Logintoken">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>Login.token</ReferencedColumn>
+      <Type>27</Type>
+      <Length>21</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
       <UserTypes/>
     </Column>
     <Comment>Cambio historico del Cliente</Comment>
@@ -301,36 +299,23 @@
       <Comment>Id del servicio</Comment>
       <UserTypes/>
     </Column>
-    <Column name="Loginid">
+    <Column name="Logintoken">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>Login.id</ReferencedColumn>
-      <Type>9</Type>
-      <Length>0</Length>
+      <ReferencedColumn>Login.token</ReferencedColumn>
+      <Type>27</Type>
+      <Length>21</Length>
       <Nullable>false</Nullable>
-      <IDGenerator>assigned</IDGenerator>
+      <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>Id del Token</Comment>
       <UserTypes/>
     </Column>
     <Comment>Cuenta</Comment>
   </Entity>
   <Entity name="Login">
-    <Column name="id">
-      <PrimaryKey>true</PrimaryKey>
-      <ForeignKey>false</ForeignKey>
-      <Type>9</Type>
-      <Length>0</Length>
-      <Nullable>false</Nullable>
-      <IDGenerator>increment</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <Comment>Id del Login</Comment>
-      <UserTypes/>
-    </Column>
     <Column name="token">
-      <PrimaryKey>false</PrimaryKey>
+      <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>21</Length>
@@ -341,28 +326,16 @@
       <Comment>Token del login</Comment>
       <UserTypes/>
     </Column>
-    <Column name="fecha_inicio">
+    <Column name="tiempo_inicio">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
-      <Type>27</Type>
-      <Length>25</Length>
+      <Type>16</Type>
+      <Length>0</Length>
       <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
       <Comment>Fecha inicio Login</Comment>
-      <UserTypes/>
-    </Column>
-    <Column name="fecha_fin">
-      <PrimaryKey>false</PrimaryKey>
-      <ForeignKey>false</ForeignKey>
-      <Type>27</Type>
-      <Length>25</Length>
-      <Nullable>false</Nullable>
-      <IDGenerator>native</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <Comment>Fecha del fin del Login</Comment>
       <UserTypes/>
     </Column>
     <Column name="Administradorid">
@@ -410,7 +383,7 @@
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>255</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
@@ -529,17 +502,16 @@
       <Comment>Id de la cuenta</Comment>
       <UserTypes/>
     </Column>
-    <Column name="Loginid">
+    <Column name="Logintoken">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>Login.id</ReferencedColumn>
-      <Type>9</Type>
-      <Length>0</Length>
+      <ReferencedColumn>Login.token</ReferencedColumn>
+      <Type>27</Type>
+      <Length>21</Length>
       <Nullable>false</Nullable>
-      <IDGenerator>assigned</IDGenerator>
+      <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
-      <Comment>Id del Login</Comment>
       <UserTypes/>
     </Column>
     <Comment>Consumo</Comment>
@@ -603,26 +575,6 @@
       <Column>id</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="FKCliente872472">
-    <ReferenceTable>Cliente</ReferenceTable>
-    <ReferencedTable>Login</ReferencedTable>
-    <Columns>
-      <Column>Loginid</Column>
-    </Columns>
-    <RefColumns>
-      <Column>id</Column>
-    </RefColumns>
-  </ForeignKey>
-  <ForeignKey name="FKCliente_hi505759">
-    <ReferenceTable>Cliente_historico</ReferenceTable>
-    <ReferencedTable>Login</ReferencedTable>
-    <Columns>
-      <Column>Loginid</Column>
-    </Columns>
-    <RefColumns>
-      <Column>id</Column>
-    </RefColumns>
-  </ForeignKey>
   <ForeignKey name="FKCuenta951582">
     <ReferenceTable>Cuenta</ReferenceTable>
     <ReferencedTable>Servicio</ReferencedTable>
@@ -643,16 +595,6 @@
       <Column>id</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="FKConsumo801215">
-    <ReferenceTable>Consumo</ReferenceTable>
-    <ReferencedTable>Login</ReferencedTable>
-    <Columns>
-      <Column>Loginid</Column>
-    </Columns>
-    <RefColumns>
-      <Column>id</Column>
-    </RefColumns>
-  </ForeignKey>
   <ForeignKey name="FKLogin220878">
     <ReferenceTable>Login</ReferenceTable>
     <ReferencedTable>Administrador</ReferencedTable>
@@ -663,14 +605,44 @@
       <Column>id</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="FKCuenta45449">
+  <ForeignKey name="FKCliente504764">
+    <ReferenceTable>Cliente</ReferenceTable>
+    <ReferencedTable>Login</ReferencedTable>
+    <Columns>
+      <Column>Logintoken</Column>
+    </Columns>
+    <RefColumns>
+      <Column>token</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKCuenta422686">
     <ReferenceTable>Cuenta</ReferenceTable>
     <ReferencedTable>Login</ReferencedTable>
     <Columns>
-      <Column>Loginid</Column>
+      <Column>Logintoken</Column>
     </Columns>
     <RefColumns>
-      <Column>id</Column>
+      <Column>token</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKCliente_hi128522">
+    <ReferenceTable>Cliente_historico</ReferenceTable>
+    <ReferencedTable>Login</ReferencedTable>
+    <Columns>
+      <Column>Logintoken</Column>
+    </Columns>
+    <RefColumns>
+      <Column>token</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKConsumo576021">
+    <ReferenceTable>Consumo</ReferenceTable>
+    <ReferencedTable>Login</ReferencedTable>
+    <Columns>
+      <Column>Logintoken</Column>
+    </Columns>
+    <RefColumns>
+      <Column>token</Column>
     </RefColumns>
   </ForeignKey>
 </Model>

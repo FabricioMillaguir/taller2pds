@@ -54,8 +54,8 @@ public class Cliente_historicoCriteria extends AbstractORMCriteria {
 		return new ClienteCriteria(createCriteria("cliente"));
 	}
 	
-	public LoginCriteria createLoginCriteria() {
-		return new LoginCriteria(createCriteria("login"));
+	public LoginCriteria createLogintokenCriteria() {
+		return new LoginCriteria(createCriteria("logintoken"));
 	}
 	
 	public Cliente_historico uniqueCliente_historico() {

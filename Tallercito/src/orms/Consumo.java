@@ -30,8 +30,8 @@ public class Consumo implements Serializable {
 			this.cuenta = (orms.Cuenta) owner;
 		}
 		
-		else if (key == orms.ORMConstants.KEY_CONSUMO_LOGIN) {
-			this.login = (orms.Login) owner;
+		else if (key == orms.ORMConstants.KEY_CONSUMO_LOGINTOKEN) {
+			this.logintoken = (orms.Login) owner;
 		}
 	}
 	
@@ -50,13 +50,13 @@ public class Consumo implements Serializable {
 	private int id;
 	
 	@Column(name="cantidad_consumida", nullable=false)	
-	private Integer cantidad_consumida;
+	private int cantidad_consumida;
 	
 	@Column(name="pagado", nullable=false)	
-	private Boolean pagado;
+	private boolean pagado;
 	
 	@Column(name="moroso", nullable=false)	
-	private Boolean moroso;
+	private boolean moroso;
 	
 	@Column(name="fecha_vencimiento", nullable=false, length=25)	
 	private String fecha_vencimiento;
@@ -72,9 +72,9 @@ public class Consumo implements Serializable {
 	
 	@ManyToOne(targetEntity=orms.Login.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns({ @JoinColumn(name="Loginid", referencedColumnName="id", nullable=false) })	
+	@JoinColumns({ @JoinColumn(name="Logintoken", referencedColumnName="token", nullable=false) })	
 	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
-	private orms.Login login;
+	private orms.Login logintoken;
 	
 	/**
 	 * Id del consumo
@@ -98,20 +98,13 @@ public class Consumo implements Serializable {
 	 * cantidad consumido
 	 */
 	public void setCantidad_consumida(int value) {
-		setCantidad_consumida(new Integer(value));
-	}
-	
-	/**
-	 * cantidad consumido
-	 */
-	public void setCantidad_consumida(Integer value) {
 		this.cantidad_consumida = value;
 	}
 	
 	/**
 	 * cantidad consumido
 	 */
-	public Integer getCantidad_consumida() {
+	public int getCantidad_consumida() {
 		return cantidad_consumida;
 	}
 	
@@ -119,20 +112,13 @@ public class Consumo implements Serializable {
 	 * Pagado si o no
 	 */
 	public void setPagado(boolean value) {
-		setPagado(new Boolean(value));
-	}
-	
-	/**
-	 * Pagado si o no
-	 */
-	public void setPagado(Boolean value) {
 		this.pagado = value;
 	}
 	
 	/**
 	 * Pagado si o no
 	 */
-	public Boolean getPagado() {
+	public boolean getPagado() {
 		return pagado;
 	}
 	
@@ -140,20 +126,13 @@ public class Consumo implements Serializable {
 	 * Morosidad del consumo si o no
 	 */
 	public void setMoroso(boolean value) {
-		setMoroso(new Boolean(value));
-	}
-	
-	/**
-	 * Morosidad del consumo si o no
-	 */
-	public void setMoroso(Boolean value) {
 		this.moroso = value;
 	}
 	
 	/**
 	 * Morosidad del consumo si o no
 	 */
-	public Boolean getMoroso() {
+	public boolean getMoroso() {
 		return moroso;
 	}
 	
@@ -209,28 +188,28 @@ public class Consumo implements Serializable {
 		return cuenta;
 	}
 	
-	public void setLogin(orms.Login value) {
-		if (login != null) {
-			login.consumo.remove(this);
+	public void setLogintoken(orms.Login value) {
+		if (logintoken != null) {
+			logintoken.consumo.remove(this);
 		}
 		if (value != null) {
 			value.consumo.add(this);
 		}
 	}
 	
-	public orms.Login getLogin() {
-		return login;
+	public orms.Login getLogintoken() {
+		return logintoken;
 	}
 	
 	/**
 	 * This method is for internal use only.
 	 */
-	public void setORM_Login(orms.Login value) {
-		this.login = value;
+	public void setORM_Logintoken(orms.Login value) {
+		this.logintoken = value;
 	}
 	
-	private orms.Login getORM_Login() {
-		return login;
+	private orms.Login getORM_Logintoken() {
+		return logintoken;
 	}
 	
 	public String toString() {

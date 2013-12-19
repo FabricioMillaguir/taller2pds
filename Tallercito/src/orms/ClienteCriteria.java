@@ -48,8 +48,8 @@ public class ClienteCriteria extends AbstractORMCriteria {
 		this(orms.TallerAplicado1PersistentManager.instance().getSession());
 	}
 	
-	public LoginCriteria createLoginCriteria() {
-		return new LoginCriteria(createCriteria("login"));
+	public LoginCriteria createLogintokenCriteria() {
+		return new LoginCriteria(createCriteria("logintoken"));
 	}
 	
 	public Cliente_historicoCriteria createCliente_historicoCriteria() {

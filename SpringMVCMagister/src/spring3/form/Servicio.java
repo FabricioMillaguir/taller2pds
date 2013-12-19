@@ -1,12 +1,6 @@
 package spring3.form;
 
-// TODO: Auto-generated Javadoc
-/**
- * @author Diego Solis San Martin
- */
-/**
- * The Class Servicio.
- */
+
 public class Servicio implements java.io.Serializable {
 
 	/** The tipo_servicio. */

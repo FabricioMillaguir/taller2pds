@@ -153,19 +153,13 @@ public class Validacion {
 		if(log!=null){
 			//fecha debe ser con el formato yy/mm/dd hh:mm:ss
 
-			String f_fin = log.getFecha_fin();
-
 			SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
 
 			try {
 				Date date = new Date();
 				System.out.println(formatter.format(date));
 
-				Date fin = formatter.parse(f_fin);
-				System.out.println(fin);
 
-
-				boolean vigente = fin.after(date);
 				if(vigente){
 					salida=true;
 				}else{

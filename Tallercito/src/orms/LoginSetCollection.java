@@ -70,10 +70,8 @@ public class LoginSetCollection extends org.orm.util.ORMSet {
 	/**
 	 * Return an sorted array containing all of the persistent objects in ORMSet
 	 * @param propertyName Name of the property for sorting:<ul>
-	 * <li>id</li>
 	 * <li>token</li>
-	 * <li>fecha_inicio</li>
-	 * <li>fecha_fin</li>
+	 * <li>tiempo_inicio</li>
 	 * </ul>
 	 * @return The persistent objects sorted array
 	 */
@@ -84,10 +82,8 @@ public class LoginSetCollection extends org.orm.util.ORMSet {
 	/**
 	 * Return an sorted array containing all of the persistent objects in ORMSet
 	 * @param propertyName Name of the property for sorting:<ul>
-	 * <li>id</li>
 	 * <li>token</li>
-	 * <li>fecha_inicio</li>
-	 * <li>fecha_fin</li>
+	 * <li>tiempo_inicio</li>
 	 * </ul>
 	 * @param ascending true for ascending, false for descending
 	 * @return The persistent objects sorted array

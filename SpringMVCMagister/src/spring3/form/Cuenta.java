@@ -1,14 +1,6 @@
 package spring3.form;
 
-// TODO: Auto-generated Javadoc
-/**
- * The Class Cuenta.
- *
- * @author Diego Solis San Martin
- */
-/**
- * The Class Cuenta.
- */
+
 public class Cuenta implements java.io.Serializable {
 	
 	/** The activa. */
