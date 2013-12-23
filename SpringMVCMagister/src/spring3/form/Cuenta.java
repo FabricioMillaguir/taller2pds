@@ -1,111 +1,78 @@
 package spring3.form;
 
+import domain.xsd.ServicioVO;
+import webservice.ServicioGastosComunesStub.ClienteVO;
+import webservice.ServicioGastosComunesStub.LoginVO;
 
 public class Cuenta implements java.io.Serializable {
-	
-	/** The activa. */
-	private boolean activa;
-	
-	/** The clienteid. */
-	private spring3.form.Cliente clienteid;
-	
-	/** The servicioid. */
-	private spring3.form.Servicio servicioid;
-	
-	/** The loginid. */
-	private spring3.form.Login loginid;
-	
-	/**
-	 * Instantiates a new cuenta.
-	 */
-	public Cuenta(){
-		
-	}
-	
-	/**
-	 * Instantiates a new cuenta.
-	 *
-	 * @param activa the activa
-	 * @param clienteid the clienteid
-	 * @param servicioid the servicioid
-	 * @param loginid the loginid
-	 */
-	public Cuenta(boolean activa, spring3.form.Cliente clienteid, spring3.form.Servicio servicioid, spring3.form.Login loginid){
-		this.activa = activa;
-		this.clienteid = clienteid;
-		this.servicioid = servicioid;
-		this.loginid = loginid;
+
+	private int id;
+	private boolean habilitada;
+	private ClienteVO clienteVO;
+	private ServicioVO servicioVO;
+	private LoginVO loginVO;
+
+	public Cuenta() {
+
 	}
 
-	/**
-	 * Checks if is activa.
-	 *
-	 * @return true, if is activa
-	 */
-	public boolean isActiva() {
-		return activa;
+	public Cuenta(int id, boolean habilitada, ClienteVO clienteVO,
+			ServicioVO servicioVO, LoginVO loginVO) {
+		super();
+		this.id = id;
+		this.habilitada = habilitada;
+		this.clienteVO = clienteVO;
+		this.servicioVO = servicioVO;
+		this.loginVO = loginVO;
 	}
 
-	/**
-	 * Sets the activa.
-	 *
-	 * @param activa the new activa
-	 */
-	public void setActiva(boolean activa) {
-		this.activa = activa;
+	public Cuenta(boolean habilitada, ClienteVO clienteVO,
+			ServicioVO servicioVO, LoginVO loginVO) {
+		super();
+		this.habilitada = habilitada;
+		this.clienteVO = clienteVO;
+		this.servicioVO = servicioVO;
+		this.loginVO = loginVO;
 	}
 
-	/**
-	 * Gets the clienteid.
-	 *
-	 * @return the clienteid
-	 */
-	public spring3.form.Cliente getClienteid() {
-		return clienteid;
+	public int getId() {
+		return id;
 	}
 
-	/**
-	 * Sets the clienteid.
-	 *
-	 * @param clienteid the new clienteid
-	 */
-	public void setClienteid(spring3.form.Cliente clienteid) {
-		this.clienteid = clienteid;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	/**
-	 * Gets the servicioid.
-	 *
-	 * @return the servicioid
-	 */
-	public spring3.form.Servicio getServicioid() {
-		return servicioid;
+	public boolean isHabilitada() {
+		return habilitada;
 	}
 
-	/**
-	 * Sets the servicioid.
-	 *
-	 * @param servicioid the new servicioid
-	 */
-	public void setServicioid(spring3.form.Servicio servicioid) {
-		this.servicioid = servicioid;
+	public void setHabilitada(boolean habilitada) {
+		this.habilitada = habilitada;
 	}
 
-	/**
-	 * Gets the loginid.
-	 *
-	 * @return the loginid
-	 */
-	public spring3.form.Login getLoginid() {
-		return loginid;
+	public ClienteVO getClienteVO() {
+		return clienteVO;
 	}
 
-	/**
-	 * Sets the loginid.
-	 *
-	 * @param loginid the new loginid
-	 */
-	public void setLoginid(spring3.form.Login loginid) {
-		this.loginid = loginid;
+	public void setClienteVO(ClienteVO clienteVO) {
+		this.clienteVO = clienteVO;
 	}
+
+	public ServicioVO getServicioVO() {
+		return servicioVO;
+	}
+
+	public void setServicioVO(ServicioVO servicioVO) {
+		this.servicioVO = servicioVO;
+	}
+
+	public LoginVO getLoginVO() {
+		return loginVO;
+	}
+
+	public void setLoginVO(LoginVO loginVO) {
+		this.loginVO = loginVO;
+	}
+
 }

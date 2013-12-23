@@ -21,40 +21,41 @@ import webservice.ServicioGastosComunesStub.LoggearResponse;
 @Controller
 @SessionAttributes
 public class LoginController {
-	
+
 	@RequestMapping("/login")
 	public ModelAndView abrirPrincipal() {
 		return new ModelAndView("login", "command", new Administrador());
 	}
 
-	@RequestMapping("/loguear")
-	public ModelAndView loguear(@ModelAttribute("Administrador") @Valid  Administrador administrador, BindingResult result, HttpSession session) {
+	@RequestMapping("/loggear")
+	public ModelAndView loguear(
+			@ModelAttribute("Administrador") @Valid Administrador administrador,
+			BindingResult result, HttpSession session) {
 		try {
 
-			if(administrador.getUsuario().isEmpty() || administrador.getClave().isEmpty()){
-				return new ModelAndView("error","message", "campos vacios");
+			if (administrador.getUsuario().isEmpty()
+					|| administrador.getClave().isEmpty()) {
+				return new ModelAndView("error", "message", "campos vacios");
 			}
 
 			ServicioGastosComunesStub oStub = new ServicioGastosComunesStub();
-			
-			
+
 			AdministradorVO oAdministradorVO = new AdministradorVO();
 			oAdministradorVO.setUsuario(administrador.getUsuario());
 			oAdministradorVO.setClave(administrador.getClave());
 			Loggear olLoggear = new Loggear();
 			olLoggear.setArgs0(oAdministradorVO);
 			LoggearResponse objResponse = oStub.loggear(olLoggear);
-	
+
 			session.setAttribute("token", objResponse.get_return());
 
-			return new ModelAndView("menu","command", "");
+			return new ModelAndView("menu", "command", "");
 
 		} catch (RemoteException e) {
 			e.printStackTrace();
 
 			return new ModelAndView("error", "message", "ERROR");
 		}
-
 
 	}
 }

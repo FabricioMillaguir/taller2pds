@@ -22,42 +22,18 @@ public class AdministradorVO  implements java.io.Serializable {
            this.usuario = usuario;
     }
 
-
-    /**
-     * Gets the clave value for this AdministradorVO.
-     * 
-     * @return clave
-     */
     public java.lang.String getClave() {
         return clave;
     }
 
-
-    /**
-     * Sets the clave value for this AdministradorVO.
-     * 
-     * @param clave
-     */
     public void setClave(java.lang.String clave) {
         this.clave = clave;
     }
 
-
-    /**
-     * Gets the usuario value for this AdministradorVO.
-     * 
-     * @return usuario
-     */
     public java.lang.String getUsuario() {
         return usuario;
     }
 
-
-    /**
-     * Sets the usuario value for this AdministradorVO.
-     * 
-     * @param usuario
-     */
     public void setUsuario(java.lang.String usuario) {
         this.usuario = usuario;
     }

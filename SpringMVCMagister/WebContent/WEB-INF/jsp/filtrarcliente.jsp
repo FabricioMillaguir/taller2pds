@@ -46,9 +46,9 @@
             	<td><input type="hidden" value="${cliente.id}" name="id" ></td>
             	<td><input type="submit" value="eliminar" /></td>
             </form:form>
-            <form:form action="modificarForm.html" method="post">
+            <form:form action="opcionesCliente.html" method="post">
             	<td><input type="hidden" value="${cliente.id}" name="id" ></td>
-            	<td><input type="submit" value="modificar" /></td>
+            	<td><input type="submit" value="Opciones del Cliente" /></td>
             </form:form>
             
         </tr>

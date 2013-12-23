@@ -3,9 +3,9 @@
 
 <html> 
     <head> 
-        <title>Inicio Sesión</title> 
+        <title>login</title> 
     </head> 
-	        <form:form method="post" action="loguear.html">
+	        <form:form method="post" action="loggear.html">
 
 		<table>
 			<tr> 	

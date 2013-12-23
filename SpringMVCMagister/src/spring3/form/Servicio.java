@@ -1,89 +1,68 @@
 package spring3.form;
 
+public class Servicio {
 
-public class Servicio implements java.io.Serializable {
+	private int id;
+	private String tipoDeServicio;
+	private String unidadDeMedida;
+	private int valorUnitario;
+	private int cargoFijo;
 
-	/** The tipo_servicio. */
-	private java.lang.String tipo_servicio;
-	
-	/** The valor_unitario. */
-	private java.lang.String valor_unitario;
-	
-	/** The valor_fijo. */
-	private java.lang.String valor_fijo;
-	
-	/**
-	 * Instantiates a new servicio.
-	 */
-	public Servicio(){
-		
-	}
-	
-	/**
-	 * Instantiates a new servicio.
-	 *
-	 * @param tipo_servicio the tipo_servicio
-	 * @param valor_unitario the valor_unitario
-	 * @param valor_fijo the valor_fijo
-	 */
-	public Servicio(java.lang.String tipo_servicio, java.lang.String valor_unitario, java.lang.String valor_fijo){
-		this.tipo_servicio = tipo_servicio;
-		this.valor_unitario = valor_unitario;
-		this.valor_fijo = valor_fijo;
+	public Servicio() {
 	}
 
-	/**
-	 * Gets the tipo_servicio.
-	 *
-	 * @return the tipo_servicio
-	 */
-	public java.lang.String getTipo_servicio() {
-		return tipo_servicio;
+	public Servicio(int id) {
+		super();
+		this.id = id;
 	}
 
-	/**
-	 * Sets the tipo_servicio.
-	 *
-	 * @param tipo_servicio the new tipo_servicio
-	 */
-	public void setTipo_servicio(java.lang.String tipo_servicio) {
-		this.tipo_servicio = tipo_servicio;
+	public Servicio(int id, String tipoDeServicio, String unidadDeMedida,
+			int valorUnitario, int cargoFijo) {
+		this.id = id;
+		this.tipoDeServicio = tipoDeServicio;
+		this.unidadDeMedida = unidadDeMedida;
+		this.valorUnitario = valorUnitario;
+		this.cargoFijo = cargoFijo;
 	}
 
-	/**
-	 * Gets the valor_unitario.
-	 *
-	 * @return the valor_unitario
-	 */
-	public java.lang.String getValor_unitario() {
-		return valor_unitario;
+	public int getId() {
+		return id;
 	}
 
-	/**
-	 * Sets the valor_unitario.
-	 *
-	 * @param valor_unitario the new valor_unitario
-	 */
-	public void setValor_unitario(java.lang.String valor_unitario) {
-		this.valor_unitario = valor_unitario;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	/**
-	 * Gets the valor_fijo.
-	 *
-	 * @return the valor_fijo
-	 */
-	public java.lang.String getValor_fijo() {
-		return valor_fijo;
+	public String getTipoDeServicio() {
+		return tipoDeServicio;
 	}
 
-	/**
-	 * Sets the valor_fijo.
-	 *
-	 * @param valor_fijo the new valor_fijo
-	 */
-	public void setValor_fijo(java.lang.String valor_fijo) {
-		this.valor_fijo = valor_fijo;
+	public void setTipoDeServicio(String tipoDeServicio) {
+		this.tipoDeServicio = tipoDeServicio;
 	}
-	
+
+	public String getUnidadDeMedida() {
+		return unidadDeMedida;
+	}
+
+	public void setUnidadDeMedida(String unidadDeMedida) {
+		this.unidadDeMedida = unidadDeMedida;
+	}
+
+	public int getValorUnitario() {
+		return valorUnitario;
+	}
+
+	public void setValorUnitario(int valorUnitario) {
+		this.valorUnitario = valorUnitario;
+	}
+
+	public int getCargoFijo() {
+		return cargoFijo;
+	}
+
+	public void setCargoFijo(int cargoFijo) {
+		this.cargoFijo = cargoFijo;
+	}
+
 }

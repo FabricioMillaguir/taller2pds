@@ -1,3 +1,4 @@
+<%@page import="spring3.controller.CuentaController"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
@@ -31,7 +32,6 @@
             <input type="submit" value="            Salir                "/>
         </td>
 </form:form>
-
 
 </body>
 </html>

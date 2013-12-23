@@ -77,6 +77,22 @@
             }
                 
            /**
+            * auto generated Axis2 call back method for deshabilitarCuentaACliente method
+            * override this method for handling normal response from deshabilitarCuentaACliente operation
+            */
+           public void receiveResultdeshabilitarCuentaACliente(
+                    webservice.ServicioGastosComunesStub.DeshabilitarCuentaAClienteResponse result
+                        ) {
+           }
+
+          /**
+           * auto generated Axis2 Error handler
+           * override this method for handling error response from deshabilitarCuentaACliente operation
+           */
+            public void receiveErrordeshabilitarCuentaACliente(java.lang.Exception e) {
+            }
+                
+           /**
             * auto generated Axis2 call back method for agregarAdministrador method
             * override this method for handling normal response from agregarAdministrador operation
             */
@@ -90,6 +106,54 @@
            * override this method for handling error response from agregarAdministrador operation
            */
             public void receiveErroragregarAdministrador(java.lang.Exception e) {
+            }
+                
+           /**
+            * auto generated Axis2 call back method for filtrarCuentasDelCliente method
+            * override this method for handling normal response from filtrarCuentasDelCliente operation
+            */
+           public void receiveResultfiltrarCuentasDelCliente(
+                    webservice.ServicioGastosComunesStub.FiltrarCuentasDelClienteResponse result
+                        ) {
+           }
+
+          /**
+           * auto generated Axis2 Error handler
+           * override this method for handling error response from filtrarCuentasDelCliente operation
+           */
+            public void receiveErrorfiltrarCuentasDelCliente(java.lang.Exception e) {
+            }
+                
+           /**
+            * auto generated Axis2 call back method for filtrarCambioHistorico method
+            * override this method for handling normal response from filtrarCambioHistorico operation
+            */
+           public void receiveResultfiltrarCambioHistorico(
+                    webservice.ServicioGastosComunesStub.FiltrarCambioHistoricoResponse result
+                        ) {
+           }
+
+          /**
+           * auto generated Axis2 Error handler
+           * override this method for handling error response from filtrarCambioHistorico operation
+           */
+            public void receiveErrorfiltrarCambioHistorico(java.lang.Exception e) {
+            }
+                
+           /**
+            * auto generated Axis2 call back method for registrarCuentaACliente method
+            * override this method for handling normal response from registrarCuentaACliente operation
+            */
+           public void receiveResultregistrarCuentaACliente(
+                    webservice.ServicioGastosComunesStub.RegistrarCuentaAClienteResponse result
+                        ) {
+           }
+
+          /**
+           * auto generated Axis2 Error handler
+           * override this method for handling error response from registrarCuentaACliente operation
+           */
+            public void receiveErrorregistrarCuentaACliente(java.lang.Exception e) {
             }
                 
            /**
@@ -122,6 +186,22 @@
            * override this method for handling error response from modificarCliente operation
            */
             public void receiveErrormodificarCliente(java.lang.Exception e) {
+            }
+                
+           /**
+            * auto generated Axis2 call back method for mostrarServicio method
+            * override this method for handling normal response from mostrarServicio operation
+            */
+           public void receiveResultmostrarServicio(
+                    webservice.ServicioGastosComunesStub.MostrarServicioResponse result
+                        ) {
+           }
+
+          /**
+           * auto generated Axis2 Error handler
+           * override this method for handling error response from mostrarServicio operation
+           */
+            public void receiveErrormostrarServicio(java.lang.Exception e) {
             }
                 
 

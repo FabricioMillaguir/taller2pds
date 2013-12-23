@@ -7,7 +7,7 @@
 
 package domain.xsd;
 
-public class ClienteVO  implements java.io.Serializable {
+public class ClienteVO implements java.io.Serializable {
     private java.lang.String apellido_materno;
 
     private java.lang.String apellido_paterno;
@@ -29,7 +29,13 @@ public class ClienteVO  implements java.io.Serializable {
     public ClienteVO() {
     }
 
-    public ClienteVO(
+    
+    public ClienteVO(Integer id) {
+    	this.id = id;
+	}
+
+
+	public ClienteVO(
            java.lang.String apellido_materno,
            java.lang.String apellido_paterno,
            java.lang.String celular,

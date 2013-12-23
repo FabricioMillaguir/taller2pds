@@ -1,38 +1,54 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-<title>Menu MACROCUENTAS!</title>
+    <title>Vista Cliente</title>
 </head>
 <body>
 
-<h2>Menu gestion de clientes</h2>
-<form:form method="post" action="agregarCliente.html">
+
+ 
+    <table>
+    <c:forEach items="${clienteForm.clientes}" var="cliente" varStatus="status">
+    <tr>
+    <td><input type="hidden" value="${cliente.id}" name="id"></td>
+    </tr>
+    <tr> 	
+        <td>Rut</td>
+ 		<td><input name="rut" value="${cliente.rut}"></td>
+    </tr>
+    <tr>
+    	<td>Nombre</td>
+ 		<td><input name="nombre" value="${cliente.nombre}"></td>
+    </tr>
+    <tr>
+        <td>Apellido Paterno</td>
+ 		<td><input name="apellido_paterno" value="${cliente.apellido_paterno}"></td>
+    </tr>
+    <tr>
+        <td>Apellido Materno</td>
+ 		<td><input name="apellido_materno" value="${cliente.apellido_materno}"></td>
+    </tr>
+    <tr>
+        <td>Correo</td>
+ 		<td><input name="correo" value="${cliente.correo}"></td>
+    </tr>
+    <tr>
+        <td>Celular</td>
+ 		<td><input name="celular" value="${cliente.celular}"></td>
+    </tr>
+    <tr>
+        <td>Direccion</td>
+ 		<td><input name="direccion" value="${cliente.direccion}"></td>
+    </tr>
+    <tr>
         <td colspan="2">
-            <input type="submit" value="       Registrar Clientes        "/>
+            <input type="submit" value="Modificar cliente" />
         </td>
-</form:form>
-
-<form:form method="post" action="buscar.html">
-        <td colspan="2">
-            <input type="submit" value="          Buscar Clientes             "/>
-        </td>
-</form:form>
-
-<form:form method="post" action="historico.html">
-        <td colspan="2">
-            <input type="submit" value="        Ver Historico de Clientes      "/>
-        </td>
-</form:form>
-
-
-<form:form method="post" action="salir.html">
-        <td colspan="2">
-            <input type="submit" value="            Salir                "/>
-        </td>
-</form:form>
-
-
+    </tr>
+    </c:forEach>
+</table>  
+     
 </body>
 </html>

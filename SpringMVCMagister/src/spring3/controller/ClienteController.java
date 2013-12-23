@@ -1,11 +1,8 @@
 package spring3.controller;
 
 import java.rmi.RemoteException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.http.HttpSession;
-import javax.swing.JOptionPane;
 import javax.validation.Valid;
 
 import spring3.form.Cliente;
@@ -40,7 +37,6 @@ public class ClienteController {
 		return new ModelAndView("clientes");
 	}
 
-
 	@RequestMapping("/agregarCliente")
 	public ModelAndView registrarCliente() {
 
@@ -51,7 +47,7 @@ public class ClienteController {
 	public ModelAndView registrarCliente(
 			@ModelAttribute("Administrador") @Valid Cliente cliente,
 			BindingResult result, HttpSession session) {
-		
+
 		if (result.hasErrors()) {
 			System.out.println("ERROR");
 			return new ModelAndView("cliente");
@@ -60,9 +56,7 @@ public class ClienteController {
 		try {
 
 			ServicioGastosComunesStub oStub = new ServicioGastosComunesStub();
-			
-			
-		
+
 			ClienteVO clienteVO = new ClienteVO();
 			clienteVO.setRut(cliente.getRut());
 			clienteVO.setNombre(cliente.getNombre());
@@ -71,14 +65,14 @@ public class ClienteController {
 			clienteVO.setCelular(cliente.getCelular());
 			clienteVO.setCorreo(cliente.getCorreo());
 			clienteVO.setDireccion(cliente.getDireccion());
-			
-			LoginVO login = (LoginVO)session.getAttribute("token");
+
+			LoginVO login = (LoginVO) session.getAttribute("token");
 			clienteVO.setOLoginVO(login);
 
-			
 			AgregarCliente oAgregarCliente = new AgregarCliente();
 			oAgregarCliente.setArgs0(clienteVO);
-			AgregarClienteResponse objResponse = oStub.agregarCliente(oAgregarCliente);
+			AgregarClienteResponse objResponse = oStub
+					.agregarCliente(oAgregarCliente);
 			String mensaje = objResponse.get_return();
 
 			return new ModelAndView("mensaje", "message", mensaje);
@@ -99,17 +93,17 @@ public class ClienteController {
 	public ModelAndView filtrar(@RequestParam("busqueda") String busqueda,
 			@RequestParam("atributo") String atributo) {
 		ClienteForm clienteForm = new ClienteForm();
-		
+
 		try {
 
 			ServicioGastosComunesStub oStub = new ServicioGastosComunesStub();
 
-			// Filtra
 			FiltrarCliente oFiltrarCliente = new FiltrarCliente();
 			oFiltrarCliente.setArgs0(busqueda);
 			oFiltrarCliente.setArgs1(atributo);
 
-			FiltrarClienteResponse objResponse = oStub.filtrarCliente(oFiltrarCliente);
+			FiltrarClienteResponse objResponse = oStub
+					.filtrarCliente(oFiltrarCliente);
 
 			ClienteVO[] clientes2 = objResponse.get_return();
 
@@ -126,7 +120,34 @@ public class ClienteController {
 		}
 	}
 
-	
+	@RequestMapping("/opcionesCliente.html")
+	public ModelAndView showCliente(@RequestParam("id") String id) {
+
+		ClienteForm clienteForm = new ClienteForm();
+		try {
+
+			ServicioGastosComunesStub oStub = new ServicioGastosComunesStub();
+
+			FiltrarCliente oFiltrarCliente = new FiltrarCliente();
+			oFiltrarCliente.setArgs0(id);
+			oFiltrarCliente.setArgs1("id");
+
+			FiltrarClienteResponse obResponse = oStub
+					.filtrarCliente(oFiltrarCliente);
+
+			ClienteVO[] clientes = obResponse.get_return();
+			clienteForm.setClientes(clientes);
+
+			return new ModelAndView("cliente", "clienteForm", clienteForm);
+
+		} catch (RemoteException e) {
+			e.printStackTrace();
+
+			return new ModelAndView("error", "message", "ERROR");
+		}
+
+	}
+
 	@RequestMapping("/modificarForm")
 	public ModelAndView modificarForm(@RequestParam("id") String id) {
 
@@ -134,8 +155,7 @@ public class ClienteController {
 		try {
 
 			ServicioGastosComunesStub oStub = new ServicioGastosComunesStub();
-			
-			// Filtra
+
 			FiltrarCliente oFiltrarCliente = new FiltrarCliente();
 			oFiltrarCliente.setArgs0(id);
 			oFiltrarCliente.setArgs1("id");
@@ -160,7 +180,7 @@ public class ClienteController {
 	public ModelAndView modificarCliente(
 			@ModelAttribute("cliente") @Valid Cliente cliente,
 			BindingResult result, HttpSession session) {
-		
+
 		if (result.hasErrors()) {
 			System.out.println("ERROR");
 			return new ModelAndView("cliente");
@@ -170,7 +190,6 @@ public class ClienteController {
 
 			ServicioGastosComunesStub oStub = new ServicioGastosComunesStub();
 
-			// MODIFICA
 			ClienteVO oClienteVO = new ClienteVO();
 			oClienteVO.setId(cliente.getId());
 			oClienteVO.setRut(cliente.getRut());
@@ -180,13 +199,14 @@ public class ClienteController {
 			oClienteVO.setCorreo(cliente.getCorreo());
 			oClienteVO.setCelular(cliente.getCelular());
 			oClienteVO.setDireccion(cliente.getDireccion());
-			
-			LoginVO login = (LoginVO)session.getAttribute("token");
+
+			LoginVO login = (LoginVO) session.getAttribute("token");
 			oClienteVO.setOLoginVO(login);
-			
+
 			ModificarCliente oModificarCliente = new ModificarCliente();
 			oModificarCliente.setArgs0(oClienteVO);
-			ModificarClienteResponse objResponse = oStub.modificarCliente(oModificarCliente);
+			ModificarClienteResponse objResponse = oStub
+					.modificarCliente(oModificarCliente);
 
 			String mensaje = objResponse.get_return();
 

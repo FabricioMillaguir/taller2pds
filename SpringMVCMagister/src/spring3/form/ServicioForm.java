@@ -1,44 +1,24 @@
 package spring3.form;
 
+import java.io.Serializable;
 
-public class ServicioForm implements java.io.Serializable{
-	
-	/** The services. */
-	private java.lang.Object services;
-	
-	/**
-	 * Instantiates a new servicio form.
-	 */
-	public ServicioForm(){
-		
-	}
-	
-	/**
-	 * Instantiates a new servicio form.
-	 *
-	 * @param services the services
-	 */
-	public ServicioForm(java.lang.Object services){
-		this.services = services;
+public class ServicioForm implements Serializable {
+
+	private Object servicios;
+
+	public ServicioForm(Object servicios) {
+		this.servicios = servicios;
 	}
 
-	/**
-	 * Gets the services.
-	 *
-	 * @return the services
-	 */
-	public java.lang.Object getServices() {
-		return services;
+	public ServicioForm() {
 	}
 
-	/**
-	 * Sets the services.
-	 *
-	 * @param services the new services
-	 */
-	public void setServices(java.lang.Object services) {
-		this.services = services;
+	public Object getServicios() {
+		return servicios;
 	}
-	
-	
+
+	public void setServicios(Object servicios) {
+		this.servicios = servicios;
+	}
+
 }

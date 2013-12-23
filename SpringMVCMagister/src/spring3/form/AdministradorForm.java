@@ -1,45 +1,22 @@
 package spring3.form;
 
-
 public class AdministradorForm implements java.io.Serializable {
-	
-	/** The admins. */
-	private java.lang.Object admins;
-	
-	/**
-	 * Instantiates a new administrador form.
-	 */
-	public AdministradorForm(){
-		
-	}
-	
-	/**
-	 * Instantiates a new administrador form.
-	 *
-	 * @param admins the admins
-	 */
-	public AdministradorForm(java.lang.Object admins){
-		this.admins = admins;
+
+	Object administradores;
+
+	public AdministradorForm() {
 	}
 
-	/**
-	 * Gets the admins.
-	 *
-	 * @return the admins
-	 */
-	public java.lang.Object getAdmins() {
-		return admins;
+	public AdministradorForm(Object administradores) {
+		this.administradores = administradores;
 	}
 
-	/**
-	 * Sets the admins.
-	 *
-	 * @param admins the new admins
-	 */
-	public void setAdmins(java.lang.Object admins) {
-		this.admins = admins;
+	public Object getAdministradores() {
+		return administradores;
 	}
-	
-	
+
+	public void setAdministradores(Object administradores) {
+		this.administradores = administradores;
+	}
 
 }
