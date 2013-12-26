@@ -4,7 +4,7 @@ import java.util.List;
 
 import domain.AdministradorVO;
 import domain.ClienteVO;
-import domain.Cliente_historicoVO;
+import domain.ClienteHistoricoVO;
 import domain.CuentaVO;
 import domain.LoginVO;
 import domain.Negocio;
@@ -33,7 +33,7 @@ public class ServicioGastosComunes {
 		return Negocio.modificarCliente(clienteVO);
 	}
 
-	public static List<Cliente_historicoVO> filtrarCambioHistorico(
+	public static List<ClienteHistoricoVO> filtrarCambioHistorico(
 			ClienteVO clienteVO) {
 		return Negocio.filtrarCambioHistorico(clienteVO);
 	}

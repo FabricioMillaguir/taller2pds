@@ -126,13 +126,13 @@ public abstract class Negocio {
 				orms.Cliente cliente = orms.ClienteDAO.createCliente();
 				cliente.setRut(clienteVO.getRut());
 				cliente.setNombre(clienteVO.getNombre());
-				cliente.setApellido_paterno(clienteVO.getApellido_paterno());
-				cliente.setApellido_materno(clienteVO.getApellido_materno());
+				cliente.setApellido_paterno(clienteVO.getApellidoPaterno());
+				cliente.setApellido_materno(clienteVO.getApellidoMaterno());
 				cliente.setCelular(clienteVO.getCelular());
 				cliente.setCorreo(clienteVO.getCorreo());
 				cliente.setDireccion(clienteVO.getDireccion());
 				cliente.setORM_Logintoken(LoginDAO.getLoginByORMID(clienteVO
-						.getoLoginVO().getToken()));
+						.getLoginVO().getToken()));
 
 				ClienteDAO.save(cliente);
 				t.commit();
@@ -192,15 +192,15 @@ public abstract class Negocio {
 				// Modifica los datos del cliente
 				lormCliente.setRut(oClienteVO.getRut());
 				lormCliente.setNombre(oClienteVO.getNombre());
-				lormCliente.setApellido_paterno(oClienteVO
-						.getApellido_paterno());
-				lormCliente.setApellido_materno(oClienteVO
-						.getApellido_materno());
+				lormCliente
+						.setApellido_paterno(oClienteVO.getApellidoPaterno());
+				lormCliente
+						.setApellido_materno(oClienteVO.getApellidoMaterno());
 				lormCliente.setCorreo(oClienteVO.getCorreo());
 				lormCliente.setCelular(oClienteVO.getCelular());
 				lormCliente.setDireccion(oClienteVO.getDireccion());
 				lormCliente.setORM_Logintoken(LoginDAO
-						.getLoginByORMID(oClienteVO.getoLoginVO().getToken()));
+						.getLoginByORMID(oClienteVO.getLoginVO().getToken()));
 
 				orms.ClienteDAO.save(lormCliente);
 				t.commit();
@@ -243,9 +243,9 @@ public abstract class Negocio {
 
 	}
 
-	public static List<Cliente_historicoVO> filtrarCambioHistorico(
+	public static List<ClienteHistoricoVO> filtrarCambioHistorico(
 			ClienteVO oClienteVO) {
-		List<domain.Cliente_historicoVO> clienteHistorico = new ArrayList<domain.Cliente_historicoVO>();
+		List<domain.ClienteHistoricoVO> clienteHistorico = new ArrayList<domain.ClienteHistoricoVO>();
 		orms.Cliente_historico[] ormsCliente_historicos;
 		try {
 
@@ -256,7 +256,8 @@ public abstract class Negocio {
 			System.out.print(ormsCliente_historicos[0].getNombre());
 			int length = ormsCliente_historicos.length;
 			for (int i = 0; i < length; i++) {
-				clienteHistorico.add(new Cliente_historicoVO(
+				//Cambiar Date por Calendar
+				clienteHistorico.add(new ClienteHistoricoVO(
 						ormsCliente_historicos[i].getId(),
 						ormsCliente_historicos[i].getNombre(),
 						ormsCliente_historicos[i].getApellido_paterno(),
@@ -264,11 +265,11 @@ public abstract class Negocio {
 						ormsCliente_historicos[i].getRut(),
 						ormsCliente_historicos[i].getCelular(),
 						ormsCliente_historicos[i].getCorreo(),
-						ormsCliente_historicos[i].getDireccion(), oClienteVO,
-						oClienteVO.getoLoginVO(), ormsCliente_historicos[i]
-								.getFecha_cambio()));
+						ormsCliente_historicos[i].getDireccion(),
+						ormsCliente_historicos[i].getFecha_cambio(),
+						oClienteVO, oClienteVO.getLoginVO()));
 			}
-			System.out.print(clienteHistorico.get(0).getApellido_paterno());
+			System.out.print(clienteHistorico.get(0).getApellidoPaterno());
 			return clienteHistorico;
 		} catch (PersistentException e) {
 			e.printStackTrace();

@@ -74,6 +74,12 @@
 					<td><input type="submit" value="Desactivar una Cuenta" /></td>
 				</form:form>
 			</tr>
+			<tr>
+				<form:form action="registrarConsumo.html" method="post">
+					<td><input type="hidden" value="${cliente.id}" name="id"></td>
+					<td><input type="submit" value="Registrar un Consumo" /></td>
+				</form:form>
+			</tr>
 		</c:forEach>
 	</table>
 

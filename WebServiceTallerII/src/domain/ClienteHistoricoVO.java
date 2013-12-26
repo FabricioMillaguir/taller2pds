@@ -1,13 +1,14 @@
 package domain;
 
+import java.util.Calendar;
+
 /**
- * ClienteVO
+ * Cambio Historico del Cliente
  * 
  * @author Fabricio
  * 
  */
-
-public class ClienteVO {
+public class ClienteHistoricoVO {
 
 	private int id;
 	private String nombre;
@@ -17,26 +18,27 @@ public class ClienteVO {
 	private String celular;
 	private String correo;
 	private String direccion;
+	private Calendar fechaDeCambio;
+	private ClienteVO clienteVO;
 	private LoginVO loginVO;
 
 	/**
-	 * Constructor vacio de ClienteVO
+	 * Constructor vacio Cliente Historico VO
 	 */
-	public ClienteVO() {
-
+	public ClienteHistoricoVO() {
 	}
 
 	/**
-	 * Constructor de ClienteVO usando id
+	 * Constructor de Cliente Historico VO usando el id
 	 * 
 	 * @param id
 	 */
-	public ClienteVO(int id) {
+	public ClienteHistoricoVO(int id) {
 		this.id = id;
 	}
 
 	/**
-	 * Constructor de ClienteVO sin id
+	 * Constructor de Cliente Historico sin id
 	 * 
 	 * @param nombre
 	 * @param apellidoPaterno
@@ -45,11 +47,14 @@ public class ClienteVO {
 	 * @param celular
 	 * @param correo
 	 * @param direccion
+	 * @param fechaDeCambio
+	 * @param clienteVO
 	 * @param loginVO
 	 */
-	public ClienteVO(String nombre, String apellidoPaterno,
+	public ClienteHistoricoVO(String nombre, String apellidoPaterno,
 			String apellidoMaterno, String rut, String celular, String correo,
-			String direccion, LoginVO loginVO) {
+			String direccion, Calendar fechaDeCambio, ClienteVO clienteVO,
+			LoginVO loginVO) {
 		this.nombre = nombre;
 		this.apellidoPaterno = apellidoPaterno;
 		this.apellidoMaterno = apellidoMaterno;
@@ -57,11 +62,13 @@ public class ClienteVO {
 		this.celular = celular;
 		this.correo = correo;
 		this.direccion = direccion;
+		this.fechaDeCambio = fechaDeCambio;
+		this.clienteVO = clienteVO;
 		this.loginVO = loginVO;
 	}
 
 	/**
-	 * Constructor de ClienteVO
+	 * Constructor Cliente Historico VO
 	 * 
 	 * @param id
 	 * @param nombre
@@ -71,11 +78,14 @@ public class ClienteVO {
 	 * @param celular
 	 * @param correo
 	 * @param direccion
+	 * @param fechaDeCambio
+	 * @param clienteVO
 	 * @param loginVO
 	 */
-	public ClienteVO(int id, String nombre, String apellidoPaterno,
+	public ClienteHistoricoVO(int id, String nombre, String apellidoPaterno,
 			String apellidoMaterno, String rut, String celular, String correo,
-			String direccion, LoginVO loginVO) {
+			String direccion, Calendar fechaDeCambio, ClienteVO clienteVO,
+			LoginVO loginVO) {
 		this.id = id;
 		this.nombre = nombre;
 		this.apellidoPaterno = apellidoPaterno;
@@ -84,6 +94,8 @@ public class ClienteVO {
 		this.celular = celular;
 		this.correo = correo;
 		this.direccion = direccion;
+		this.fechaDeCambio = fechaDeCambio;
+		this.clienteVO = clienteVO;
 		this.loginVO = loginVO;
 	}
 
@@ -97,7 +109,7 @@ public class ClienteVO {
 	}
 
 	/**
-	 * Cambia el id
+	 * Cambia el valor del id
 	 * 
 	 * @param id
 	 */
@@ -169,7 +181,7 @@ public class ClienteVO {
 	}
 
 	/**
-	 * Cambia el rut
+	 * Cambia el valor del rut
 	 * 
 	 * @param rut
 	 */
@@ -205,7 +217,7 @@ public class ClienteVO {
 	}
 
 	/**
-	 * Cambia el correo electronico
+	 * Cambia el valor del correo electronico
 	 * 
 	 * @param correo
 	 */
@@ -229,6 +241,42 @@ public class ClienteVO {
 	 */
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
+	}
+
+	/**
+	 * Devuelve la fecha en que se realizo el cambio
+	 * 
+	 * @return
+	 */
+	public Calendar getFechaDeCambio() {
+		return fechaDeCambio;
+	}
+
+	/**
+	 * Cambia la fecha en que se realizo el cambio
+	 * 
+	 * @param fechaDeCambio
+	 */
+	public void setFechaDeCambio(Calendar fechaDeCambio) {
+		this.fechaDeCambio = fechaDeCambio;
+	}
+
+	/**
+	 * Devuelve el ClienteVO
+	 * 
+	 * @return
+	 */
+	public ClienteVO getClienteVO() {
+		return clienteVO;
+	}
+
+	/**
+	 * Cambia el ClienteVO
+	 * 
+	 * @param clienteVO
+	 */
+	public void setClienteVO(ClienteVO clienteVO) {
+		this.clienteVO = clienteVO;
 	}
 
 	/**
