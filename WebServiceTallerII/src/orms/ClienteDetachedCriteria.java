@@ -64,6 +64,10 @@ public class ClienteDetachedCriteria extends AbstractORMDetachedCriteria {
 		return new CuentaDetachedCriteria(createCriteria("ORM_cuenta"));
 	}
 	
+	public Historico_consultasDetachedCriteria createHistorico_consultasCriteria() {
+		return new Historico_consultasDetachedCriteria(createCriteria("ORM_historico_consultas"));
+	}
+	
 	public Cliente uniqueCliente(PersistentSession session) {
 		return (Cliente) super.createExecutableCriteria(session).uniqueResult();
 	}

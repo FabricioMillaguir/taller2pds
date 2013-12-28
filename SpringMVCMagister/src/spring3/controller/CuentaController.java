@@ -141,4 +141,32 @@ public class CuentaController {
 
 	}
 
+	@RequestMapping("/mostrarSeleccionarCuenta")
+	public ModelAndView seleccionarCuenta(@RequestParam("id") String id) {
+		CuentaForm cuentaForm = new CuentaForm();
+
+		try {
+			ClienteVO clienteVO = new ClienteVO();
+			clienteVO.setId(Integer.parseInt(id));
+			ServicioGastosComunesStub oStub = new ServicioGastosComunesStub();
+			FiltrarCuentasDelCliente filtrarCuentasDelCliente = new FiltrarCuentasDelCliente();
+			filtrarCuentasDelCliente.setArgs0(clienteVO);
+			FiltrarCuentasDelClienteResponse objResponse = oStub
+					.filtrarCuentasDelCliente(filtrarCuentasDelCliente);
+			CuentaVO[] cuentaVOs = objResponse.get_return();
+			cuentaForm.setCuentas(cuentaVOs);
+			ModelAndView modelAndView = new ModelAndView("seleccionarCuenta",
+					"cuentaForm", cuentaForm);
+			return modelAndView;
+
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return new ModelAndView("error", "message", "ERROR");
+
+		}
+
+	}
+	
+	
+
 }

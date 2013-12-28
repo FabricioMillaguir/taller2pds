@@ -23,7 +23,7 @@ public class ConsumoDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression cantidad_consumida;
 	public final BooleanExpression pagado;
 	public final BooleanExpression moroso;
-	public final StringExpression fecha_vencimiento;
+	public final DateExpression fecha_vencimiento;
 	public final IntegerExpression total_a_pagar;
 	
 	public ConsumoDetachedCriteria() {
@@ -32,7 +32,7 @@ public class ConsumoDetachedCriteria extends AbstractORMDetachedCriteria {
 		cantidad_consumida = new IntegerExpression("cantidad_consumida", this.getDetachedCriteria());
 		pagado = new BooleanExpression("pagado", this.getDetachedCriteria());
 		moroso = new BooleanExpression("moroso", this.getDetachedCriteria());
-		fecha_vencimiento = new StringExpression("fecha_vencimiento", this.getDetachedCriteria());
+		fecha_vencimiento = new DateExpression("fecha_vencimiento", this.getDetachedCriteria());
 		total_a_pagar = new IntegerExpression("total_a_pagar", this.getDetachedCriteria());
 	}
 	
@@ -42,7 +42,7 @@ public class ConsumoDetachedCriteria extends AbstractORMDetachedCriteria {
 		cantidad_consumida = new IntegerExpression("cantidad_consumida", this.getDetachedCriteria());
 		pagado = new BooleanExpression("pagado", this.getDetachedCriteria());
 		moroso = new BooleanExpression("moroso", this.getDetachedCriteria());
-		fecha_vencimiento = new StringExpression("fecha_vencimiento", this.getDetachedCriteria());
+		fecha_vencimiento = new DateExpression("fecha_vencimiento", this.getDetachedCriteria());
 		total_a_pagar = new IntegerExpression("total_a_pagar", this.getDetachedCriteria());
 	}
 	

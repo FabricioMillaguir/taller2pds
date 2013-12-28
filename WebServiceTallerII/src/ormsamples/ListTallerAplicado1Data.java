@@ -65,6 +65,14 @@ public class ListTallerAplicado1Data {
 		}
 		System.out.println(length + " record(s) retrieved.");
 		
+		System.out.println("Listing Historico_consultas...");
+		orms.Historico_consultas[] ormsHistorico_consultases = orms.Historico_consultasDAO.listHistorico_consultasByQuery(null, null);
+		length = Math.min(ormsHistorico_consultases.length, ROW_COUNT);
+		for (int i = 0; i < length; i++) {
+			System.out.println(ormsHistorico_consultases[i]);
+		}
+		System.out.println(length + " record(s) retrieved.");
+		
 	}
 	
 	public void listByCriteria() throws PersistentException  {
@@ -151,6 +159,18 @@ public class ListTallerAplicado1Data {
 			 System.out.println(ormsAdministradors[i]);
 		}
 		System.out.println(length + " Administrador record(s) retrieved."); 
+		
+		System.out.println("Listing Historico_consultas by Criteria...");
+		orms.Historico_consultasCriteria lormsHistorico_consultasCriteria = new orms.Historico_consultasCriteria();
+		// Please uncomment the follow line and fill in parameter(s) 
+		//lormsHistorico_consultasCriteria.id.eq();
+		lormsHistorico_consultasCriteria.setMaxResults(ROW_COUNT);
+		orms.Historico_consultas[] ormsHistorico_consultases = lormsHistorico_consultasCriteria.listHistorico_consultas();
+		length =ormsHistorico_consultases== null ? 0 : Math.min(ormsHistorico_consultases.length, ROW_COUNT); 
+		for (int i = 0; i < length; i++) {
+			 System.out.println(ormsHistorico_consultases[i]);
+		}
+		System.out.println(length + " Historico_consultas record(s) retrieved."); 
 		
 	}
 	

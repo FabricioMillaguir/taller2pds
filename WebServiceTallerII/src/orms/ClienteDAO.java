@@ -334,6 +334,10 @@ public class ClienteDAO {
 			for(int i = 0; i < lCuentas.length; i++) {
 				lCuentas[i].setCliente(null);
 			}
+			orms.Historico_consultas[] lHistorico_consultass = cliente.historico_consultas.toArray();
+			for(int i = 0; i < lHistorico_consultass.length; i++) {
+				lHistorico_consultass[i].setCliente(null);
+			}
 			return delete(cliente);
 		}
 		catch(Exception e) {
@@ -355,6 +359,10 @@ public class ClienteDAO {
 			orms.Cuenta[] lCuentas = cliente.cuenta.toArray();
 			for(int i = 0; i < lCuentas.length; i++) {
 				lCuentas[i].setCliente(null);
+			}
+			orms.Historico_consultas[] lHistorico_consultass = cliente.historico_consultas.toArray();
+			for(int i = 0; i < lHistorico_consultass.length; i++) {
+				lHistorico_consultass[i].setCliente(null);
 			}
 			try {
 				session.delete(cliente);

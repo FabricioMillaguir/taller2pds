@@ -25,11 +25,11 @@
     </tr>
     <tr>
         <td>Apellido Paterno</td>
- 		<td><input name="apellido_paterno" value="${cliente.apellido_paterno}"></td>
+ 		<td><input name="apellidoPaterno" value="${cliente.apellidoPaterno}"></td>
     </tr>
     <tr>
         <td>Apellido Materno</td>
- 		<td><input name="apellido_materno" value="${cliente.apellido_materno}"></td>
+ 		<td><input name="apellidoMaterno" value="${cliente.apellidoMaterno}"></td>
     </tr>
     <tr>
         <td>Correo</td>

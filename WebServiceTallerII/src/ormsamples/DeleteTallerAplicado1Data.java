@@ -30,6 +30,9 @@ public class DeleteTallerAplicado1Data {
 			orms.Administrador lormsAdministrador = orms.AdministradorDAO.loadAdministradorByQuery(null, null);
 			// Delete the persistent object
 			orms.AdministradorDAO.delete(lormsAdministrador);
+			orms.Historico_consultas lormsHistorico_consultas = orms.Historico_consultasDAO.loadHistorico_consultasByQuery(null, null);
+			// Delete the persistent object
+			orms.Historico_consultasDAO.delete(lormsHistorico_consultas);
 			t.commit();
 		}
 		catch (Exception e) {

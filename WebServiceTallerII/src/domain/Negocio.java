@@ -1,7 +1,9 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.orm.PersistentException;
@@ -13,6 +15,9 @@ import orms.Cliente;
 import orms.ClienteDAO;
 import orms.Cliente_historico;
 import orms.Cliente_historicoDAO;
+import orms.Consumo;
+import orms.ConsumoDAO;
+import orms.Cuenta;
 import orms.CuentaDAO;
 import orms.Login;
 import orms.LoginDAO;
@@ -257,6 +262,7 @@ public abstract class Negocio {
 			int length = ormsCliente_historicos.length;
 			for (int i = 0; i < length; i++) {
 				//Cambiar Date por Calendar
+				Calendar calendar = new GregorianCalendar(ormsCliente_historicos[i].getFecha_cambio().getYear(), ormsCliente_historicos[i].getFecha_cambio().getMonth(), ormsCliente_historicos[i].getFecha_cambio().getDay());
 				clienteHistorico.add(new ClienteHistoricoVO(
 						ormsCliente_historicos[i].getId(),
 						ormsCliente_historicos[i].getNombre(),
@@ -266,7 +272,7 @@ public abstract class Negocio {
 						ormsCliente_historicos[i].getCelular(),
 						ormsCliente_historicos[i].getCorreo(),
 						ormsCliente_historicos[i].getDireccion(),
-						ormsCliente_historicos[i].getFecha_cambio(),
+						calendar,
 						oClienteVO, oClienteVO.getLoginVO()));
 			}
 			System.out.print(clienteHistorico.get(0).getApellidoPaterno());
@@ -341,9 +347,11 @@ public abstract class Negocio {
 
 	public static List<domain.CuentaVO> filtrarCuentasDelCliente(
 			ClienteVO clienteVO) {
+		
 		List<domain.CuentaVO> cuentas = new ArrayList<domain.CuentaVO>();
 		orms.Cuenta[] ormsCuentas;
 		try {
+			System.out.print(clienteVO.getId());
 			ormsCuentas = orms.CuentaDAO.listCuentaByQuery("cliente.id = '"
 					+ clienteVO.getId() + "'", null);
 
@@ -404,6 +412,80 @@ public abstract class Negocio {
 		}
 
 	}
+	
+	public static CuentaVO filtrarCuenta(CuentaVO cuentaVO){
+		
+		try{
+		orms.Cuenta cuenta = orms.CuentaDAO.getCuentaByORMID(cuentaVO.getId());
+		
+		ServicioVO servicioVO =new ServicioVO();
+		servicioVO.setId(cuenta.getServicio().getId());
+		servicioVO.setTipoDeServicio(cuenta.getServicio().getTipo_servicio());
+		servicioVO.setCargoFijo(cuenta.getServicio().getCargo_fijo());
+		servicioVO.setUnidadDeMedida(cuenta.getServicio().getUnidad_de_medida());
+		servicioVO.setValorUnitario(cuenta.getServicio().getValor_unitario());
+		
+		ClienteVO clienteVO = new ClienteVO();
+		clienteVO.setId(cuenta.getCliente().getId());
+		
+		LoginVO loginVO = new LoginVO();
+		loginVO.setToken(cuenta.getLogintoken().getToken());
+		
+		cuentaVO.setHabilitada(cuenta.getHabilitada());
+		cuentaVO.setServicioVO(servicioVO);
+		cuentaVO.setClienteVO(clienteVO);
+		cuentaVO.setLoginVO(loginVO);
+		
+		return cuentaVO;
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public static String registrarConsumoDeCuenta(ConsumoVO consumoVO) {
+
+		PersistentTransaction t;
+		try {
+
+			t = orms.TallerAplicado1PersistentManager.instance().getSession()
+					.beginTransaction();
+
+			try {
+				Consumo lormConsumo = orms.ConsumoDAO.createConsumo();
+
+				Cuenta cuenta = CuentaDAO.getCuentaByORMID(consumoVO
+						.getCuentaVO().getId());
+				Login login = LoginDAO.getLoginByORMID(consumoVO.getLoginVO()
+						.getToken());
+
+				lormConsumo.setCantidad_consumida(consumoVO
+						.getCantidadConsumida());
+				lormConsumo.setPagado(consumoVO.isPagado());
+				lormConsumo.setMoroso(consumoVO.isMoroso());
+				lormConsumo.setFecha_vencimiento(consumoVO
+						.getFechaVencimiento().getTime());
+				lormConsumo.setORM_Cuenta(cuenta);
+				lormConsumo.setORM_Logintoken(login);
+				lormConsumo.setTotal_a_pagar(calcularTotalAPagar(lormConsumo));
+
+				ConsumoDAO.save(lormConsumo);
+				t.commit();
+				return "Se ha registrado un nuevo consumo al cliente";
+				
+			}
+
+			catch (Exception e) {
+				t.rollback();
+				return "Error";
+			}
+		} catch (PersistentException e1) {
+			e1.printStackTrace();
+			return "Error persistencia";
+		}
+
+	}
+
 
 	public static void main(String[] args) {
 		AdministradorVO admin = new AdministradorVO();
@@ -413,6 +495,15 @@ public abstract class Negocio {
 		LoginVO login = loggearAdministrador(admin);
 
 		System.out.print(login.getToken());
+	}
+	
+	private static int calcularTotalAPagar(Consumo consumo){
+		int valorUnitario=consumo.getCuenta().getServicio().getValor_unitario();
+		System.out.print(consumo.getCuenta().getServicio().getValor_unitario());
+		int cargoFijo=consumo.getCuenta().getServicio().getCargo_fijo();
+		int totalAPagar=(consumo.getCantidad_consumida()*valorUnitario) + cargoFijo;
+		
+		return totalAPagar;
 	}
 
 }

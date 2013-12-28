@@ -27,13 +27,13 @@
 			</tr>
 			<tr>
 				<td>Apellido Paterno</td>
-				<td><input name="apellido_paterno"
-					value="${cliente.apellido_paterno}" readonly="readonly"></td>
+				<td><input name="apellidoPaterno"
+					value="${cliente.apellidoPaterno}" readonly="readonly"></td>
 			</tr>
 			<tr>
 				<td>Apellido Materno</td>
-				<td><input name="apellido_materno"
-					value="${cliente.apellido_materno}" readonly="readonly"></td>
+				<td><input name="apellidoMaterno"
+					value="${cliente.apellidoMaterno}" readonly="readonly"></td>
 			</tr>
 			<tr>
 				<td>Correo</td>
@@ -75,9 +75,9 @@
 				</form:form>
 			</tr>
 			<tr>
-				<form:form action="registrarConsumo.html" method="post">
+				<form:form action="mostrarSeleccionarCuenta.html" method="post">
 					<td><input type="hidden" value="${cliente.id}" name="id"></td>
-					<td><input type="submit" value="Registrar un Consumo" /></td>
+					<td><input type="submit" value="Registrar un Consumo a una cuenta" /></td>
 				</form:form>
 			</tr>
 		</c:forEach>

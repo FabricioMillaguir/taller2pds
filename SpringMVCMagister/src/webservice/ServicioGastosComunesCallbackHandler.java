@@ -109,6 +109,22 @@
             }
                 
            /**
+            * auto generated Axis2 call back method for registrarConsumoDeCuenta method
+            * override this method for handling normal response from registrarConsumoDeCuenta operation
+            */
+           public void receiveResultregistrarConsumoDeCuenta(
+                    webservice.ServicioGastosComunesStub.RegistrarConsumoDeCuentaResponse result
+                        ) {
+           }
+
+          /**
+           * auto generated Axis2 Error handler
+           * override this method for handling error response from registrarConsumoDeCuenta operation
+           */
+            public void receiveErrorregistrarConsumoDeCuenta(java.lang.Exception e) {
+            }
+                
+           /**
             * auto generated Axis2 call back method for filtrarCuentasDelCliente method
             * override this method for handling normal response from filtrarCuentasDelCliente operation
             */
@@ -170,6 +186,22 @@
            * override this method for handling error response from filtrarCliente operation
            */
             public void receiveErrorfiltrarCliente(java.lang.Exception e) {
+            }
+                
+           /**
+            * auto generated Axis2 call back method for filtrarCuenta method
+            * override this method for handling normal response from filtrarCuenta operation
+            */
+           public void receiveResultfiltrarCuenta(
+                    webservice.ServicioGastosComunesStub.FiltrarCuentaResponse result
+                        ) {
+           }
+
+          /**
+           * auto generated Axis2 Error handler
+           * override this method for handling error response from filtrarCuenta operation
+           */
+            public void receiveErrorfiltrarCuenta(java.lang.Exception e) {
             }
                 
            /**

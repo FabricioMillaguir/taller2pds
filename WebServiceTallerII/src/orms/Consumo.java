@@ -58,8 +58,9 @@ public class Consumo implements Serializable {
 	@Column(name="moroso", nullable=false)	
 	private boolean moroso;
 	
-	@Column(name="fecha_vencimiento", nullable=false, length=25)	
-	private String fecha_vencimiento;
+	@Column(name="fecha_vencimiento", nullable=false)	
+	@Temporal(TemporalType.DATE)	
+	private java.util.Date fecha_vencimiento;
 	
 	@Column(name="total_a_pagar", nullable=false)	
 	private int total_a_pagar;
@@ -139,14 +140,14 @@ public class Consumo implements Serializable {
 	/**
 	 * Fecha de vencimiento del consumo
 	 */
-	public void setFecha_vencimiento(String value) {
+	public void setFecha_vencimiento(java.util.Date value) {
 		this.fecha_vencimiento = value;
 	}
 	
 	/**
 	 * Fecha de vencimiento del consumo
 	 */
-	public String getFecha_vencimiento() {
+	public java.util.Date getFecha_vencimiento() {
 		return fecha_vencimiento;
 	}
 	

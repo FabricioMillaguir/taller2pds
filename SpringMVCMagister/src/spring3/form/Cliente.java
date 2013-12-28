@@ -6,9 +6,9 @@ public class Cliente implements java.io.Serializable {
 
 	private java.lang.String nombre;
 
-	private java.lang.String apellido_paterno;
+	private java.lang.String apellidoPaterno;
 
-	private java.lang.String apellido_materno;
+	private java.lang.String apellidoMaterno;
 
 	private java.lang.String rut;
 
@@ -32,13 +32,13 @@ public class Cliente implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public Cliente(java.lang.String nombre, java.lang.String apellido_paterno,
-			java.lang.String apellido_materno, java.lang.String rut,
+	public Cliente(java.lang.String nombre, java.lang.String apellidoPaterno,
+			java.lang.String apellidoMaterno, java.lang.String rut,
 			java.lang.String celular, java.lang.String correo,
 			java.lang.String direccion, spring3.form.Login loginid) {
 		this.nombre = nombre;
-		this.apellido_paterno = apellido_paterno;
-		this.apellido_materno = apellido_materno;
+		this.apellidoPaterno = apellidoPaterno;
+		this.apellidoMaterno = apellidoMaterno;
 		this.rut = rut;
 		this.celular = celular;
 		this.correo = correo;
@@ -54,20 +54,20 @@ public class Cliente implements java.io.Serializable {
 		this.nombre = nombre;
 	}
 
-	public java.lang.String getApellido_paterno() {
-		return apellido_paterno;
+	public java.lang.String getApellidoPaterno() {
+		return apellidoPaterno;
 	}
 
-	public void setApellido_paterno(java.lang.String apellido_paterno) {
-		this.apellido_paterno = apellido_paterno;
+	public void setApellidoPaterno(java.lang.String apellidoPaterno) {
+		this.apellidoPaterno = apellidoPaterno;
 	}
 
-	public java.lang.String getApellido_materno() {
-		return apellido_materno;
+	public java.lang.String getApellidoMaterno() {
+		return apellidoMaterno;
 	}
 
-	public void setApellido_materno(java.lang.String apellido_materno) {
-		this.apellido_materno = apellido_materno;
+	public void setApellidoMaterno(java.lang.String apellidoMaterno) {
+		this.apellidoMaterno = apellidoMaterno;
 	}
 
 	public java.lang.String getRut() {

@@ -60,14 +60,14 @@ public class ClienteController {
 			ClienteVO clienteVO = new ClienteVO();
 			clienteVO.setRut(cliente.getRut());
 			clienteVO.setNombre(cliente.getNombre());
-			clienteVO.setApellido_paterno(cliente.getApellido_paterno());
-			clienteVO.setApellido_materno(cliente.getApellido_materno());
+			clienteVO.setApellidoPaterno(cliente.getApellidoPaterno());
+			clienteVO.setApellidoMaterno(cliente.getApellidoMaterno());
 			clienteVO.setCelular(cliente.getCelular());
 			clienteVO.setCorreo(cliente.getCorreo());
 			clienteVO.setDireccion(cliente.getDireccion());
 
 			LoginVO login = (LoginVO) session.getAttribute("token");
-			clienteVO.setOLoginVO(login);
+			clienteVO.setLoginVO(login);
 
 			AgregarCliente oAgregarCliente = new AgregarCliente();
 			oAgregarCliente.setArgs0(clienteVO);
@@ -194,14 +194,14 @@ public class ClienteController {
 			oClienteVO.setId(cliente.getId());
 			oClienteVO.setRut(cliente.getRut());
 			oClienteVO.setNombre(cliente.getNombre());
-			oClienteVO.setApellido_paterno(cliente.getApellido_paterno());
-			oClienteVO.setApellido_materno(cliente.getApellido_materno());
+			oClienteVO.setApellidoPaterno(cliente.getApellidoPaterno());
+			oClienteVO.setApellidoMaterno(cliente.getApellidoMaterno());
 			oClienteVO.setCorreo(cliente.getCorreo());
 			oClienteVO.setCelular(cliente.getCelular());
 			oClienteVO.setDireccion(cliente.getDireccion());
 
 			LoginVO login = (LoginVO) session.getAttribute("token");
-			oClienteVO.setOLoginVO(login);
+			oClienteVO.setLoginVO(login);
 
 			ModificarCliente oModificarCliente = new ModificarCliente();
 			oModificarCliente.setArgs0(oClienteVO);

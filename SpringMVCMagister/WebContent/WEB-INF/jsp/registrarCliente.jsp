@@ -19,11 +19,11 @@
     </tr>
    <tr> 	
         <td>Apellido Paterno</td>
- 		<td><input name="apellido_paterno"></td>
+ 		<td><input name="apellidoPaterno"></td>
     </tr>
     <tr> 	
         <td>Apellido Materno</td>
- 		<td><input name="apellido_materno"></td>
+ 		<td><input name="apellidoMaterno"></td>
     </tr>
     <tr> 	
         <td>Correo</td>

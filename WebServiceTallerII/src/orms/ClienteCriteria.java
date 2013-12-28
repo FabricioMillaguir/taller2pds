@@ -60,6 +60,10 @@ public class ClienteCriteria extends AbstractORMCriteria {
 		return new CuentaCriteria(createCriteria("ORM_cuenta"));
 	}
 	
+	public Historico_consultasCriteria createHistorico_consultasCriteria() {
+		return new Historico_consultasCriteria(createCriteria("ORM_historico_consultas"));
+	}
+	
 	public Cliente uniqueCliente() {
 		return (Cliente) super.uniqueResult();
 	}

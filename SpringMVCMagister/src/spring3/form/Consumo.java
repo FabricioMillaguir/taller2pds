@@ -1,42 +1,55 @@
 package spring3.form;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+import webservice.ServicioGastosComunesStub.CuentaVO;
+
 public class Consumo implements java.io.Serializable {
 
-	private int consumo;
-	private int monto;
+	private int id;
+	private int cantidadConsumida;
 	private boolean pagado;
 	private boolean moroso;
-	private Cuenta cuentaid;
-	private spring3.form.Login loginid;
+	private int totalAPagar;
+	private int dia;
+	private int mes;
+	private int agno;
+	private Calendar fechaDeVencimiento;
+	private CuentaVO cuenta;
+	private spring3.form.Login login;
 
 	public Consumo() {
-
 	}
 
-	public Consumo(int consumo, int monto, boolean pagado, boolean moroso,
-			Cuenta cuentaid, spring3.form.Login loginid) {
-		this.consumo = consumo;
-		this.monto = monto;
+	public Consumo(int id, int cantidadConsumida, boolean pagado,
+			boolean moroso, int totalAPagar, Calendar fechaDeVencimiento, CuentaVO cuenta, Login login) {
+		super();
+		this.id = id;
+		this.cantidadConsumida = cantidadConsumida;
 		this.pagado = pagado;
 		this.moroso = moroso;
-		this.cuentaid = cuentaid;
-		this.loginid = loginid;
+		this.totalAPagar = totalAPagar;
+		this.fechaDeVencimiento = fechaDeVencimiento;
+		this.cuenta = cuenta;
+		this.login = login;
 	}
 
-	public int getConsumo() {
-		return consumo;
+	public int getId() {
+		return id;
 	}
 
-	public void setConsumo(int consumo) {
-		this.consumo = consumo;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public int getMonto() {
-		return monto;
+	public int getCantidadConsumida() {
+		return cantidadConsumida;
 	}
 
-	public void setMonto(int monto) {
-		this.monto = monto;
+	public void setCantidadConsumida(int cantidadConsumida) {
+		this.cantidadConsumida = cantidadConsumida;
 	}
 
 	public boolean isPagado() {
@@ -55,20 +68,64 @@ public class Consumo implements java.io.Serializable {
 		this.moroso = moroso;
 	}
 
-	public Cuenta getCuentaid() {
-		return cuentaid;
+	public int getTotalAPagar() {
+		return totalAPagar;
 	}
 
-	public void setCuentaid(Cuenta cuentaid) {
-		this.cuentaid = cuentaid;
+	public void setTotalAPagar(int totalAPagar) {
+		this.totalAPagar = totalAPagar;
 	}
 
-	public spring3.form.Login getLoginid() {
-		return loginid;
+	
+	public Calendar getFechaDeVencimiento() {
+		Calendar calendar= new GregorianCalendar(this.getAgno(), this.getMes(), this.getDia());
+		return calendar;
 	}
 
-	public void setLoginid(spring3.form.Login loginid) {
-		this.loginid = loginid;
+	public void setFechaDeVencimiento(Calendar fechaDeVencimiento) {
+		this.fechaDeVencimiento = fechaDeVencimiento;
 	}
 
+	public CuentaVO getCuenta() {
+		return cuenta;
+	}
+
+	public void setCuenta(CuentaVO cuenta) {
+		this.cuenta = cuenta;
+	}
+
+	public spring3.form.Login getLogin() {
+		return login;
+	}
+
+	public void setLogin(spring3.form.Login login) {
+		this.login = login;
+	}
+
+	public int getDia() {
+		return dia;
+	}
+
+	public void setDia(int dia) {
+		this.dia = dia;
+	}
+
+	public int getMes() {
+		return mes-1;
+	}
+
+	public void setMes(int mes) {
+		this.mes = mes;
+	}
+
+	public int getAgno() {
+		return agno;
+	}
+
+	public void setAgno(int agno) {
+		this.agno = agno;
+	}
+
+	
+	
 }

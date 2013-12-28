@@ -43,6 +43,7 @@ public class TallerAplicado1PersistentManager extends PersistentManager {
 		configuration.addAnnotatedClass(orms.Servicio.class);
 		configuration.addAnnotatedClass(orms.Consumo.class);
 		configuration.addAnnotatedClass(orms.Administrador.class);
+		configuration.addAnnotatedClass(orms.Historico_consultas.class);
 		configuration.buildMappings();
 		return configuration;
 	}

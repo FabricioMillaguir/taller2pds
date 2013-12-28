@@ -191,7 +191,7 @@
     <Password>millagui</Password>
     <HostName>localhost\SQLEXPRESS</HostName>
     <PortNO>1433</PortNO>
-    <DBName>cuentas;integratedSecurity=true;</DBName>
+    <DBName>cuentas1;integratedSecurity=true;</DBName>
     <ServiceName></ServiceName>
     <ServerName></ServerName>
     <SelectedForm>false</SelectedForm>

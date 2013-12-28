@@ -22,6 +22,8 @@ public interface ORMConstants extends org.orm.util.ORMBaseConstants {
 	
 	final int KEY_CLIENTE_HISTORICO_CLIENTE = 1264460166;
 	
+	final int KEY_CLIENTE_HISTORICO_CONSULTAS = 1153541546;
+	
 	final int KEY_CLIENTE_HISTORICO_LOGINTOKEN = -161600220;
 	
 	final int KEY_CLIENTE_LOGINTOKEN = 1977085877;
@@ -37,6 +39,8 @@ public interface ORMConstants extends org.orm.util.ORMBaseConstants {
 	final int KEY_CUENTA_LOGINTOKEN = -1937439641;
 	
 	final int KEY_CUENTA_SERVICIO = -2048937267;
+	
+	final int KEY_HISTORICO_CONSULTAS_CLIENTE = 427196714;
 	
 	final int KEY_LOGIN_ADMINISTRADOR = -1984469945;
 	

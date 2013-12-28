@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Cambio Historico del Cliente

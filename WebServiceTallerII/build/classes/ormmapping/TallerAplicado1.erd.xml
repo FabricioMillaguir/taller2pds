@@ -468,8 +468,8 @@
     <Column name="fecha_vencimiento">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
-      <Type>27</Type>
-      <Length>25</Length>
+      <Type>17</Type>
+      <Length>0</Length>
       <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
@@ -554,6 +554,44 @@
       <UserTypes/>
     </Column>
     <Comment>Administrador</Comment>
+  </Entity>
+  <Entity name="Historico_consultas">
+    <Column name="id">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>0</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>increment</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <Comment>Id del historico de consultas</Comment>
+      <UserTypes/>
+    </Column>
+    <Column name="fecha_consulta">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>17</Type>
+      <Length>0</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <Comment>Fecha de la consulta</Comment>
+      <UserTypes/>
+    </Column>
+    <Column name="Clienteid">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>Cliente.id</ReferencedColumn>
+      <Type>9</Type>
+      <Length>0</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
   </Entity>
   <ForeignKey name="FKCliente_hi935652">
     <ReferenceTable>Cliente_historico</ReferenceTable>
@@ -643,6 +681,16 @@
     </Columns>
     <RefColumns>
       <Column>token</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKHistorico_227813">
+    <ReferenceTable>Historico_consultas</ReferenceTable>
+    <ReferencedTable>Cliente</ReferencedTable>
+    <Columns>
+      <Column>Clienteid</Column>
+    </Columns>
+    <RefColumns>
+      <Column>id</Column>
     </RefColumns>
   </ForeignKey>
 </Model>

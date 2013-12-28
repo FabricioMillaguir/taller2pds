@@ -36,8 +36,8 @@
         		
         		<td>${cliente.rut}</td>
             	<td>${cliente.nombre}</td>
-            	<td>${cliente.apellido_paterno}</td>
-            	<td>${cliente.apellido_materno}</td>
+            	<td>${cliente.apellidoPaterno}</td>
+            	<td>${cliente.apellidoMaterno}</td>
             	<td>${cliente.correo}</td>
             	<td>${cliente.celular}</td>
             	<td>${cliente.direccion}</td>

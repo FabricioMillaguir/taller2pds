@@ -25,12 +25,12 @@
         		
         		<td>${clienteHistorico.rut}</td>
             	<td>${clienteHistorico.nombre}</td>
-            	<td>${clienteHistorico.apellido_paterno}</td>
-            	<td>${clienteHistorico.apellido_materno}</td>
+            	<td>${clienteHistorico.apellidoPaterno}</td>
+            	<td>${clienteHistorico.apellidoMaterno}</td>
             	<td>${clienteHistorico.correo}</td>
             	<td>${clienteHistorico.celular}</td>
             	<td>${clienteHistorico.direccion}</td>
-            	<td>${clienteHistorico.fecha_cambio}</td>
+            	<td>${clienteHistorico.fechaDeCambio}</td>
             	
             	
             

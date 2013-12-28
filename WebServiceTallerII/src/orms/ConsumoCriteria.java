@@ -23,7 +23,7 @@ public class ConsumoCriteria extends AbstractORMCriteria {
 	public final IntegerExpression cantidad_consumida;
 	public final BooleanExpression pagado;
 	public final BooleanExpression moroso;
-	public final StringExpression fecha_vencimiento;
+	public final DateExpression fecha_vencimiento;
 	public final IntegerExpression total_a_pagar;
 	
 	public ConsumoCriteria(Criteria criteria) {
@@ -32,7 +32,7 @@ public class ConsumoCriteria extends AbstractORMCriteria {
 		cantidad_consumida = new IntegerExpression("cantidad_consumida", this);
 		pagado = new BooleanExpression("pagado", this);
 		moroso = new BooleanExpression("moroso", this);
-		fecha_vencimiento = new StringExpression("fecha_vencimiento", this);
+		fecha_vencimiento = new DateExpression("fecha_vencimiento", this);
 		total_a_pagar = new IntegerExpression("total_a_pagar", this);
 	}
 	

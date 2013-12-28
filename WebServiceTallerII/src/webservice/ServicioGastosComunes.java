@@ -5,6 +5,7 @@ import java.util.List;
 import domain.AdministradorVO;
 import domain.ClienteVO;
 import domain.ClienteHistoricoVO;
+import domain.ConsumoVO;
 import domain.CuentaVO;
 import domain.LoginVO;
 import domain.Negocio;
@@ -50,7 +51,15 @@ public class ServicioGastosComunes {
 		return Negocio.filtrarCuentasDelCliente(clienteVO);
 	}
 
+	public static CuentaVO filtrarCuenta(CuentaVO cuentaVO){
+		return Negocio.filtrarCuenta(cuentaVO);
+	}
+	
 	public static String deshabilitarCuentaACliente(CuentaVO cuentaVO) {
 		return Negocio.deshabilitarCuentaACliente(cuentaVO);
+	}
+	
+	public static String registrarConsumoDeCuenta(ConsumoVO consumoVO){
+		return Negocio.registrarConsumoDeCuenta(consumoVO);
 	}
 }

@@ -32,6 +32,9 @@ public class Cliente implements Serializable {
 		else if (key == orms.ORMConstants.KEY_CLIENTE_CUENTA) {
 			return ORM_cuenta;
 		}
+		else if (key == orms.ORMConstants.KEY_CLIENTE_HISTORICO_CONSULTAS) {
+			return ORM_historico_consultas;
+		}
 		
 		return null;
 	}
@@ -96,6 +99,11 @@ public class Cliente implements Serializable {
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_cuenta = new java.util.HashSet();
+	
+	@OneToMany(mappedBy="cliente", targetEntity=orms.Historico_consultas.class)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
+	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
+	private java.util.Set ORM_historico_consultas = new java.util.HashSet();
 	
 	/**
 	 * Id del Cliente
@@ -258,6 +266,17 @@ public class Cliente implements Serializable {
 	
 	@Transient	
 	public final orms.CuentaSetCollection cuenta = new orms.CuentaSetCollection(this, _ormAdapter, orms.ORMConstants.KEY_CLIENTE_CUENTA, orms.ORMConstants.KEY_CUENTA_CLIENTE, orms.ORMConstants.KEY_MUL_ONE_TO_MANY);
+	
+	private void setORM_Historico_consultas(java.util.Set value) {
+		this.ORM_historico_consultas = value;
+	}
+	
+	private java.util.Set getORM_Historico_consultas() {
+		return ORM_historico_consultas;
+	}
+	
+	@Transient	
+	public final orms.Historico_consultasSetCollection historico_consultas = new orms.Historico_consultasSetCollection(this, _ormAdapter, orms.ORMConstants.KEY_CLIENTE_HISTORICO_CONSULTAS, orms.ORMConstants.KEY_HISTORICO_CONSULTAS_CLIENTE, orms.ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public String toString() {
 		return String.valueOf(getId());

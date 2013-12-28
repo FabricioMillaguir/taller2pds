@@ -10,8 +10,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import spring3.form.ClienteHistoricoForm;
 import webservice.ServicioGastosComunesStub;
+import webservice.ServicioGastosComunesStub.ClienteHistoricoVO;
 import webservice.ServicioGastosComunesStub.ClienteVO;
-import webservice.ServicioGastosComunesStub.Cliente_historicoVO;
 import webservice.ServicioGastosComunesStub.FiltrarCambioHistorico;
 import webservice.ServicioGastosComunesStub.FiltrarCambioHistoricoResponse;
 
@@ -30,10 +30,10 @@ public class ClienteHistoricoController {
 			filtrarCambioHistorico.setArgs0(clienteVO);
 			FiltrarCambioHistoricoResponse objResponse = oStub
 					.filtrarCambioHistorico(filtrarCambioHistorico);
-			Cliente_historicoVO[] clienteHistoricoVOs = objResponse
+			ClienteHistoricoVO[] clienteHistoricoVOs = objResponse
 					.get_return();
 			clienteHistoricosForm.setClienteHistoricos(clienteHistoricoVOs);
-			System.out.print(clienteHistoricoVOs[0].getApellido_paterno());
+			System.out.print(clienteHistoricoVOs[0].getApellidoPaterno());
 			return new ModelAndView("cambiohistorico", "clienteHistoricosForm",
 					clienteHistoricosForm);
 		} catch (RemoteException e) {

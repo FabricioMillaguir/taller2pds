@@ -30,6 +30,9 @@ public class RetrieveAndUpdateTallerAplicado1Data {
 			orms.Administrador lormsAdministrador = orms.AdministradorDAO.loadAdministradorByQuery(null, null);
 			// Update the properties of the persistent object
 			orms.AdministradorDAO.save(lormsAdministrador);
+			orms.Historico_consultas lormsHistorico_consultas = orms.Historico_consultasDAO.loadHistorico_consultasByQuery(null, null);
+			// Update the properties of the persistent object
+			orms.Historico_consultasDAO.save(lormsHistorico_consultas);
 			t.commit();
 		}
 		catch (Exception e) {
@@ -80,6 +83,12 @@ public class RetrieveAndUpdateTallerAplicado1Data {
 		// Please uncomment the follow line and fill in parameter(s)
 		//lormsAdministradorCriteria.id.eq();
 		System.out.println(lormsAdministradorCriteria.uniqueAdministrador());
+		
+		System.out.println("Retrieving Historico_consultas by Historico_consultasCriteria");
+		orms.Historico_consultasCriteria lormsHistorico_consultasCriteria = new orms.Historico_consultasCriteria();
+		// Please uncomment the follow line and fill in parameter(s)
+		//lormsHistorico_consultasCriteria.id.eq();
+		System.out.println(lormsHistorico_consultasCriteria.uniqueHistorico_consultas());
 		
 	}
 	
