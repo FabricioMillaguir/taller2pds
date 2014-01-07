@@ -37,7 +37,7 @@ public class ClienteController {
 		return new ModelAndView("clientes");
 	}
 
-	@RequestMapping("/agregarCliente")
+	@RequestMapping("/mostrarRegistrarCliente")
 	public ModelAndView registrarCliente() {
 
 		return new ModelAndView("registrarCliente", "command", new Cliente());
@@ -83,13 +83,13 @@ public class ClienteController {
 
 	}
 
-	@RequestMapping("/buscar.html")
+	@RequestMapping("/buscarCliente.html")
 	public ModelAndView showBuscar() {
 		ClienteForm clienteForm = new ClienteForm();
-		return new ModelAndView("filtrarcliente", "clienteForm", clienteForm);
+		return new ModelAndView("filtrarCliente", "clienteForm", clienteForm);
 	}
 
-	@RequestMapping("/filtrar.html")
+	@RequestMapping("/filtrarCliente.html")
 	public ModelAndView filtrar(@RequestParam("busqueda") String busqueda,
 			@RequestParam("atributo") String atributo) {
 		ClienteForm clienteForm = new ClienteForm();
@@ -109,7 +109,7 @@ public class ClienteController {
 
 			clienteForm.setClientes(clientes2);
 
-			return new ModelAndView("filtrarcliente", "clienteForm",
+			return new ModelAndView("filtrarCliente", "clienteForm",
 					clienteForm);
 
 		} catch (RemoteException e) {
@@ -138,7 +138,7 @@ public class ClienteController {
 			ClienteVO[] clientes = obResponse.get_return();
 			clienteForm.setClientes(clientes);
 
-			return new ModelAndView("cliente", "clienteForm", clienteForm);
+			return new ModelAndView("opcionesCliente", "clienteForm", clienteForm);
 
 		} catch (RemoteException e) {
 			e.printStackTrace();
@@ -148,7 +148,7 @@ public class ClienteController {
 
 	}
 
-	@RequestMapping("/modificarForm")
+	@RequestMapping("/mostrarModificarCliente")
 	public ModelAndView modificarForm(@RequestParam("id") String id) {
 
 		ClienteForm clienteForm = new ClienteForm();
@@ -166,7 +166,7 @@ public class ClienteController {
 			ClienteVO[] clientes = obResponse.get_return();
 			clienteForm.setClientes(clientes);
 
-			return new ModelAndView("update", "clienteForm", clienteForm);
+			return new ModelAndView("modificarCliente", "clienteForm", clienteForm);
 
 		} catch (RemoteException e) {
 			e.printStackTrace();

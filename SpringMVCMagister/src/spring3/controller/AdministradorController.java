@@ -30,20 +30,20 @@ public class AdministradorController {
 		return new ModelAndView("menu");
 	}
 
-	@RequestMapping("/administracion")
+	@RequestMapping("/mostrarRegistrarUsuario")
 	public ModelAndView administracion() {
 
-		return new ModelAndView("administracion");
+		return new ModelAndView("registrarUsuario");
 	}
 
-	@RequestMapping("/agregarAdmin")
+	/*@RequestMapping("/agregarAdmin")
 	public ModelAndView registrarAdmin() {
 
-		return new ModelAndView("registrarAdmin", "command",
+		return new ModelAndView("registrarUsuario", "command",
 				new Administrador());
-	}
+	}*/
 
-	@RequestMapping(value = "/registrarAdmin", method = RequestMethod.POST)
+	@RequestMapping(value = "/registrarUsuario", method = RequestMethod.POST)
 	public ModelAndView registrarAdmin(
 			@ModelAttribute("administrador") @Valid Administrador administrador,
 			BindingResult result, HttpSession session) {

@@ -4,17 +4,39 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import sun.security.util.Length;
+
 public class Ejemplo {
 	
 	public static void main(String[] args){
 	
-		Calendar c= new GregorianCalendar(2013, 3, 5);
-		
-		//System.out.print(c.before(Calendar.getInstance()));
-		
-		Date d= new Date(2016, 0, 1);
+		System.out.print(digitoVerificador("188738508"));
+	}
 	
-		System.out.print( d.getDay());
+	public static boolean digitoVerificador(String rut){
+	
+		char digVerificador=rut.charAt(rut.length()-1);
+		int serie=2;
+		int acum=0;
+		int resto;
+		for(int i=rut.length()-2; i>=0;i--){
+			if(serie>7){
+				serie=2;
+			}
+			acum+=((rut.charAt(i)-48)*serie);
+			serie++;
+			
+		}
+	   
+		resto=acum%11;
+		resto=11-resto;
+		if(resto==(digVerificador-48))
+		{
+			return true;
+		}
+		
+		return false;
+		
 	}
 
 }

@@ -7,24 +7,25 @@
 <title>Cuentas</title>
 </head>
 <body>
-<h2>Inicio Administrador</h2>
-<form:form method="post" action="administracion.html">
+<h2>Inicio</h2>
+<form:form method="post" action="mostrarRegistrarUsuario.html">
         <td colspan="2">
-            <input type="submit" value="       Administrar Usuarios        "/>
+            <input type="submit" value="Crear Nuevo Usuario"/>
         </td>
 </form:form>
 
 <form:form method="post" action="clientes.html">
         <td colspan="2">
-            <input type="submit" value="              Gestion de Clientes             "/>
+            <input type="submit" value="Administrar Clientes"/>
         </td>
 </form:form>
 
-<form:form method="post" action="cuentas.html">
+<form:form method="post" action="servicios.html">
         <td colspan="2">
-            <input type="submit" value="             Gestion de Cuentas             "/>
+            <input type="submit" value="Administrar Servicios"/>
         </td>
 </form:form>
+
 
 
 <form:form method="post" action="login.html">

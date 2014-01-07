@@ -18,7 +18,7 @@
  </select>
     <table>
     <tr> 	
- 		<td><input type="hidden" name="idCliente" value="${id}"></td>
+ 		<td><input type="hidden" name="idCliente" value="${clienteVO.id}"></td>
     </tr>
     
     <tr> 	

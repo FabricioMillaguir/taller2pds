@@ -62,4 +62,8 @@ public class ServicioGastosComunes {
 	public static String registrarConsumoDeCuenta(ConsumoVO consumoVO){
 		return Negocio.registrarConsumoDeCuenta(consumoVO);
 	}
+	
+	public static String modificarConsumo(ConsumoVO consumoVO){
+		return Negocio.modificarConsumo(consumoVO);
+	}
 }

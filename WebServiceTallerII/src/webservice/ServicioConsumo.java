@@ -23,47 +23,7 @@ import domain.CuentaVO;
 public class ServicioConsumo {
 
 	
-	public String modificarConsumo(ConsumoVO consumoVO) {
-
-		PersistentTransaction t;
-		try {
-			t = orms.TallerAplicado1PersistentManager.instance().getSession()
-					.beginTransaction();
-
-			try {
-				Consumo lormConsumo = ConsumoDAO.getConsumoByORMID(consumoVO
-						.getId());
-
-				Cuenta cuenta = CuentaDAO.getCuentaByORMID(consumoVO
-						.getoCuentaVO().getId());
-				Login login = LoginDAO.getLoginByORMID(consumoVO.getoLoginVO()
-						.getId());
-
-				lormConsumo.setCantidad_consumida(consumoVO
-						.getCantidadConsumida());
-				lormConsumo.setPagado(consumoVO.isPagado());
-				lormConsumo.setMoroso(consumoVO.isMoroso());
-				lormConsumo.setFecha_vencimiento(consumoVO
-						.getFechaVencimiento());
-				lormConsumo.setTotal_a_pagar(consumoVO.getTotalAPagar());
-				lormConsumo.setORM_Cuenta(cuenta);
-				lormConsumo.setORM_Login(login);
-
-				ConsumoDAO.save(lormConsumo);
-
-				System.out.println("Modificado con Exito");
-				t.commit();
-			} catch (Exception e) {
-				t.rollback();
-			}
-		} catch (PersistentException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-
-		return "modificado";
-	}
-
+	
 	public String registrarPagoConsumo(ConsumoVO consumoVO) {
 		PersistentTransaction t;
 		try {

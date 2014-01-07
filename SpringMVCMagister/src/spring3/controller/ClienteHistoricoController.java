@@ -34,7 +34,7 @@ public class ClienteHistoricoController {
 					.get_return();
 			clienteHistoricosForm.setClienteHistoricos(clienteHistoricoVOs);
 			System.out.print(clienteHistoricoVOs[0].getApellidoPaterno());
-			return new ModelAndView("cambiohistorico", "clienteHistoricosForm",
+			return new ModelAndView("cambioHistorico", "clienteHistoricosForm",
 					clienteHistoricosForm);
 		} catch (RemoteException e) {
 			e.printStackTrace();

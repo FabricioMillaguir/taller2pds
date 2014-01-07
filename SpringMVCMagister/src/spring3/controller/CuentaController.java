@@ -1,12 +1,15 @@
 package spring3.controller;
 
 import java.rmi.RemoteException;
+
 import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
+
 import spring3.form.CuentaForm;
 import spring3.form.ServicioForm;
 import webservice.ServicioGastosComunesStub;
@@ -14,6 +17,8 @@ import webservice.ServicioGastosComunesStub.ClienteVO;
 import webservice.ServicioGastosComunesStub.CuentaVO;
 import webservice.ServicioGastosComunesStub.DeshabilitarCuentaACliente;
 import webservice.ServicioGastosComunesStub.DeshabilitarCuentaAClienteResponse;
+import webservice.ServicioGastosComunesStub.FiltrarCuenta;
+import webservice.ServicioGastosComunesStub.FiltrarCuentaResponse;
 import webservice.ServicioGastosComunesStub.FiltrarCuentasDelCliente;
 import webservice.ServicioGastosComunesStub.FiltrarCuentasDelClienteResponse;
 import webservice.ServicioGastosComunesStub.LoginVO;
@@ -26,9 +31,41 @@ import webservice.ServicioGastosComunesStub.ServicioVO;
 @Controller
 @SessionAttributes
 public class CuentaController {
+	
+	@RequestMapping("/mostrarOpcionesCuentas")
+	public ModelAndView clientes(@RequestParam("id") String id) {
+		CuentaForm cuentaForm = new CuentaForm();
+
+		try {
+			ClienteVO clienteVO = new ClienteVO();
+			clienteVO.setId(Integer.parseInt(id));
+			ServicioGastosComunesStub oStub = new ServicioGastosComunesStub();
+			FiltrarCuentasDelCliente filtrarCuentasDelCliente = new FiltrarCuentasDelCliente();
+			filtrarCuentasDelCliente.setArgs0(clienteVO);
+			FiltrarCuentasDelClienteResponse objResponse = oStub
+					.filtrarCuentasDelCliente(filtrarCuentasDelCliente);
+			CuentaVO[] cuentaVOs = objResponse.get_return();
+			cuentaForm.setCuentas(cuentaVOs);
+			ModelAndView modelAndView =  new ModelAndView("opcionesCuentas",
+					"cuentaForm", cuentaForm);
+			modelAndView.addObject(clienteVO);
+			return modelAndView;
+
+
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return new ModelAndView("error", "message", "ERROR");
+
+		}
+
+
+
+		
+		
+	}
 
 	@RequestMapping("/mostrarRegistrarCuenta")
-	public ModelAndView mostrarRegistrarCuenta(@RequestParam("id") String id) {
+	public ModelAndView mostrarRegistrarCuenta(@RequestParam("idCliente") String idCliente) {
 		ServicioForm servicioForm = new ServicioForm();
 
 		try {
@@ -40,7 +77,12 @@ public class CuentaController {
 			servicioForm.setServicios(servicios);
 			ModelAndView modelAndView = new ModelAndView("registrarCuenta",
 					"servicioForm", servicioForm);
-			modelAndView.addObject("id", id);
+			
+			//AQUI
+			ClienteVO clienteVO = new ClienteVO();
+			clienteVO.setId(Integer.parseInt(idCliente));
+			modelAndView.addObject("clienteVO", clienteVO);
+			System.out.print("el id es " + clienteVO.getId() + "nombre " + clienteVO.getNombre());
 			return modelAndView;
 
 		} catch (RemoteException e) {
@@ -87,12 +129,12 @@ public class CuentaController {
 	}
 
 	@RequestMapping("/mostrarDeshabilitarCuenta")
-	public ModelAndView mostrarDeshabilitarCuenta(@RequestParam("id") String id) {
+	public ModelAndView mostrarDeshabilitarCuenta(@RequestParam("idCliente") String idCliente) {
 		CuentaForm cuentaForm = new CuentaForm();
 
 		try {
 			ClienteVO clienteVO = new ClienteVO();
-			clienteVO.setId(Integer.parseInt(id));
+			clienteVO.setId(Integer.parseInt(idCliente));
 			ServicioGastosComunesStub oStub = new ServicioGastosComunesStub();
 			FiltrarCuentasDelCliente filtrarCuentasDelCliente = new FiltrarCuentasDelCliente();
 			filtrarCuentasDelCliente.setArgs0(clienteVO);

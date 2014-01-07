@@ -486,7 +486,49 @@ public abstract class Negocio {
 
 	}
 
+	public static String modificarConsumo(ConsumoVO consumoVO) {
 
+		PersistentTransaction t;
+		try {
+			t = orms.TallerAplicado1PersistentManager.instance().getSession()
+					.beginTransaction();
+
+			try {
+				Consumo lormConsumo = ConsumoDAO.getConsumoByORMID(consumoVO
+						.getId());
+
+				Cuenta cuenta = CuentaDAO.getCuentaByORMID(consumoVO
+						.getCuentaVO().getId());
+				Login login = LoginDAO.getLoginByORMID(consumoVO.getLoginVO()
+						.getToken());
+
+				lormConsumo.setCantidad_consumida(consumoVO
+						.getCantidadConsumida());
+				lormConsumo.setPagado(consumoVO.isPagado());
+				lormConsumo.setMoroso(consumoVO.isMoroso());
+				lormConsumo.setFecha_vencimiento(consumoVO
+						.getFechaVencimiento().getTime());				
+				lormConsumo.setORM_Cuenta(cuenta);
+				lormConsumo.setORM_Logintoken(login);
+				lormConsumo.setTotal_a_pagar(calcularTotalAPagar(lormConsumo));
+
+				ConsumoDAO.save(lormConsumo);
+				t.commit();
+				System.out.println("Modificado con Exito");
+				return "Modificado con exito";
+				
+			} catch (Exception e) {
+				t.rollback();
+				return null;
+			}
+		} catch (PersistentException e1) {
+			e1.printStackTrace();
+			return null;
+		}
+
+	}
+
+	
 	public static void main(String[] args) {
 		AdministradorVO admin = new AdministradorVO();
 		admin.setUsuario("fabricio");

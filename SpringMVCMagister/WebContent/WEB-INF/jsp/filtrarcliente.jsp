@@ -8,7 +8,7 @@
 <body>
 <h2>Registros Encontrados</h2>
 
-<form:form action="filtrar.html" method="post">
+<form:form action="filtrarCliente.html" method="post">
 	<select name="atributo">
 	<option value="rut">Rut</option>
 	<option value="nombre">Nombre</option>
@@ -42,10 +42,6 @@
             	<td>${cliente.celular}</td>
             	<td>${cliente.direccion}</td>
             	
-            	<form:form action="eliminar.html" method="post">
-            	<td><input type="hidden" value="${cliente.id}" name="id" ></td>
-            	<td><input type="submit" value="eliminar" /></td>
-            </form:form>
             <form:form action="opcionesCliente.html" method="post">
             	<td><input type="hidden" value="${cliente.id}" name="id" ></td>
             	<td><input type="submit" value="Opciones del Cliente" /></td>
